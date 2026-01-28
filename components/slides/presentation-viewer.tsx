@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight, HelpCircle, X, Home } from 'lucide-react'
 import type { Presentation, Slide } from '@/lib/slides/types'
@@ -13,7 +14,8 @@ import {
   VideoSlideLayout,
   TwoColumnSlideLayout,
   QuotesGridSlideLayout,
-  ParallelsSlideLayout
+  ParallelsSlideLayout,
+  PlanSlideLayout
 } from './slide-layouts'
 
 interface PresentationViewerProps {
@@ -46,21 +48,55 @@ function renderSlide(slide: Slide, allSlides: Slide[]) {
       return <QuotesGridSlideLayout slide={slide} />
     case 'parallels':
       return <ParallelsSlideLayout slide={slide} />
+    case 'plan':
+      return <PlanSlideLayout slide={slide} />
     default:
       return <div className="flex items-center justify-center h-full text-white">Unknown slide type</div>
   }
 }
 
 export function PresentationViewer({ presentation }: PresentationViewerProps) {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [showHelp, setShowHelp] = useState(false)
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathname = usePathname()
+
   const totalSlides = presentation.slides.length
+
+  // Get initial slide from URL or default to 0
+  const getInitialSlide = useCallback(() => {
+    const slideParam = searchParams.get('slide')
+    if (slideParam) {
+      const slideIndex = parseInt(slideParam, 10) - 1 // URL is 1-based, state is 0-based
+      if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < totalSlides) {
+        return slideIndex
+      }
+    }
+    return 0
+  }, [searchParams, totalSlides])
+
+  const [currentSlide, setCurrentSlide] = useState(getInitialSlide)
+  const [showHelp, setShowHelp] = useState(false)
+
+  // Sync state when URL changes (browser back/forward)
+  useEffect(() => {
+    const slideFromURL = getInitialSlide()
+    if (slideFromURL !== currentSlide) {
+      setCurrentSlide(slideFromURL)
+    }
+  }, [searchParams, getInitialSlide]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Sync URL when slide changes
+  const updateURL = useCallback((index: number) => {
+    const newURL = `${pathname}?slide=${index + 1}` // URL is 1-based
+    router.replace(newURL, { scroll: false })
+  }, [pathname, router])
 
   const goToSlide = useCallback((index: number) => {
     if (index >= 0 && index < totalSlides) {
       setCurrentSlide(index)
+      updateURL(index)
     }
-  }, [totalSlides])
+  }, [totalSlides, updateURL])
 
   const nextSlide = useCallback(() => {
     goToSlide(currentSlide + 1)
@@ -110,8 +146,11 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
 
   return (
     <div className="relative h-screen w-screen bg-slate-900 overflow-hidden select-none">
-      {/* Main Slide Content */}
-      <div className="h-full w-full">
+      {/* Main Slide Content with Fade Animation */}
+      <div
+        key={currentSlide}
+        className="h-full w-full animate-fade-in"
+      >
         {renderSlide(slide, presentation.slides)}
       </div>
 

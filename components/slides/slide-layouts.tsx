@@ -12,6 +12,7 @@ import type {
   TwoColumnSlide,
   QuotesGridSlide,
   ParallelsSlide,
+  PlanSlide,
   SlideTheme
 } from '@/lib/slides/types'
 import { Compass, Heart, Flame, Play, Globe, Users, Scale, AlertCircle, Quote } from 'lucide-react'
@@ -279,7 +280,9 @@ export function CharacterSlideLayout({ slide }: { slide: CharacterSlide }) {
             {/* Bullet Points */}
             {slide.bulletPoints && (
               <div className="space-y-2 pt-4">
-                <h4 className={`text-lg font-semibold ${theme.primary}`}>La Philosophie du Troupeau</h4>
+                {slide.bulletPointsTitle && (
+                  <h4 className={`text-lg font-semibold ${theme.primary}`}>{slide.bulletPointsTitle}</h4>
+                )}
                 <ul className="space-y-2">
                   {slide.bulletPoints.map((point, i) => (
                     <li key={i} className="flex items-start gap-2 text-slate-400">
@@ -615,6 +618,66 @@ export function ParallelsSlideLayout({ slide }: { slide: ParallelsSlide }) {
             </p>
           </div>
         )}
+      </div>
+    </div>
+  )
+}
+
+// ========== PLAN SLIDE ==========
+export function PlanSlideLayout({ slide }: { slide: PlanSlide }) {
+  const theme = getTheme(slide.theme)
+
+  return (
+    <div className="h-full w-full bg-slate-900 p-8 md:p-12 overflow-y-auto">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-10 text-center">
+          {slide.category && (
+            <p className={`text-sm tracking-[0.2em] uppercase mb-2 ${theme.primary}`}>
+              {slide.category}
+            </p>
+          )}
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            {slide.title}
+          </h2>
+          {slide.subtitle && (
+            <p className="text-lg text-slate-400 max-w-3xl mx-auto">{slide.subtitle}</p>
+          )}
+          {slide.description && (
+            <p className="text-slate-300 mt-4 max-w-3xl mx-auto">{slide.description}</p>
+          )}
+        </div>
+
+        {/* Plan Items Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {slide.items.map((item, i) => (
+            <div
+              key={i}
+              className="group relative overflow-hidden rounded-xl border border-slate-700 hover:border-slate-500 transition-all"
+            >
+              {/* Image */}
+              <div className="aspect-[3/4] overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+              </div>
+
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className={`text-xs font-bold ${theme.primary} mb-1`}>
+                  {item.partNumber}
+                </p>
+                <h3 className="text-sm md:text-base font-semibold text-white leading-tight">
+                  {item.title}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

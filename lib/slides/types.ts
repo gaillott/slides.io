@@ -67,6 +67,7 @@ export interface CharacterSlide extends BaseSlide {
     author: string
   }
   bulletPoints?: string[]
+  bulletPointsTitle?: string
 }
 
 export interface TimelineSlide extends BaseSlide {
@@ -149,16 +150,30 @@ export interface ParallelsSlide extends BaseSlide {
   bottomQuote?: string
 }
 
-export type Slide = 
-  | TitleSlide 
-  | SectionSlide 
-  | ContentSlide 
-  | CharacterSlide 
-  | TimelineSlide 
+export interface PlanSlide extends BaseSlide {
+  type: 'plan'
+  category?: string
+  title: string
+  subtitle?: string
+  description?: string
+  items: {
+    partNumber: string
+    title: string
+    image: string
+  }[]
+}
+
+export type Slide =
+  | TitleSlide
+  | SectionSlide
+  | ContentSlide
+  | CharacterSlide
+  | TimelineSlide
   | VideoSlide
   | TwoColumnSlide
   | QuotesGridSlide
   | ParallelsSlide
+  | PlanSlide
 
 export interface Presentation {
   id: string
