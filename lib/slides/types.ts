@@ -160,7 +160,11 @@ export type Slide =
   | ParallelsSlide
 
 export interface Presentation {
+  id: string
   title: string
   author?: string
+  description?: string
+  coverImage?: string
+  createdAt?: string
   slides: Slide[]
 }

@@ -1,8 +1,12 @@
 import { Presentation } from './types'
 
 export const attackOnTitanPresentation: Presentation = {
+  id: 'attack-on-titan',
   title: "Ciné Philo - L'Attaque des Titans",
   author: "Café Philosophique",
+  description: "Liberté, Déterminisme et Moralité dans un Monde en Cage - Une exploration philosophique de l'œuvre d'Hajime Isayama",
+  coverImage: '/images/aot-title-bg.png',
+  createdAt: '2026-01-28',
   slides: [
     // Slide 1: Title
     {
