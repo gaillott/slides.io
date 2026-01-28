@@ -1,0 +1,221 @@
+'use client'
+
+import { useState, useEffect, useCallback } from 'react'
+import { ChevronLeft, ChevronRight, HelpCircle, X } from 'lucide-react'
+import type { Presentation, Slide } from '@/lib/slides/types'
+import {
+  TitleSlideLayout,
+  SectionSlideLayout,
+  ContentSlideLayout,
+  CharacterSlideLayout,
+  TimelineSlideLayout,
+  VideoSlideLayout,
+  TwoColumnSlideLayout,
+  QuotesGridSlideLayout,
+  ParallelsSlideLayout
+} from './slide-layouts'
+
+interface PresentationViewerProps {
+  presentation: Presentation
+}
+
+function renderSlide(slide: Slide) {
+  switch (slide.type) {
+    case 'title':
+      return <TitleSlideLayout slide={slide} />
+    case 'section':
+      return <SectionSlideLayout slide={slide} />
+    case 'content':
+      return <ContentSlideLayout slide={slide} />
+    case 'character':
+      return <CharacterSlideLayout slide={slide} />
+    case 'timeline':
+      return <TimelineSlideLayout slide={slide} />
+    case 'video':
+      return <VideoSlideLayout slide={slide} />
+    case 'two-column':
+      return <TwoColumnSlideLayout slide={slide} />
+    case 'quotes-grid':
+      return <QuotesGridSlideLayout slide={slide} />
+    case 'parallels':
+      return <ParallelsSlideLayout slide={slide} />
+    default:
+      return <div className="flex items-center justify-center h-full text-white">Unknown slide type</div>
+  }
+}
+
+export function PresentationViewer({ presentation }: PresentationViewerProps) {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [showHelp, setShowHelp] = useState(false)
+  const totalSlides = presentation.slides.length
+
+  const goToSlide = useCallback((index: number) => {
+    if (index >= 0 && index < totalSlides) {
+      setCurrentSlide(index)
+    }
+  }, [totalSlides])
+
+  const nextSlide = useCallback(() => {
+    goToSlide(currentSlide + 1)
+  }, [currentSlide, goToSlide])
+
+  const prevSlide = useCallback(() => {
+    goToSlide(currentSlide - 1)
+  }, [currentSlide, goToSlide])
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ':
+          e.preventDefault()
+          nextSlide()
+          break
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          e.preventDefault()
+          prevSlide()
+          break
+        case 'Home':
+          e.preventDefault()
+          goToSlide(0)
+          break
+        case 'End':
+          e.preventDefault()
+          goToSlide(totalSlides - 1)
+          break
+        case 'Escape':
+          setShowHelp(false)
+          break
+        case '?':
+          setShowHelp(prev => !prev)
+          break
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [nextSlide, prevSlide, goToSlide, totalSlides])
+
+  const slide = presentation.slides[currentSlide]
+
+  return (
+    <div className="relative h-screen w-screen bg-slate-900 overflow-hidden select-none">
+      {/* Main Slide Content */}
+      <div className="h-full w-full">
+        {renderSlide(slide)}
+      </div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        disabled={currentSlide === 0}
+        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-all"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6 text-white" />
+      </button>
+
+      <button
+        onClick={nextSlide}
+        disabled={currentSlide === totalSlides - 1}
+        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-all"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6 text-white" />
+      </button>
+
+      {/* Bottom Bar */}
+      <div className="absolute bottom-0 left-0 right-0 h-14 bg-slate-950/80 backdrop-blur-sm flex items-center justify-between px-6">
+        {/* Slide Counter */}
+        <div className="text-slate-400 text-sm">
+          Diapositive {currentSlide + 1} / {totalSlides}
+        </div>
+
+        {/* Dot Navigation */}
+        <div className="flex items-center gap-1.5">
+          {presentation.slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`h-2 rounded-full transition-all ${
+                index === currentSlide
+                  ? 'w-6 bg-red-500'
+                  : 'w-2 bg-slate-600 hover:bg-slate-500'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Keyboard hint & Help */}
+        <div className="flex items-center gap-4">
+          <span className="text-slate-500 text-sm hidden md:block">
+            {'Utilisez ← → ou Espace pour naviguer'}
+          </span>
+          <button
+            onClick={() => setShowHelp(true)}
+            className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all"
+            aria-label="Show help"
+          >
+            <HelpCircle className="w-4 h-4 text-white" />
+          </button>
+        </div>
+      </div>
+
+      {/* Help Modal */}
+      {showHelp && (
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-slate-800 rounded-xl p-8 max-w-md w-full mx-4 relative">
+            <button
+              onClick={() => setShowHelp(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            
+            <h3 className="text-xl font-bold text-white mb-6">Raccourcis clavier</h3>
+            
+            <div className="space-y-4">
+              <div className="flex justify-between items-center">
+                <span className="text-slate-300">Diapositive suivante</span>
+                <div className="flex gap-2">
+                  <kbd className="px-2 py-1 bg-slate-700 rounded text-sm text-slate-300">→</kbd>
+                  <kbd className="px-2 py-1 bg-slate-700 rounded text-sm text-slate-300">↓</kbd>
+                  <kbd className="px-2 py-1 bg-slate-700 rounded text-sm text-slate-300">Espace</kbd>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-300">Diapositive précédente</span>
+                <div className="flex gap-2">
+                  <kbd className="px-2 py-1 bg-slate-700 rounded text-sm text-slate-300">←</kbd>
+                  <kbd className="px-2 py-1 bg-slate-700 rounded text-sm text-slate-300">↑</kbd>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-300">Première diapositive</span>
+                <kbd className="px-2 py-1 bg-slate-700 rounded text-sm text-slate-300">Home</kbd>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-300">Dernière diapositive</span>
+                <kbd className="px-2 py-1 bg-slate-700 rounded text-sm text-slate-300">End</kbd>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-300">Aide</span>
+                <kbd className="px-2 py-1 bg-slate-700 rounded text-sm text-slate-300">?</kbd>
+              </div>
+            </div>
+            
+            <div className="mt-8 pt-6 border-t border-slate-700">
+              <p className="text-sm text-slate-400">
+                Vous pouvez également cliquer sur les flèches ou les points de navigation en bas de l&apos;écran.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
