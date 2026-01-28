@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { ChevronLeft, ChevronRight, HelpCircle, X } from 'lucide-react'
+import Link from 'next/link'
+import { ChevronLeft, ChevronRight, HelpCircle, X, Home } from 'lucide-react'
 import type { Presentation, Slide } from '@/lib/slides/types'
 import {
   TitleSlideLayout,
@@ -129,9 +130,18 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
 
       {/* Bottom Bar */}
       <div className="absolute bottom-0 left-0 right-0 h-14 bg-slate-950/80 backdrop-blur-sm flex items-center justify-between px-6">
-        {/* Slide Counter */}
-        <div className="text-slate-400 text-sm">
-          Diapositive {currentSlide + 1} / {totalSlides}
+        {/* Home button & Slide Counter */}
+        <div className="flex items-center gap-4">
+          <Link
+            href="/"
+            className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all"
+            aria-label="Retour à l'accueil"
+          >
+            <Home className="w-4 h-4 text-white" />
+          </Link>
+          <div className="text-slate-400 text-sm">
+            Diapositive {currentSlide + 1} / {totalSlides}
+          </div>
         </div>
 
         {/* Dot Navigation */}
