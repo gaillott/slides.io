@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 import { PresentationViewer } from '@/components/slides/presentation-viewer'
 import { getPresentationById, getAllPresentations } from '@/lib/slides/presentations'
@@ -36,5 +37,9 @@ export default async function PresentationPage({ params }: Props) {
     notFound()
   }
 
-  return <PresentationViewer presentation={presentation} />
+  return (
+    <Suspense>
+      <PresentationViewer presentation={presentation} />
+    </Suspense>
+  )
 }
