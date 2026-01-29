@@ -104,7 +104,13 @@ export const attackOnTitanPresentation: Presentation = {
       image: {
         src: '/aot/wall3.jpg',
         alt: 'Cimetière symbolisant les morts'
-      }
+      },
+      cards : [{
+        title: "La distraction remplace l'engagement",
+        content: "Face à l'actualité et le contexte écologique, nous préférérons vivre heureux, loin des problèmes. Mais la menace gronde. Pouvons-nous détourner les yeux indéfiniment ?",
+        highlight: '',
+        subtext: ''
+      }]
     },
     // Slide 4: La Caverne de Platon
     {

@@ -82,6 +82,12 @@ export interface TimelineSlide extends BaseSlide {
     src: string
     alt: string
   }
+  cards?: {
+    title: string
+    content: string
+    highlight?: string
+    subtext?: string
+  }[]
 }
 
 export interface VideoSlide extends BaseSlide {

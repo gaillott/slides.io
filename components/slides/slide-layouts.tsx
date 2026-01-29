@@ -355,18 +355,41 @@ export function TimelineSlideLayout({ slide }: { slide: TimelineSlide }) {
                 </div>
               ))}
             </div>
+            
           </div>
-          
-          {/* Image */}
-          {slide.image && (
-            <div className="rounded-lg overflow-hidden h-fit">
-              <img 
-                src={slide.image.src || "/placeholder.svg"} 
-                alt={slide.image.alt}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          )}
+          <div className="grid gap-8">
+           
+            {/* Image */}
+            {slide.image && (
+              <div className="rounded-lg overflow-hidden h-fit">
+                <img 
+                  src={slide.image.src || "/placeholder.svg"} 
+                  alt={slide.image.alt}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            )}
+             {/* Right Column - Cards */}
+            {slide.cards && (
+              <div className="space-y-4">
+                {slide.cards.map((card, i) => (
+                  <div 
+                    key={i} 
+                    className={`border ${theme.border} rounded-lg p-6 ${theme.bg}`}
+                  >
+                    <h4 className="text-lg font-semibold text-white mb-3">{card.title}</h4>
+                    <p className="text-slate-300 mb-2">{card.content}</p>
+                    {card.highlight && (
+                      <p className={`font-bold ${theme.primary}`}>{card.highlight}</p>
+                    )}
+                    {card.subtext && (
+                      <p className="text-sm text-slate-400 italic mt-2">{card.subtext}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
