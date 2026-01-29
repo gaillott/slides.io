@@ -8,23 +8,29 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Slide.io",
-  description: "Une application de slides",
-  generator: 'v0.app',
+  title: {
+    default: 'Slide.io',
+    template: '%s | Slide.io',
+  },
+  description: 'Créez et partagez des présentations interactives',
+  metadataBase: new URL('https://slide-io.vercel.app'),
+  keywords: ['présentation', 'slides', 'diaporama', 'slide.io'],
+  authors: [{ name: 'Slide.io' }],
+  openGraph: {
+    title: 'Slide.io',
+    description: 'Créez et partagez des présentations interactives',
+    siteName: 'Slide.io',
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Slide.io',
+    description: 'Créez et partagez des présentations interactives',
+  },
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
+      { url: '/icon.svg', type: 'image/svg+xml' },
     ],
     apple: '/apple-icon.png',
   },
