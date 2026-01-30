@@ -3,10 +3,16 @@
 
 export type SlideTheme = 'red' | 'blue' | 'green' | 'orange' | 'purple' | 'cyan'
 
+export interface SlideVideo {
+  url: string
+  title: string
+}
+
 export interface BaseSlide {
   id: string
   type: string
   theme?: SlideTheme
+  videos?: SlideVideo[]
 }
 
 export interface TitleSlide extends BaseSlide {

@@ -13,7 +13,8 @@ import type {
   QuotesGridSlide,
   ParallelsSlide,
   PlanSlide,
-  SlideTheme
+  SlideTheme,
+  SlideVideo
 } from '@/lib/slides/types'
 import { Compass, Heart, Flame, Play, Globe, Users, Scale, AlertCircle, Quote, ExternalLink } from 'lucide-react'
 
@@ -70,6 +71,41 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
   users: Users,
   scale: Scale,
   alert: AlertCircle
+}
+
+// ========== EMBEDDED VIDEOS COMPONENT ==========
+function EmbeddedVideos({ videos, theme }: { videos?: SlideVideo[]; theme: ReturnType<typeof getTheme> }) {
+  if (!videos || videos.length === 0) return null
+
+  const handlePlay = (url: string) => {
+    const videoEl = document.createElement('video')
+    videoEl.src = url
+    videoEl.controls = true
+    videoEl.autoplay = true
+    videoEl.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:9999;background:black;object-fit:contain;'
+    videoEl.onclick = (e) => { if (e.target === videoEl) { videoEl.pause(); videoEl.remove() } }
+    videoEl.onended = () => videoEl.remove()
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { videoEl.pause(); videoEl.remove(); document.removeEventListener('keydown', handler) }
+    }
+    document.addEventListener('keydown', handler)
+    document.body.appendChild(videoEl)
+  }
+
+  return (
+    <div className="flex gap-2 flex-wrap">
+      {videos.map((video, i) => (
+        <button
+          key={i}
+          onClick={() => handlePlay(video.url)}
+          className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${theme.border} ${theme.bg} hover:brightness-125 transition-all cursor-pointer`}
+        >
+          <Play className={`w-3.5 h-3.5 ${theme.primary}`} fill="currentColor" />
+          <span className="text-xs text-slate-300 truncate max-w-[200px]">{video.title}</span>
+        </button>
+      ))}
+    </div>
+  )
 }
 
 // ========== TITLE SLIDE ==========
@@ -166,10 +202,12 @@ export function SectionSlideLayout({ slide, allSections = [] }: { slide: Section
 export function ContentSlideLayout({ slide }: { slide: ContentSlide }) {
   const theme = getTheme(slide.theme)
   const hasImage = !!slide.image
-  
+
+  const hasRightColumn = hasImage || (slide.videos && slide.videos.length > 0)
+
   return (
     <div className="h-full w-full bg-slate-900 p-8 md:p-12 overflow-y-auto">
-      <div className={`max-w-7xl mx-auto ${hasImage ? 'grid md:grid-cols-2 gap-8 items-start' : ''}`}>
+      <div className={`max-w-7xl mx-auto ${hasRightColumn ? 'grid md:grid-cols-2 gap-8 items-start' : ''}`}>
         {/* Left/Main Content */}
         <div className="space-y-6">
           {slide.category && (
@@ -177,15 +215,15 @@ export function ContentSlideLayout({ slide }: { slide: ContentSlide }) {
               {slide.category}
             </p>
           )}
-          
+
           <h2 className="text-4xl md:text-5xl font-bold text-white">
             {slide.title}
           </h2>
-          
+
           {slide.subtitle && (
             <p className="text-lg text-slate-400">{slide.subtitle}</p>
           )}
-          
+
           {slide.content.text && (
             <div className="text-slate-300 leading-relaxed whitespace-pre-line">
               {slide.content.highlightedText && (
@@ -194,7 +232,7 @@ export function ContentSlideLayout({ slide }: { slide: ContentSlide }) {
               {' '}{slide.content.text}
             </div>
           )}
-          
+
           {slide.content.quote && (
             <blockquote className={`border-l-4 ${theme.border} pl-6 py-2 italic text-slate-300`}>
               <p>{slide.content.quote.text}</p>
@@ -203,7 +241,7 @@ export function ContentSlideLayout({ slide }: { slide: ContentSlide }) {
               )}
             </blockquote>
           )}
-          
+
           {slide.content.bulletPoints && (
             <ul className="space-y-3">
               {slide.content.bulletPoints.map((point, i) => (
@@ -215,21 +253,27 @@ export function ContentSlideLayout({ slide }: { slide: ContentSlide }) {
             </ul>
           )}
         </div>
-        
-        {/* Image */}
-        {slide.image && (
+
+        {/* Right Column - Videos + Image */}
+        {hasRightColumn && (
           <div className="space-y-4">
-            <div className="rounded-lg overflow-hidden border border-slate-700">
-              <img 
-                src={slide.image.src || "/placeholder.svg"} 
-                alt={slide.image.alt}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            {slide.image.caption && (
-              <div className={`${theme.bg} border ${theme.border} rounded-lg p-4 text-center`}>
-                <p className="text-slate-300 italic">{slide.image.caption}</p>
-              </div>
+            <EmbeddedVideos videos={slide.videos} theme={theme} />
+
+            {slide.image && (
+              <>
+                <div className="rounded-lg overflow-hidden border border-slate-700">
+                  <img
+                    src={slide.image.src || "/placeholder.svg"}
+                    alt={slide.image.alt}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                {slide.image.caption && (
+                  <div className={`${theme.bg} border ${theme.border} rounded-lg p-4 text-center`}>
+                    <p className="text-slate-300 italic">{slide.image.caption}</p>
+                  </div>
+                )}
+              </>
             )}
           </div>
         )}
@@ -241,7 +285,7 @@ export function ContentSlideLayout({ slide }: { slide: ContentSlide }) {
 // ========== CHARACTER SLIDE ==========
 export function CharacterSlideLayout({ slide }: { slide: CharacterSlide }) {
   const theme = getTheme(slide.theme)
-  
+
   return (
     <div className="h-full w-full bg-slate-900 p-8 md:p-12 overflow-y-auto">
       <div className="max-w-7xl mx-auto">
@@ -255,7 +299,7 @@ export function CharacterSlideLayout({ slide }: { slide: CharacterSlide }) {
           </h2>
           <p className="text-lg text-slate-400">{slide.subtitle}</p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-8">
           {/* Left Column */}
           <div className="space-y-6">
@@ -268,7 +312,7 @@ export function CharacterSlideLayout({ slide }: { slide: CharacterSlide }) {
                 <p className="text-slate-300 leading-relaxed">{section.content}</p>
               </div>
             ))}
-            
+
             {/* Quote */}
             {slide.quote && (
               <blockquote className={`border-l-4 ${theme.border} pl-6 py-4 bg-slate-800/50 rounded-r-lg`}>
@@ -276,7 +320,7 @@ export function CharacterSlideLayout({ slide }: { slide: CharacterSlide }) {
                 <footer className="mt-3 text-sm text-slate-500">— {slide.quote.author}</footer>
               </blockquote>
             )}
-            
+
             {/* Bullet Points */}
             {slide.bulletPoints && (
               <div className="space-y-2 pt-4">
@@ -294,27 +338,28 @@ export function CharacterSlideLayout({ slide }: { slide: CharacterSlide }) {
               </div>
             )}
           </div>
-          
-          {/* Right Column - Cards */}
-          {slide.cards && (
-            <div className="space-y-4">
-              {slide.cards.map((card, i) => (
-                <div 
-                  key={i} 
-                  className={`border ${theme.border} rounded-lg p-6 ${theme.bg}`}
-                >
-                  <h4 className="text-lg font-semibold text-white mb-3">{card.title}</h4>
-                  <p className="text-slate-300 mb-2">{card.content}</p>
-                  {card.highlight && (
-                    <p className={`font-bold ${theme.primary}`}>{card.highlight}</p>
-                  )}
-                  {card.subtext && (
-                    <p className="text-sm text-slate-400 italic mt-2">{card.subtext}</p>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
+
+          {/* Right Column - Videos + Cards */}
+          <div className="space-y-4">
+            {/* Embedded Videos */}
+            <EmbeddedVideos videos={slide.videos} theme={theme} />
+
+            {slide.cards?.map((card, i) => (
+              <div
+                key={i}
+                className={`border ${theme.border} rounded-lg p-6 ${theme.bg}`}
+              >
+                <h4 className="text-lg font-semibold text-white mb-3">{card.title}</h4>
+                <p className="text-slate-300 mb-2">{card.content}</p>
+                {card.highlight && (
+                  <p className={`font-bold ${theme.primary}`}>{card.highlight}</p>
+                )}
+                {card.subtext && (
+                  <p className="text-sm text-slate-400 italic mt-2">{card.subtext}</p>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -324,20 +369,20 @@ export function CharacterSlideLayout({ slide }: { slide: CharacterSlide }) {
 // ========== TIMELINE SLIDE ==========
 export function TimelineSlideLayout({ slide }: { slide: TimelineSlide }) {
   const theme = getTheme(slide.theme)
-  
+
   return (
     <div className="h-full w-full bg-slate-900 p-8 md:p-12 overflow-y-auto">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
           {slide.title}
         </h2>
-        
+
         <div className="grid md:grid-cols-2 gap-12">
           {/* Timeline */}
           <div className="relative">
             {/* Vertical line */}
             <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-slate-700" />
-            
+
             <div className="space-y-8">
               {slide.events.map((event, i) => (
                 <div key={i} className="relative pl-10">
@@ -345,7 +390,7 @@ export function TimelineSlideLayout({ slide }: { slide: TimelineSlide }) {
                   <div className={`absolute left-0 w-6 h-6 rounded-full ${theme.primary.replace('text-', 'bg-')} flex items-center justify-center`}>
                     <div className="w-2 h-2 bg-white rounded-full" />
                   </div>
-                  
+
                   {/* Content */}
                   <div>
                     <p className={`text-sm font-semibold ${theme.primary}`}>{event.date}</p>
@@ -355,26 +400,28 @@ export function TimelineSlideLayout({ slide }: { slide: TimelineSlide }) {
                 </div>
               ))}
             </div>
-            
+
           </div>
           <div className="grid gap-8">
-           
+            {/* Embedded Videos */}
+            <EmbeddedVideos videos={slide.videos} theme={theme} />
+
             {/* Image */}
             {slide.image && (
               <div className="rounded-lg overflow-hidden h-fit">
-                <img 
-                  src={slide.image.src || "/placeholder.svg"} 
+                <img
+                  src={slide.image.src || "/placeholder.svg"}
                   alt={slide.image.alt}
                   className="w-full h-auto object-cover"
                 />
               </div>
             )}
-             {/* Right Column - Cards */}
+            {/* Right Column - Cards */}
             {slide.cards && (
               <div className="space-y-4">
                 {slide.cards.map((card, i) => (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className={`border ${theme.border} rounded-lg p-6 ${theme.bg}`}
                   >
                     <h4 className="text-lg font-semibold text-white mb-3">{card.title}</h4>
@@ -460,7 +507,7 @@ export function VideoSlideLayout({ slide }: { slide: VideoSlide }) {
 // ========== TWO COLUMN SLIDE ==========
 export function TwoColumnSlideLayout({ slide }: { slide: TwoColumnSlide }) {
   const theme = getTheme(slide.theme)
-  
+
   return (
     <div className="h-full w-full bg-slate-900 p-8 md:p-12 overflow-y-auto">
       <div className="max-w-7xl mx-auto">
@@ -476,7 +523,7 @@ export function TwoColumnSlideLayout({ slide }: { slide: TwoColumnSlide }) {
             <p className="text-lg text-slate-400">{slide.subtitle}</p>
           )}
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-8">
           {/* Left Column */}
           <div className="space-y-6">
@@ -485,11 +532,11 @@ export function TwoColumnSlideLayout({ slide }: { slide: TwoColumnSlide }) {
                 {slide.leftColumn.title}
               </h3>
             )}
-            
+
             <p className="text-slate-300 leading-relaxed">
               {slide.leftColumn.content}
             </p>
-            
+
             {/* Bullet Points with Icons */}
             {slide.leftColumn.bulletPoints && (
               <div className="space-y-6">
@@ -509,7 +556,7 @@ export function TwoColumnSlideLayout({ slide }: { slide: TwoColumnSlide }) {
                 })}
               </div>
             )}
-            
+
             {/* Quote */}
             {slide.leftColumn.quote && (
               <blockquote className={`border-l-4 ${theme.border} pl-6 py-2 bg-slate-800/50 rounded-r`}>
@@ -520,11 +567,12 @@ export function TwoColumnSlideLayout({ slide }: { slide: TwoColumnSlide }) {
               </blockquote>
             )}
           </div>
-          
-          {/* Right Column - Cards */}
-          {slide.rightColumn.cards && (
-            <div className="space-y-4">
-              {slide.rightColumn.cards.map((card, i) => (
+
+          {/* Right Column - Videos + Cards */}
+          <div className="space-y-4">
+            <EmbeddedVideos videos={slide.videos} theme={theme} />
+
+            {slide.rightColumn.cards?.map((card, i) => (
                 <div 
                   key={i} 
                   className={`border ${theme.border} rounded-lg p-6`}
@@ -546,8 +594,7 @@ export function TwoColumnSlideLayout({ slide }: { slide: TwoColumnSlide }) {
                   )}
                 </div>
               ))}
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
@@ -601,17 +648,22 @@ export function QuotesGridSlideLayout({ slide }: { slide: QuotesGridSlide }) {
 // ========== PARALLELS SLIDE ==========
 export function ParallelsSlideLayout({ slide }: { slide: ParallelsSlide }) {
   const theme = getTheme(slide.theme)
-  
+
   return (
     <div className="h-full w-full bg-slate-900 p-8 md:p-12 overflow-y-auto">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
-          {slide.title}
-        </h2>
-        <p className="text-slate-400 text-lg mb-10">
-          {slide.subtitle}
-        </p>
+        {/* Header + Videos */}
+        <div className="flex items-start justify-between gap-6 mb-10">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
+              {slide.title}
+            </h2>
+            <p className="text-slate-400 text-lg">
+              {slide.subtitle}
+            </p>
+          </div>
+          <EmbeddedVideos videos={slide.videos} theme={theme} />
+        </div>
         
         {/* Parallels Grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">

@@ -19,7 +19,7 @@ export const attackOnTitanPresentation: Presentation = {
       description: "Une exploration philosophique de l'œuvre d'Hajime Isayama",
       backgroundImage: '/aot/attackontitanbg.jpg',
     },
-    
+
     // Slide 2: Introduction - Plan
     {
       id: 'introduction',
@@ -57,7 +57,7 @@ export const attackOnTitanPresentation: Presentation = {
         }
       ]
     },
-    
+
     // Slide 3: Section - Partie I
     {
       id: 'partie-1',
@@ -68,22 +68,16 @@ export const attackOnTitanPresentation: Presentation = {
       subtitle: 'Paradis : la Caverne de Platon',
       backgroundImage: '/aot/wall.webp'
     },
-    // Slide 4 
-    {
-      id: 'video-erwin',
-      type: 'video',
-      theme: 'red',
-      title: "EP01 : Situation initiale",
-      videoUrl: '/aot/video/EP1_00_00.mp4',
-      placeholder: "Situation initiale",
-      description: "Situation initiale",
-    },
-    // Slide 7: Contexte Historique
+
+    // Slide 4: Contexte Historique (vidéo situation initiale intégrée)
     {
       id: 'contexte-historique',
       type: 'timeline',
       theme: 'red',
       title: 'Contexte Historique',
+      videos: [
+        { url: '/aot/video/EP1_00_00.mp4', title: 'EP01 — Situation initiale' }
+      ],
       events: [
         {
           date: '~2000 ans avant',
@@ -115,61 +109,61 @@ export const attackOnTitanPresentation: Presentation = {
         src: '/aot/eldia.webp',
         alt: 'Cimetière symbolisant les morts'
       },
-      cards : [{
+      cards: [{
         title: "L'illusion du sentiment de sécurité",
         content: "",
         highlight: 'Fausse sécurité - Illusion - Séparativisme',
         subtext: "Face à l'actualité et le contexte écologique, nous préférérons vivre heureux, loin des problèmes. Tant que le problème est à un continent près, une frontière près, une ville près, nous ne nous sentons pas concernés. Pourtant, cela ne veut pas dire que la menace est fausse."
       }]
     },
-    
-    // Slide 5: Hannes
+
+    // Slide 6: Hannes (vidéos intégrées)
     {
       id: 'hannes',
       type: 'character',
       theme: 'orange',
       category: 'ARCHÉTYPE DU PEUPLE DE PARADIS',
       name: 'Hannes',
-      subtitle: "L'Homme Moyen • Le Troupeau",
+      subtitle: 'Le Dernier Homme de Nietzsche',
+      videos: [
+        { url: '/aot/video/EP1_Hannes.mp4', title: 'S1E1 — Hannes ivre, insouciant' },
+        { url: '/aot/video/EP1_Hannes_Actes.mp4', title: 'S1E2 — Hannes paralysé devant le Titan Souriant' }
+      ],
       sections: [
         {
           title: 'Le Symbole du Conformisme',
-          content: 'Hannes incarne l\'homme qui a arrêté de se poser des questions. Il représente la masse qui suit aveuglément la société, préférant la sécurité illusoire des murs à l\'incertitude de la liberté.'
+          content: 'Hannes incarne le "dernier homme" de Nietzsche : celui qui a renoncé à tout idéal, cherchant uniquement le confort et la sécurité.'
         }
       ],
       cards: [
         {
-          title: 'Le Concept de "Dernier Homme"',
-          content: 'Nietzsche décrit le "dernier homme" comme celui qui a renoncé à tout idéal, qui ne cherche que son petit bonheur personnel et sa sécurité.',
-          highlight: '',
-          subtext: 'Hannes est ce dernier homme : il préfère boire et rire plutôt que de combattre, jusqu\'à ce que la tragédie le force à voir la réalité.'
-        },
-        {
-          title: 'Pour Eren, ce discours est insupportable',
-          content: 'Les Titans oppressent l\'homme et le privent de son plus grand besoin : La Liberté',
-          highlight: 'La Liberté',
-          subtext: 'Le conflit générationnel entre l\'acceptation (Hannes) et la rébellion (Eren) reflète le débat éternel entre sécurité et liberté.'
+          title: 'Le "Dernier Homme" — Nietzsche',
+          content: 'Hannes est ce dernier homme : il boit, rit, et refuse de voir la réalité — jusqu\'à ce que la tragédie le rattrape.',
+          highlight: 'Le dernier homme',
+          subtext: ''
         }
       ],
       quote: {
-        text: '"À quoi bon sortir ? On a tout ce qu\'il faut ici. De la nourriture, de l\'eau, des murs pour nous protéger..."',
-        author: 'Hannes, avant la chute du Mur Maria'
+        text: '"Nous avons inventé le bonheur" — disent les derniers hommes, et ils clignent de l\'œil. Ils ont quitté les contrées où il était dur de vivre : car on a besoin de chaleur. [...] On travaille encore, car le travail est un divertissement. Mais on veille à ce que le divertissement ne fatigue point."',
+        author: 'Friedrich Nietzsche — Ainsi parlait Zarathoustra, Prologue §5'
       },
-      bulletPointsTitle: 'La Philosophie du Troupeau',
+      bulletPointsTitle: '',
       bulletPoints: [
-        'Acceptation passive de la situation',
-        'Méfiance envers ceux qui remettent en question l\'ordre établi',
-        'Préférence pour le confort immédiat sur la vérité'
+        'Préférence pour le confort sur la vérité',
+        'Pour Eren, ce discours est insupportable : la Liberté est un besoin vital'
       ]
     },
-    
-    // Slide 6: La Caverne de Platon
+
+    // Slide 7: La Caverne de Platon (vidéo intégrée)
     {
       id: 'caverne-platon',
       type: 'content',
       theme: 'red',
       category: 'ALLÉGORIE PHILOSOPHIQUE',
       title: 'Paradis : La Caverne de Platon',
+      videos: [
+        { url: '/aot/video/caverne_verite.mp4', title: 'S3E20 (Ep57) — Révélation du sous-sol' }
+      ],
       content: {
         highlightedText: 'Pendant que le monde se fait la guerre',
         text: ', Paradis vit en paix, en autarcie, ignorant...',
@@ -189,9 +183,7 @@ export const attackOnTitanPresentation: Presentation = {
         caption: '"Que préférez-vous : vivre dans une cage dorée ou mourir libre ?"'
       }
     },
-    
-    
-    
+
     // Slide 8: Section - Partie II
     {
       id: 'partie-2',
@@ -203,98 +195,69 @@ export const attackOnTitanPresentation: Presentation = {
       backgroundImage: '/aot/expo.jpg'
     },
 
-    
-    
-    // Slide 9: Extrait Vidéo
-    {
-      id: 'video-erwin',
-      type: 'video',
-      theme: 'red',
-      title: 'Présentation du bataillon d\'exploration',
-      videoUrl: '/aot/video/erwin_speech.mp4',
-      placeholder: "Le discours d'Erwin avant la charge finale",
-      description: "Le discours d'Erwin Smith avant la charge contre le Titan Singe",
-      quote: {
-        text: '"Si on abandonne, on ne gagne rien. Si on résiste, on peut perdre... Mais si on ne résiste pas, on est sûr de perdre !"',
-        author: 'Erwin Smith'
-      }
-    },
-
-        // Slide 6: Le Bataillon d'Exploration
+    // Slide 9: Le Bataillon d'Exploration (vidéos intégrées)
     {
       id: 'bataillon',
       type: 'two-column',
       theme: 'green',
       category: 'LES AILES DE LA LIBERTÉ',
       title: "Le Bataillon d'Exploration",
-      subtitle: "Une bouée de sauvetage d'un monde qui a accepté sa prison matérielle",
+      subtitle: "Confort ou Liberté — qu'est-ce qui compte vraiment ?",
+      videos: [
+        { url: '/aot/video/bataillon_liberte.mp4', title: 'S1E1 — Eren fasciné par le Bataillon' },
+        { url: '/aot/video/erwin_verite.mp4', title: 'S3E16 (Ep53) — La quête de vérité' }
+      ],
       leftColumn: {
-        title: 'Le Symbole de la Résistance',
-        content: "Pour Eren, l'idéaliste, le Bataillon d'Exploration représente bien plus qu'une unité militaire. C'est l'incarnation vivante de la volonté humaine de transcender ses limites, de refuser la résignation.",
+        title: 'La Question Philosophique',
+        content: "Le Bataillon pose la question fondamentale de notre rapport au confort : sommes-nous prêts à risquer notre sécurité pour vivre libres ? Dans notre société moderne, nous avons nos propres murs — confort matériel, routine, conformisme — qui nous protègent autant qu'ils nous emprisonnent.",
         bulletPoints: [
           {
             icon: 'compass',
-            title: 'La Quête de Vérité',
-            content: 'Ceux qui sortent des murs ne cherchent pas seulement à combattre les Titans, mais à découvrir la vérité sur le monde.'
+            title: 'Quête de Vérité',
+            content: 'Sortir des murs, c\'est choisir la connaissance sur l\'ignorance confortable.'
           },
           {
             icon: 'heart',
-            title: 'Le Sacrifice Noble',
-            content: 'Taux de mortalité : 90%. Mais ils continuent. Car certaines causes valent plus que la simple survie.'
+            title: 'Le Prix de la Liberté',
+            content: '90% de mortalité. Mais certaines causes valent plus que la survie.'
           },
           {
             icon: 'flame',
-            title: "L'Espoir pour l'Humanité",
-            content: "Dans un monde résigné, ils sont la preuve que l'esprit humain peut refuser l'emprisonnement."
+            title: 'Le Chemin Philosophique',
+            content: "Comme Socrate buvant la ciguë, le Bataillon préfère mourir libre que vivre enchaîné."
           }
         ],
         quote: {
           text: '"Dévouez vos cœurs !"',
-          author: "Le cri de ralliement du Bataillon : donnez tout pour la liberté de l'humanité"
+          author: "Cri de ralliement du Bataillon"
         }
       },
       rightColumn: {
         cards: [
           {
-            title: 'Opposition à la Prison Matérielle',
-            highlightedText: 'Le peuple de Paradis',
+            title: 'Le Miroir de Notre Société',
+            highlightedText: 'Préférons-nous',
             content: [
-              "s'est habitué aux murs. Ils ont créé une société, des marchés, des familles. Ils ont transformé leur prison en foyer.",
-              "Le Bataillon refuse cette normalisation de l'oppression. Chaque expédition est un acte de rébellion contre l'acceptation passive.",
-              "C'est la tension entre la vie confortable dans les chaînes et la lutte dangereuse pour la liberté."
+              "la sécurité de nos murs modernes — écrans, confort, consommation — à l'incertitude de la quête de sens ?",
+              "Le Bataillon refuse la normalisation de l'oppression. Chaque expédition est un acte philosophique : choisir la liberté sur le confort."
             ]
           },
           {
-            title: "Pour l'Enfant Eren",
+            title: "Le Chemin Philosophique",
             highlightedText: '',
             content: [
-              "Le Bataillon représente tout ce qu'il rêve de devenir. Ces soldats incarnent le refus de la médiocrité, le courage face à l'impossible, et surtout :"
+              "La philosophie, comme le Bataillon, nous demande de sortir de notre zone de confort pour affronter la vérité — même quand elle dérange."
             ],
             footer: {
-              title: 'La dignité humaine retrouvée',
-              text: "Car être humain, c'est aussi refuser d'être une proie"
+              title: 'Être humain, c\'est refuser d\'être une proie',
+              text: "La dignité se conquiert, elle ne se donne pas"
             }
           }
         ]
       }
     },
 
-     // Slide 9: Extrait Vidéo
-    {
-      id: 'video-erwin',
-      type: 'video',
-      theme: 'red',
-      title: 'Episode 16 Saison 3 (53) - Speech Erwin',
-      videoUrl: '/aot/video/erwin_speech.mp4',
-      placeholder: "Le discours d'Erwin avant la charge finale",
-      description: "Le discours d'Erwin Smith avant la charge contre le Titan Singe",
-      quote: {
-        text: '"Votre séjour en ce monde as-t-il été vide de sens ? [...] A nous d\'empêcher qu\'ils soient morts en vain."',
-        author: 'Erwin Smith'
-      }
-    },
-
-    // Slide: Erwin Smith - Analyse Philosophique
+    // Slide 10: Erwin Smith (vidéo intégrée)
     {
       id: 'erwin-philosophie',
       type: 'character',
@@ -302,44 +265,36 @@ export const attackOnTitanPresentation: Presentation = {
       category: 'STOÏCISME ET TRANSCENDANCE',
       name: 'Erwin Smith',
       subtitle: 'Le Stoïcien • Le Chef qui transcende la mort',
+      videos: [
+        { url: '/aot/video/erwin_speech.mp4', title: 'S3E16 (Ep53) — La charge d\'Erwin' }
+      ],
       sections: [
         {
-          title: 'Le Stoïcisme de Marc Aurèle',
-          content: "Erwin incarne parfaitement l'idéal stoïcien : accepter ce qui ne dépend pas de nous (la mort, les circonstances) tout en agissant avec excellence sur ce qui dépend de nous (nos choix, notre courage). Face à la mort certaine, il avance sans se laisser abattre. Comme Marc Aurèle l'écrivait, il ne philosophe pas sur ce que doit être un homme de bien — il l'est."
-        },
-        {
-          title: "L'Idéal plus grand que l'Homme",
-          content: "Erwin ne motive pas ses troupes par la peur ou l'obéissance, mais en leur donnant une raison de transcender leur condition mortelle. Il leur offre l'éternité à travers le sens : leurs sacrifices contribuent à quelque chose qui les dépasse infiniment."
+          title: 'Le Stoïcisme Incarné',
+          content: "Erwin accepte ce qui ne dépend pas de lui (la mort) et agit avec excellence sur ce qui en dépend (ses choix). Il ne philosophe pas sur ce que doit être un homme de bien — il l'est."
         }
       ],
       cards: [
         {
-          title: 'Marc Aurèle - Pensées pour moi-même',
+          title: 'Marc Aurèle',
           content: '"La mort sourit à tous les hommes. Tout ce qu\'un homme peut faire, c\'est lui sourire en retour."',
           highlight: 'lui sourire en retour',
-          subtext: 'Erwin charge vers le Titan Singe avec ce sourire. Il a accepté sa mort et transforme cette acceptation en force.'
-        },
-        {
-          title: 'Saint-Exupéry - Citadelle',
-          content: '"Celui qui travaille pour sa seule vie ne construit rien. Mais celui qui travaille pour l\'éternité, celui-là bâtit un empire que la mort elle-même ne peut détruire."',
-          highlight: 'travaille pour l\'éternité',
-          subtext: 'Erwin donne à ses soldats non pas des ordres, mais un rêve : découvrir la vérité sur ce monde. Il fait naître en eux le désir de la mer.'
+          subtext: 'Erwin charge vers le Titan Singe avec ce sourire.'
         }
       ],
       quote: {
         text: '"Mes soldats ne reculent pas ! Mes soldats avancent ! Mes soldats hurlent ! Mes soldats se battent !"',
-        author: 'Erwin Smith — La charge finale'
+        author: 'Erwin Smith — La charge finale (S3 E16, Ep53)'
       },
-      bulletPointsTitle: 'Les Vertus Stoïciennes d\'Erwin',
+      bulletPointsTitle: '',
       bulletPoints: [
-        'Acceptation stoïcienne : Il sait que 90% de ses hommes mourront, lui y compris',
-        'Amor fati : Il aime son destin au lieu de le subir',
-        'Transcendance : Le sens de la mission dépasse la survie individuelle',
-        'Leadership par l\'exemple : Il charge en premier, bras arraché'
+        'Amor fati : il aime son destin au lieu de le subir',
+        'Le sens de la mission dépasse la survie individuelle',
+        'Il charge en premier, bras arraché — leadership par l\'exemple'
       ]
     },
 
-    // Slide 10: Section - Partie III
+    // Slide 11: Section - Partie III
     {
       id: 'partie-3',
       type: 'section',
@@ -349,10 +304,8 @@ export const attackOnTitanPresentation: Presentation = {
       subtitle: 'Livai, Armin, Jean : Combat intérieur',
       backgroundImage: '/aot/armin.jpg'
     },
-  
 
-    
-    // Slide: Introduction Bhagavad Gîta
+    // Slide 12: Introduction Bhagavad Gîta (vidéo intégrée)
     {
       id: 'bhagavad-gita-intro',
       type: 'content',
@@ -360,6 +313,9 @@ export const attackOnTitanPresentation: Presentation = {
       category: 'LA BHAGAVAD GÎTA',
       title: 'Le Combat Intérieur',
       subtitle: 'Quand le devoir s\'oppose au cœur',
+      videos: [
+        { url: '/aot/video/combat_interieur.mp4', title: 'S3E18 (Ep55) — Livai : Erwin ou Armin ?' }
+      ],
       content: {
         highlightedText: 'Dans la Bhagavad Gîta,',
         text: " le guerrier Arjuna se tient sur le champ de bataille, face à ses propres cousins, ses maîtres, ses amis. Il doit les combattre — c'est son dharma (devoir). Mais comment tuer ceux qu'on aime ?",
@@ -375,7 +331,7 @@ export const attackOnTitanPresentation: Presentation = {
       }
     },
 
-    // Slide: Livai Ackerman
+    // Slide 13: Livai Ackerman
     {
       id: 'livai',
       type: 'character',
@@ -386,34 +342,28 @@ export const attackOnTitanPresentation: Presentation = {
       sections: [
         {
           title: 'Le Dharma du Soldat',
-          content: "Livai a dû tuer ses propres camarades transformés en Titans. Il a tranché la nuque de ceux avec qui il avait combattu, ri, pleuré. Comme Arjuna face à ses cousins, il accomplit son devoir le cœur en lambeaux."
-        },
-        {
-          title: 'Le Choix Impossible',
-          content: "Erwin ou Armin ? Livai doit choisir qui sauver avec l'unique sérum. Ce n'est pas un choix tactique — c'est un choix qui le détruit intérieurement. Il choisit de laisser Erwin mourir en paix plutôt que de le ramener dans cet enfer."
+          content: "Livai a tranché la nuque de ses propres camarades transformés en Titans. Comme Arjuna face à ses cousins, il accomplit son devoir le cœur en lambeaux."
         }
       ],
       cards: [
         {
           title: 'Bhagavad Gîta — Le Détachement',
-          content: '"Tu as droit à l\'action, mais jamais à ses fruits. Que le fruit de l\'action ne soit jamais ton mobile."',
+          content: '"Tu as droit à l\'action, mais jamais à ses fruits."',
           highlight: 'jamais à ses fruits',
-          subtext: 'Livai agit parce qu\'il le doit, sans espoir de récompense. Chaque victoire lui coûte quelqu\'un qu\'il aimait.'
+          subtext: 'Livai agit parce qu\'il le doit. Chaque victoire lui coûte quelqu\'un qu\'il aimait.'
         }
       ],
       quote: {
-        text: '"Fais un choix. Et crois en lui. Ou crois en tes camarades. Je ne sais pas... Je n\'ai jamais su."',
+        text: '"Fais un choix. Et crois en lui."',
         author: 'Livai Ackerman'
       },
-      bulletPointsTitle: 'Le Poids du Survivant',
+      bulletPointsTitle: '',
       bulletPoints: [
-        'A perdu son escouade originelle face au Titan Féminin',
-        'A tué Zeke par devoir, pas par vengeance personnelle',
-        'Incarne le guerrier stoïque qui souffre en silence'
+        'Morale : Agir selon son devoir, même quand cela déchire — c\'est cela, la force intérieure'
       ]
     },
 
-    // Slide: Armin Arlert
+    // Slide 14: Armin Arlert
     {
       id: 'armin-combat',
       type: 'character',
@@ -424,11 +374,7 @@ export const attackOnTitanPresentation: Presentation = {
       sections: [
         {
           title: 'L\'Innocence Sacrifiée',
-          content: "Armin rêvait de voir la mer, pas de la remplir de cadavres. Héritier du Titan Colossal, le garçon qui croyait au dialogue est devenu celui qui rase des ports entiers. Chaque transformation le rapproche de ce qu'il haïssait."
-        },
-        {
-          title: 'Le Fardeau d\'Être Choisi',
-          content: "Pourquoi lui et pas Erwin ? Cette question le hante. Il doit prouver que le sacrifice d'Erwin n'était pas vain — mais comment un idéaliste peut-il justifier d'être devenu une bombe nucléaire vivante ?"
+          content: "Armin rêvait de voir la mer, pas de la remplir de cadavres. Le garçon du dialogue est devenu celui qui rase des ports. Comment rester soi-même quand le monde vous transforme ?"
         }
       ],
       cards: [
@@ -436,37 +382,34 @@ export const attackOnTitanPresentation: Presentation = {
           title: 'Bhagavad Gîta — L\'Action Juste',
           content: '"Mieux vaut accomplir imparfaitement son propre dharma que parfaitement celui d\'autrui."',
           highlight: 'son propre dharma',
-          subtext: 'Armin n\'a pas choisi d\'être le Colossal. Mais il doit accomplir ce rôle, même s\'il le déteste, car c\'est désormais son dharma.'
+          subtext: 'Armin n\'a pas choisi d\'être le Colossal. Mais c\'est désormais son dharma.'
         }
       ],
       quote: {
         text: '"Quelqu\'un qui ne peut rien sacrifier ne peut rien changer."',
         author: 'Armin Arlert'
       },
-      bulletPointsTitle: 'La Tragédie du Rêveur',
+      bulletPointsTitle: '',
       bulletPoints: [
-        'De stratège pacifiste à arme de guerre ultime',
-        'Porte le poids d\'avoir été choisi à la place d\'Erwin',
-        'Son idéalisme survit malgré les horreurs qu\'il commet'
+        'Morale : Accepter le rôle que la vie nous impose, sans perdre notre idéal'
       ]
     },
 
-    // Slide: Jean Kirschtein
+    // Slide 15: Jean Kirschtein (vidéo intégrée)
     {
       id: 'jean',
       type: 'character',
       theme: 'blue',
       category: 'LE COMBAT INTÉRIEUR • BHAGAVAD GÎTA',
       name: 'Jean Kirschtein',
-      subtitle: 'L\'Homme Ordinaire face à l\'Extraordinaire',
+      subtitle: 'L\'Homme Ordinaire • Nous',
+      videos: [
+        { url: '/aot/video/jean_combat_interieur.mp4', title: 'S3E2 (Ep39) — Jean tue un humain' }
+      ],
       sections: [
         {
           title: 'Le Héros Malgré Lui',
-          content: "Jean voulait une vie tranquille dans les Brigades Spéciales. Il n'a jamais demandé à être un héros. Mais la mort de Marco l'a transformé. Il est devenu leader non par ambition, mais par nécessité — le plus humain des parcours."
-        },
-        {
-          title: 'Tuer l\'Ennemi... Humain',
-          content: "Jean est le premier à hésiter quand il faut tuer des humains et non des Titans. Cette hésitation, ce tremblement de la main, c'est Arjuna sur le champ de Kurukshetra. Il finit par tirer — et une part de lui meurt à chaque fois."
+          content: "Jean voulait une vie tranquille. La mort de Marco l'a transformé. Il est devenu leader par nécessité — le plus humain des parcours."
         }
       ],
       cards: [
@@ -474,23 +417,20 @@ export const attackOnTitanPresentation: Presentation = {
           title: 'Bhagavad Gîta — Le Guerrier Réticent',
           content: '"Il vaut mieux mourir en accomplissant son propre dharma ; le dharma d\'autrui est plein de danger."',
           highlight: 'plein de danger',
-          subtext: 'Jean n\'est pas né guerrier. Mais la guerre l\'a trouvé. Il assume un dharma qui n\'était pas le sien, et c\'est ce qui le rend si humain.'
+          subtext: 'Jean n\'est pas né guerrier. La guerre l\'a trouvé.'
         }
       ],
       quote: {
         text: '"Je ne veux pas mourir... mais je ne veux pas non plus vivre en ayant laissé mes camarades mourir seuls."',
         author: 'Jean Kirschtein'
       },
-      bulletPointsTitle: 'L\'Évolution de l\'Homme Ordinaire',
+      bulletPointsTitle: '',
       bulletPoints: [
-        'De lâche assumé à leader respecté',
-        'Représente le spectateur : que ferions-nous à sa place ?',
-        'Son humanité est sa force et sa faiblesse'
+        'Morale : Le courage n\'est pas l\'absence de peur, mais le choix d\'agir malgré elle. Que ferions-nous à sa place ?'
       ]
     },
-    
-   
-    // Slide 17: Section - Partie IV
+
+    // Slide 16: Section - Partie IV
     {
       id: 'partie-4',
       type: 'section',
@@ -500,68 +440,79 @@ export const attackOnTitanPresentation: Presentation = {
       subtitle: 'Gaby : Absurdité de la guerre',
       backgroundImage: '/aot/gaby.jpg'
     },
-    
-    // Slide: Gaby Braun
+
+    // Slide 17: Gaby — Produit de la Propagande (vidéo intégrée)
     {
-      id: 'gaby',
+      id: 'gaby-propagande',
       type: 'character',
       theme: 'red',
       category: 'LE CYCLE DE LA HAINE',
       name: 'Gaby Braun',
-      subtitle: 'Le Miroir d\'Eren • La Déconstruction',
+      subtitle: 'Produit de la Propagande • Vision Binaire',
+      videos: [
+        { url: '/aot/video/gaby_propagande.mp4', title: 'S4E1 (Ep60) — Fort Slava + S4E8 (Ep67) — Gaby tue Sasha' }
+      ],
       sections: [
         {
           title: 'Produit de la Propagande',
-          content: "Gaby est l'incarnation parfaite de ce que la propagande peut créer : une enfant-soldat convaincue d'être un \"bon Eldien\", prête à tout pour prouver sa valeur à ses oppresseurs. Elle a intériorisé la haine de son propre peuple — un fascisme retourné contre soi."
-        },
-        {
-          title: 'Le Reflet d\'Eren',
-          content: "Gaby est Eren de l'autre côté de la mer. Même rage, même détermination aveugle, même certitude d'être du côté du bien. Isayama nous montre que la haine n'a pas de camp : elle se reproduit identiquement des deux côtés du conflit."
+          content: "Gaby est ce que la propagande peut créer : une enfant-soldat convaincue d'être un \"bon Eldien\", prête à tout pour prouver sa valeur à ses oppresseurs. Elle a intériorisé la haine de son propre peuple."
         }
       ],
       cards: [
         {
-          title: 'La Maïeutique de Kaya',
-          content: 'Kaya, dont la mère a été dévorée par un Titan, confronte Gaby avec une question socratique : "Qu\'est-ce que ma mère avait fait de mal ?" Cette question simple fait s\'effondrer l\'édifice de certitudes de Gaby.',
-          highlight: 'Qu\'est-ce que ma mère avait fait de mal ?',
-          subtext: 'Socrate utilisait la maïeutique pour faire "accoucher" les esprits de la vérité. Kaya, sans le savoir, devient la sage-femme de la conscience de Gaby.'
-        },
+          title: 'Le Miroir d\'Eren',
+          content: 'Gaby est Eren de l\'autre côté de la mer. Même rage, même certitude d\'être du côté du bien. La haine se reproduit identiquement des deux côtés.',
+          highlight: 'Le miroir d\'Eren',
+          subtext: 'Début du voyage initiatique : la confrontation avec l\'Autre va briser ses certitudes.'
+        }
+      ],
+      quote: {
+        text: '"Je vais tous les tuer ! Ces démons de Paradis !"',
+        author: 'Gaby Braun — Avant sa déconstruction'
+      },
+      bulletPointsTitle: '',
+      bulletPoints: [
+        'Vision binaire du monde héritée de la propagande',
+        'Début du voyage initiatique de la conscience'
+      ]
+    },
+
+    // Slide 18: Gaby — Déconstruite (vidéo intégrée)
+    {
+      id: 'gaby-deconstruite',
+      type: 'character',
+      theme: 'red',
+      category: 'LA MAÏEUTIQUE',
+      name: 'Gaby Braun',
+      subtitle: 'La Déconstruction • La Maïeutique de Kaya',
+      videos: [
+        { url: '/aot/video/gaby_kaya.mp4', title: 'S4E11 (Ep70) — Kaya confronte Gaby' }
+      ],
+      sections: [
         {
-          title: 'Le Père de Sasha',
-          content: '"Il vaut mieux subir l\'injustice que de la commettre." En refusant de tuer Gaby pour venger sa fille, M. Braus brise le cycle. Il choisit de ne pas créer une nouvelle Gaby de l\'autre côté.',
-          highlight: 'Subir plutôt que commettre',
-          subtext: 'Citation de Socrate dans le Gorgias. Le père de Sasha incarne cette sagesse antique : la vengeance corrompt celui qui l\'exerce.'
+          title: 'La Maïeutique de Kaya',
+          content: "\"Qu'est-ce que ma mère avait fait de mal ?\" — Cette question simple fait s'effondrer tout l'édifice. Socrate utilisait la maïeutique pour \"accoucher\" les esprits de la vérité. Kaya, sans le savoir, devient la sage-femme de la conscience de Gaby."
+        }
+      ],
+      cards: [
+        {
+          title: 'La Prise de Conscience',
+          content: 'Les "démons" de Paradis vivent, aiment, souffrent comme elle. La réalité est plus complexe que la propagande.',
+          highlight: 'Ces gens... ne sont pas des démons',
+          subtext: 'La déconstruction de Gaby est un chemin philosophique : du dogme à la pensée libre.'
         }
       ],
       quote: {
         text: '"Ces gens... ne sont pas des démons..."',
         author: 'Gaby Braun — Sa prise de conscience'
       },
-      bulletPointsTitle: 'Les Étapes de la Déconstruction',
+      bulletPointsTitle: '',
       bulletPoints: [
-        'Confrontation : Les échanges avec Kaya révèlent l\'absurdité de la haine héritée',
-        'Observation : Les "démons" de Paradis vivent, aiment, souffrent comme elle',
-        'Rupture : La scène du père de Sasha — le pardon là où la vengeance semblait évidente',
-        'Transformation : De soldat fanatique à témoin de l\'humanité partagée'
+        'De la certitude au doute : le premier pas vers la sagesse'
       ]
     },
 
-    // Slide: Vidéo Gaby
-    {
-      id: 'video-gaby',
-      type: 'video',
-      theme: 'red',
-      title: 'La Déconstruction de Gaby',
-      videoUrl: '/aot/video/gaby.mp4',
-      placeholder: "Le voyage initiatique de Gaby sur l'île de Paradis",
-      description: "De la haine aveugle à la compréhension — le parcours de Gaby",
-      quote: {
-        text: '"Il vaut mieux subir l\'injustice que de la commettre."',
-        author: 'Socrate (Gorgias) — incarné par le père de Sasha'
-      }
-    },
-
-      // Slide 10: Section - Partie III
+    // Slide 19: Section - Partie V
     {
       id: 'partie-5',
       type: 'section',
@@ -571,28 +522,18 @@ export const attackOnTitanPresentation: Presentation = {
       subtitle: 'Isayama : Mise en garde',
       backgroundImage: '/aot/putin.jpg'
     },
-      // Slide 11: Extrait Vidéo
-    {
-      id: 'video-mywar',
-      type: 'video',
-      theme: 'blue',
-      title: 'Générique : Saison finale',
-      videoUrl: '/aot/video/mywar.mp4',
-      placeholder: "Le discours d'Erwin avant la charge finale",
-      description: "Le discours d'Erwin Smith avant la charge contre le Titan Singe",
-      quote: {
-        text: '"L\'escalade de la violence..."',
-        author: 'Unknown'
-      }
-    },
 
-    // Slide 22: Mise en garde d'Isayama
+    // Slide 20: Mise en Garde d'Isayama (vidéos intégrées)
     {
       id: 'mise-en-garde',
       type: 'parallels',
       theme: 'red',
       title: 'Mise en Garde d\'Isayama',
       subtitle: "Les dérives de la mémoire et l'absurdité de la guerre",
+      videos: [
+        { url: '/aot/video/mywar.mp4', title: 'Générique saison finale — My War' },
+        { url: '/aot/video/cycle_recommence.mp4', title: 'Épisode final — Le cycle recommence' }
+      ],
       parallels: [
         {
           icon: 'alert',
@@ -622,7 +563,7 @@ export const attackOnTitanPresentation: Presentation = {
       bottomQuote: "\"Cette guerre, on ne savait pas pourquoi on la faisait. On se battait contre des gens comme nous.\" — Lazare Ponticelli, dernier poilu français"
     },
 
-    // Slide 23: Conclusion - La Liberté
+    // Slide 21: Conclusion - La Liberté (vidéos intégrées)
     {
       id: 'conclusion',
       type: 'character',
@@ -630,6 +571,10 @@ export const attackOnTitanPresentation: Presentation = {
       category: 'CONCLUSION',
       name: 'Qu\'est-ce que la Liberté ?',
       subtitle: 'Trois visions, trois chemins',
+      videos: [
+        { url: '/aot/video/pere_sasha.mp4', title: 'S4E13 (Ep72) — Le père de Sasha brise le cycle' },
+        { url: '/aot/video/gaby_parents_sasha.mp4', title: 'S4E13 (Ep72) — Gaby face aux parents de Sasha' }
+      ],
       sections: [
         {
           title: 'La Liberté selon Spinoza',
@@ -658,7 +603,6 @@ export const attackOnTitanPresentation: Presentation = {
         text: '"Une excellente manière de te défendre d\'eux, c\'est d\'éviter de leur ressembler."',
         author: 'Marc Aurèle, Pensées pour moi-même'
       },
-      
     }
   ]
 }
