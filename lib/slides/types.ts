@@ -37,7 +37,7 @@ export interface ContentSlide extends BaseSlide {
   category: string
   title: string
   subtitle?: string
-  content: {
+  content?: {
     text?: string
     highlightedText?: string
     bulletPoints?: string[]
@@ -46,22 +46,15 @@ export interface ContentSlide extends BaseSlide {
       author: string
     }
   }
+  sections?: {
+    title: string
+    content: string
+  }[]
   image?: {
     src: string
     alt: string
     caption?: string
   }
-}
-
-export interface CharacterSlide extends BaseSlide {
-  type: 'character'
-  category: string
-  name: string
-  subtitle: string
-  sections: {
-    title: string
-    content: string
-  }[]
   cards?: {
     title: string
     content: string
@@ -180,7 +173,6 @@ export type Slide =
   | TitleSlide
   | SectionSlide
   | ContentSlide
-  | CharacterSlide
   | TimelineSlide
   | VideoSlide
   | TwoColumnSlide

@@ -9,7 +9,6 @@ import {
   TitleSlideLayout,
   SectionSlideLayout,
   ContentSlideLayout,
-  CharacterSlideLayout,
   TimelineSlideLayout,
   VideoSlideLayout,
   TwoColumnSlideLayout,
@@ -36,8 +35,6 @@ function renderSlide(slide: Slide, allSlides: Slide[]) {
       return <SectionSlideLayout slide={slide} allSections={getAllSections(allSlides)} />
     case 'content':
       return <ContentSlideLayout slide={slide} />
-    case 'character':
-      return <CharacterSlideLayout slide={slide} />
     case 'timeline':
       return <TimelineSlideLayout slide={slide} />
     case 'video':

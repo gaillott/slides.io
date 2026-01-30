@@ -6,7 +6,6 @@ import type {
   TitleSlide,
   SectionSlide,
   ContentSlide,
-  CharacterSlide,
   TimelineSlide,
   VideoSlide,
   TwoColumnSlide,
@@ -202,8 +201,8 @@ export function SectionSlideLayout({ slide, allSections = [] }: { slide: Section
 export function ContentSlideLayout({ slide }: { slide: ContentSlide }) {
   const theme = getTheme(slide.theme)
   const hasImage = !!slide.image
-
-  const hasRightColumn = hasImage || (slide.videos && slide.videos.length > 0)
+  const hasCards = !!(slide.cards && slide.cards.length > 0)
+  const hasRightColumn = hasImage || hasCards || (slide.videos && slide.videos.length > 0)
 
   return (
     <div className="h-full w-full bg-slate-900 p-8 md:p-12 overflow-y-auto">
@@ -224,7 +223,8 @@ export function ContentSlideLayout({ slide }: { slide: ContentSlide }) {
             <p className="text-lg text-slate-400">{slide.subtitle}</p>
           )}
 
-          {slide.content.text && (
+          {/* Content block (text + highlighted text) */}
+          {slide.content?.text && (
             <div className="text-slate-300 leading-relaxed whitespace-pre-line">
               {slide.content.highlightedText && (
                 <span className={theme.primary}>{slide.content.highlightedText}</span>
@@ -233,28 +233,51 @@ export function ContentSlideLayout({ slide }: { slide: ContentSlide }) {
             </div>
           )}
 
-          {slide.content.quote && (
-            <blockquote className={`border-l-4 ${theme.border} pl-6 py-2 italic text-slate-300`}>
-              <p>{slide.content.quote.text}</p>
-              {slide.content.quote.author && (
-                <footer className="mt-2 text-sm text-slate-500">— {slide.content.quote.author}</footer>
-              )}
-            </blockquote>
-          )}
+          {/* Sections */}
+          {slide.sections?.map((section, i) => (
+            <div key={i}>
+              <h3 className={`text-xl font-semibold mb-3 ${theme.primary}`}>
+                {section.title}
+              </h3>
+              <p className="text-slate-300 leading-relaxed">{section.content}</p>
+            </div>
+          ))}
 
-          {slide.content.bulletPoints && (
-            <ul className="space-y-3">
-              {slide.content.bulletPoints.map((point, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className={`mt-2 w-2 h-2 rounded-full flex-shrink-0 ${theme.primary.replace('text-', 'bg-')}`} />
-                  <span className="text-slate-300">{point}</span>
-                </li>
-              ))}
-            </ul>
-          )}
+          {/* Quote (top-level or nested in content) */}
+          {(slide.quote || slide.content?.quote) && (() => {
+            const q = slide.quote || slide.content!.quote!
+            return (
+              <blockquote className={`border-l-4 ${theme.border} pl-6 py-4 bg-slate-800/50 rounded-r-lg`}>
+                <p className="text-slate-200 italic text-lg">{q.text}</p>
+                {q.author && (
+                  <footer className="mt-3 text-sm text-slate-500">— {q.author}</footer>
+                )}
+              </blockquote>
+            )
+          })()}
+
+          {/* Bullet Points (top-level or nested in content) */}
+          {(slide.bulletPoints || slide.content?.bulletPoints) && (() => {
+            const points = slide.bulletPoints || slide.content!.bulletPoints!
+            return (
+              <div className="space-y-2 pt-4">
+                {slide.bulletPointsTitle && (
+                  <h4 className={`text-lg font-semibold ${theme.primary}`}>{slide.bulletPointsTitle}</h4>
+                )}
+                <ul className="space-y-3">
+                  {points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className={`mt-2 w-2 h-2 rounded-full flex-shrink-0 ${theme.primary.replace('text-', 'bg-')}`} />
+                      <span className="text-slate-300">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          })()}
         </div>
 
-        {/* Right Column - Videos + Image */}
+        {/* Right Column - Videos + Image + Cards */}
         {hasRightColumn && (
           <div className="space-y-4">
             <EmbeddedVideos videos={slide.videos} theme={theme} />
@@ -275,74 +298,6 @@ export function ContentSlideLayout({ slide }: { slide: ContentSlide }) {
                 )}
               </>
             )}
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
-
-// ========== CHARACTER SLIDE ==========
-export function CharacterSlideLayout({ slide }: { slide: CharacterSlide }) {
-  const theme = getTheme(slide.theme)
-
-  return (
-    <div className="h-full w-full bg-slate-900 p-8 md:p-12 overflow-y-auto">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
-          <p className={`text-sm tracking-[0.2em] uppercase mb-2 ${theme.primary}`}>
-            {slide.category}
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
-            {slide.name}
-          </h2>
-          <p className="text-lg text-slate-400">{slide.subtitle}</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Left Column */}
-          <div className="space-y-6">
-            {/* Sections */}
-            {slide.sections.map((section, i) => (
-              <div key={i}>
-                <h3 className={`text-xl font-semibold mb-3 ${theme.primary}`}>
-                  {section.title}
-                </h3>
-                <p className="text-slate-300 leading-relaxed">{section.content}</p>
-              </div>
-            ))}
-
-            {/* Quote */}
-            {slide.quote && (
-              <blockquote className={`border-l-4 ${theme.border} pl-6 py-4 bg-slate-800/50 rounded-r-lg`}>
-                <p className="text-slate-200 italic text-lg">{slide.quote.text}</p>
-                <footer className="mt-3 text-sm text-slate-500">— {slide.quote.author}</footer>
-              </blockquote>
-            )}
-
-            {/* Bullet Points */}
-            {slide.bulletPoints && (
-              <div className="space-y-2 pt-4">
-                {slide.bulletPointsTitle && (
-                  <h4 className={`text-lg font-semibold ${theme.primary}`}>{slide.bulletPointsTitle}</h4>
-                )}
-                <ul className="space-y-2">
-                  {slide.bulletPoints.map((point, i) => (
-                    <li key={i} className="flex items-start gap-2 text-slate-400">
-                      <span className="text-slate-600">•</span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-
-          {/* Right Column - Videos + Cards */}
-          <div className="space-y-4">
-            {/* Embedded Videos */}
-            <EmbeddedVideos videos={slide.videos} theme={theme} />
 
             {slide.cards?.map((card, i) => (
               <div
@@ -360,7 +315,7 @@ export function CharacterSlideLayout({ slide }: { slide: CharacterSlide }) {
               </div>
             ))}
           </div>
-        </div>
+        )}
       </div>
     </div>
   )
