@@ -73,17 +73,10 @@ export const attackOnTitanPresentation: Presentation = {
       id: 'video-erwin',
       type: 'video',
       theme: 'red',
-      title: 'Présentation de Paradis, Hannes, Echange entre Keith et Carla',
-      videoUrl: '',
-      links: [
-        { title: 'Hannes, S1EP1', url: 'https://www.netflix.com/watch/70298554?trackId=284616272&tctx=0%2C0%2C2b428f3d-7aa5-49e0-a5e9-673120b2db47%2C2b428f3d-7aa5-49e0-a5e9-673120b2db47%7C%3DeyJwYWdlSWQiOiI3NGJlOThlYi04YzRmLTQzMDEtODQxZi1lNWU0ZDY4MWRkNjMvMS8vYXR0YXF1ZS8wLzAiLCJsb2NhbFNlY3Rpb25JZCI6IjIifQ%3D%3D%2C%2C%2C%2C%2C70299043%2CVideo%3A70298554%2CdetailsPageEpisodePlayButton' }
-      ],
-      placeholder: "Présentation de Paradis, Hannes, Echange entre Keith et Carla'",
-      description: "Présentation de Paradis, Hannes, Echange entre Keith et Carla",
-      quote: {
-        text: '" L\'homme qui s\'adonne à ses plaisirs devient moins libre que celui qui s\'en restreint. "',
-        author: 'Spinoza'
-      }
+      title: "EP01 : Situation initiale",
+      videoUrl: '/aot/video/EP1_00_00.mp4',
+      placeholder: "Situation initiale",
+      description: "Situation initiale",
     },
     // Slide 7: Contexte Historique
     {
