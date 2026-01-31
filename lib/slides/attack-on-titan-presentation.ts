@@ -558,35 +558,9 @@ export const attackOnTitanPresentation: Presentation = {
       theme: 'blue',
       blocks: [
         { type: 'heading', data: { category: 'CONCLUSION', title: 'Qu\'est-ce que la Liberté ?', subtitle: 'Trois visions, trois chemins' } },
-        { type: 'section', data: { title: 'La Liberté selon Spinoza', content: "\"L'homme qui s'adonne à ses plaisirs devient moins libre que celui qui s'en restreint.\" La vraie liberté n'est pas l'absence de contraintes, mais la maîtrise de soi. Hannes, Eren et le Bataillon incarnent trois rapports différents à cette liberté." } },
-        {
-          type: 'section',
-          step: 1,
-          data: {
-            title: 'Ce que nous enseigne AoT',
-            content: "Ce que peut faire de mieux un arbre, c'est grandir et se développer. Ce que peut faire de mieux un homme, c'est suivre sa conscience — même quand le monde entier lui dit qu'il a tort."
-          }
-        },
-        {
-          type: 'cards',
-          step: 1,
-          column: 'right',
-          data: {
-            items: [
-              { title: 'Hannes — La Non-Action', content: 'On est libre de ne pas agir, de choisir le confort de l\'ignorance. Mais cette liberté-là est une prison dorée.' },
-              { title: 'Se Responsabiliser — Grandir et Agir', content: 'On est libre de se transformer intérieurement et d\'agir pour le monde extérieur — en même temps. Le développement personnel sans action est stérile. L\'action sans travail intérieur reproduit les mêmes erreurs.' },
-              { title: 'Le Bataillon — L\'Idéal', content: 'On est libre de choisir un idéal plus grand que soi et de se battre pour lui. C\'est le bataillon d\'exploration; C\'est le père de Sasha; C\'est L\'humanité de Jean.' }
-            ]
-          }
-        },
-        {
-          type: 'quote',
-          step: 2,
-          data: {
-            text: '"Une excellente manière de te défendre d\'eux, c\'est d\'éviter de leur ressembler."',
-            author: 'Marc Aurèle, Pensées pour moi-même'
-          }
-        }
+        { step: 1, type: 'quote', data: { text: "\"L'homme qui s'adonne à ses plaisirs devient moins libre que celui qui s'en restreint.\"", author: 'Spinoza', image: { src: '/aot/hannes.jpg', alt: 'Hannes', size: 80 } } },
+        { step: 2, type: 'quote', data: { text: "\"Qui n\'agit pas ne sait pas.\"", author: 'KOAN Zen', image: { src: '/aot/gaby.jpg', alt: 'Gaby', size: 80 } } },
+        { step: 3, type: 'quote', data: { text: '"Une excellente manière de te défendre d\'eux, c\'est d\'éviter de leur ressembler."', author: 'Marc Aurèle, Pensées pour moi-même', image: { src: '/aot/jean.jpg', alt: 'Jean', size: 80 } } }
       ]
     }
   ]

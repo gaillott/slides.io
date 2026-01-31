@@ -173,7 +173,7 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
 
   // Touch/swipe navigation
   const touchStartRef = useRef<{ x: number; y: number } | null>(null)
-  const touchEndRef = useRef<{ x: number } | null>(null)
+  const touchEndRef = useRef<{ x: number; y: number } | null>(null)
   const minSwipeDistance = 50
 
   const onTouchStart = useCallback((e: React.TouchEvent) => {
@@ -185,14 +185,19 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
   }, [])
 
   const onTouchMove = useCallback((e: React.TouchEvent) => {
-    touchEndRef.current = { x: e.targetTouches[0].clientX }
+    touchEndRef.current = {
+      x: e.targetTouches[0].clientX,
+      y: e.targetTouches[0].clientY,
+    }
   }, [])
 
   const onTouchEnd = useCallback(() => {
     if (!touchStartRef.current || !touchEndRef.current) return
-    const distance = touchStartRef.current.x - touchEndRef.current.x
-    if (Math.abs(distance) >= minSwipeDistance) {
-      if (distance > 0) nextAction()
+    const distanceX = touchStartRef.current.x - touchEndRef.current.x
+    const distanceY = touchStartRef.current.y - touchEndRef.current.y
+    // Only trigger horizontal swipe if it's clearly more horizontal than vertical
+    if (Math.abs(distanceX) >= minSwipeDistance && Math.abs(distanceX) > Math.abs(distanceY) * 1.5) {
+      if (distanceX > 0) nextAction()
       else prevAction()
     }
     touchStartRef.current = null

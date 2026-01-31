@@ -200,9 +200,19 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
     case 'quote': {
       const d = block.data
       return (
-        <blockquote className={`border-l-4 ${theme.border} pl-6 py-4 bg-slate-800/50 rounded-r-lg`}>
-          <p className="text-slate-200 italic text-lg">{d.text}</p>
-          {d.author && <footer className="mt-3 text-sm text-slate-500">— {d.author}</footer>}
+        <blockquote className={`border-l-4 ${theme.border} pl-6 py-4 bg-slate-800/50 rounded-r-lg flex items-center gap-4`}>
+          {d.image && (
+            <img
+              src={d.image.src}
+              alt={d.image.alt || ''}
+              className="rounded-lg object-cover flex-shrink-0"
+              style={{ width: d.image.size || 80, height: d.image.size || 80 }}
+            />
+          )}
+          <div>
+            <p className="text-slate-200 italic text-lg">{d.text}</p>
+            {d.author && <footer className="mt-3 text-sm text-slate-500">— {d.author}</footer>}
+          </div>
         </blockquote>
       )
     }

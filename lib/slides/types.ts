@@ -30,6 +30,7 @@ interface TextBlockData {
 interface QuoteBlockData {
   text: string
   author?: string
+  image?: { src: string; alt?: string; size?: number }
 }
 
 interface BulletsBlockData {
