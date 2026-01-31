@@ -157,19 +157,25 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
     case 'heading': {
       const d = block.data
       return (
-        <div className={d.image ? 'flex items-start gap-6' : 'space-y-2'}>
-          {d.image && (
-            <div className={`relative flex-shrink-0 w-40 md:w-52 rounded-xl overflow-hidden border ${theme.border} shadow-lg shadow-black/30`}>
-              <img src={d.image} alt={d.title} className="w-full aspect-[3/4] object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+        <div>
+          {d.image ? (
+            <div className={`relative w-full rounded-xl overflow-hidden border ${theme.border} shadow-lg shadow-black/30 mb-4`}>
+              <img src={d.image} alt={d.title} className="w-full aspect-[21/9] object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
               <div className={`absolute bottom-0 left-0 right-0 h-[2px] ${theme.primary.replace('text-', 'bg-')}`} />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                {d.category && <p className={`text-xs tracking-[0.2em] uppercase mb-2 ${theme.primary}`}>{d.category}</p>}
+                <h2 className="text-3xl md:text-4xl font-bold text-white">{d.title}</h2>
+                {d.subtitle && <p className="text-sm text-slate-300 mt-1">{d.subtitle}</p>}
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-2">
+              {d.category && <p className={`text-sm tracking-[0.2em] uppercase ${theme.primary}`}>{d.category}</p>}
+              <h2 className="text-4xl md:text-5xl font-bold text-white">{d.title}</h2>
+              {d.subtitle && <p className="text-lg text-slate-400">{d.subtitle}</p>}
             </div>
           )}
-          <div className="space-y-2 pt-2">
-            {d.category && <p className={`text-sm tracking-[0.2em] uppercase ${theme.primary}`}>{d.category}</p>}
-            <h2 className="text-4xl md:text-5xl font-bold text-white">{d.title}</h2>
-            {d.subtitle && <p className="text-lg text-slate-400">{d.subtitle}</p>}
-          </div>
         </div>
       )
     }
