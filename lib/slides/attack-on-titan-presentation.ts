@@ -158,17 +158,8 @@ export const attackOnTitanPresentation: Presentation = {
         },
         { type: 'videos', column: 'right', data: { items: [{ url: '/aot/video/caverne_verite.mp4', title: 'S3E20 (Ep57) — Révélation du sous-sol' }] } },
         {
-          type: 'card',
-          step: 1,
-          data: {
-            title: 'Et nous ?',
-            content: '',
-            highlight: 'Confort ou Liberté ?'
-          }
-        },
-        {
           type: 'icon-bullets',
-          step: 2,
+          step: 1,
           column: 'right',
           data: {
             items: [
@@ -180,13 +171,23 @@ export const attackOnTitanPresentation: Presentation = {
         },
         {
           type: 'image',
-          step: 2,
+          step: 1,
           column: 'right',
           data: {
             src: '/aot/corpsarmee.webp',
             alt: 'Les trois corps d\'armée'
           }
-        }
+        },
+         {
+          type: 'card',
+          step: 2,
+           column: 'right',
+          data: {
+            title: 'Et nous ?',
+            content: '',
+            highlight: ''
+          }
+        },
       ]
     },
 
