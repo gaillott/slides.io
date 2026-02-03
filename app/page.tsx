@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { getAllPresentations } from '@/lib/slides/presentations'
-import { BookOpen, ArrowRight } from 'lucide-react'
+import { BookOpen, Film, ArrowRight } from 'lucide-react'
 
 export default function Home() {
   const presentations = getAllPresentations()
@@ -51,7 +51,11 @@ export default function Home() {
             }}
           >
             <span className="w-10 h-10 bg-white/[0.06] group-hover:bg-white/[0.1] rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300">
-              <BookOpen className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
+              {presentation.category === 'cine-philo' ? (
+                <Film className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
+              ) : (
+                <BookOpen className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
+              )}
             </span>
             <div className="flex-1 min-w-0">
               <span className="text-[15px] text-slate-300 group-hover:text-white transition-colors duration-300 block truncate">

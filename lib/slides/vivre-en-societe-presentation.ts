@@ -2,11 +2,12 @@ import { Presentation } from './types'
 
 export const vivreEnSocietePresentation: Presentation = {
   id: 'vivre-en-societe',
-  title: 'Vivre en Société',
+  title: '8. Vivre en Société',
   author: 'Philosophie à Vivre',
   description: 'Le défi du vivre ensemble',
   coverImage: '/societe/cover.jpg',
   createdAt: '2026-02-03',
+  category: 'conference',
   slides: [
     // Slide 1: Title
     {

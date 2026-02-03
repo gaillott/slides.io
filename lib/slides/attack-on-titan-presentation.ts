@@ -2,11 +2,12 @@ import { Presentation } from './types'
 
 export const attackOnTitanPresentation: Presentation = {
   id: 'attack-on-titan',
-  title: "Ciné Philo - L'Attaque des Titans",
+  title: "L'Attaque des Titans",
   author: "Ciné Philo",
   description: "Liberté, conscience et absurdité de la guerre",
   coverImage: '/aot/attackontitanbg.jpg',
   createdAt: '2026-01-28',
+  category: 'cine-philo',
   slides: [
     // Slide 1: Title
     {

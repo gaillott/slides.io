@@ -118,6 +118,8 @@ export interface PlanSlide extends BaseSlide {
 
 export type Slide = TitleSlide | SectionSlide | ContentSlide | PlanSlide
 
+export type PresentationCategory = 'cine-philo' | 'conference'
+
 export interface Presentation {
   id: string
   title: string
@@ -125,6 +127,7 @@ export interface Presentation {
   description: string
   coverImage: string
   createdAt: string
+  category: PresentationCategory
   slides: Slide[]
 }
 
