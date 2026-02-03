@@ -27,7 +27,7 @@ export const attackOnTitanPresentation: Presentation = {
       theme: 'red',
       blocks: [
         { type: 'heading', data: { category: 'SYNOPSIS', title: "L'Attaque des Titans" , subtitle : 'L\'humanité ignorante, enfermée derrière trois murs.', image: '/aot/wall.jpg' } },
-        { type: 'videos', column: 'left', data: { items: [{ url: '/aot/video/s1e2_explication.mp4', title: 'S1E2 (Ep2) — L\'explication du monde' }] } },
+        { type: 'video', column: 'left', data: { video: { url: '/aot/video/s1e2_explication.mp4', title: 'S1E2 (Ep2) — L\'explication du monde' } } },
        
          {
           type: 'bullets',
@@ -42,7 +42,7 @@ export const attackOnTitanPresentation: Presentation = {
           }
         },
          
-        { type: 'videos', step : 2, column: 'right', data: { items: [{ url: '/aot/video/EP1_00_00.mp4', title: 'S1E1 (Ep1) — Début de l\'anime' }] } },
+        { type: 'video', step : 2, column: 'right', data: { video: { url: '/aot/video/EP1_00_00.mp4', title: 'S1E1 (Ep1) — Début de l\'anime' } } },
        {
           type: 'bullets',
           column: "right",
@@ -93,23 +93,22 @@ export const attackOnTitanPresentation: Presentation = {
         { type: 'heading', data: { category: 'ALLÉGORIE PHILOSOPHIQUE', title: 'La Caverne de Platon', image: '/aot/wall3.jpg' } },
         {
           type: 'quote',
-          
+
           data: {
-            text: "« Imagine des hommes enchaînés dans une demeure souterraine, ne voyant que des ombres projetées sur le mur en face d'eux, et prenant ces ombres pour la réalité. » — Platon, La République, Livre VII"
+            text: "« Imagine des hommes enchaînés dans une demeure souterraine, ne voyant que des ombres projetées sur le mur en face d'eux, et prenant ces ombres pour la réalité. »",
+            author: "Platon, La République, Livre VII"
           }
         },
         
-        { type: 'videos',column: 'left', data: { items: [
-          { url: '/aot/video/S1E1_Retour_du_bataillon.mp4', title: 'S1E1 (Ep1) - Eren au retour du bataillon d\'exploration' }
-        ] } },
+        { type: 'video',column: 'left', data: { video: { url: '/aot/video/S1E1_Retour_du_bataillon.mp4', title: 'S1E1 (Ep1) - Eren au retour du bataillon d\'exploration' } } },
          {
-          type: 'videos',
+          type: 'video',
           step: 2,
           column: 'right',
           data: {
-            items: [
-              { url: '/aot/video/S1E4_Trois_Corps_Armee.mp4', title: 'S1E4 (Ep4) - Fin de la sélection, 3 corps d\'armée' },
-            ]
+            
+              video : {url: '/aot/video/S1E4_Trois_Corps_Armee.mp4', title: 'S1E4 (Ep4) - Fin de la sélection, 3 corps d\'armée' }
+            
           }
         },
         {
@@ -161,13 +160,11 @@ export const attackOnTitanPresentation: Presentation = {
           }
         },
         {
-          type: 'videos',
+          type: 'video',
           step: 1,
           column: 'left',
           data: {
-            items: [
-              { url: '/aot/video/EP1_Hannes.mp4', title: 'S1E1 — Hannes : Le dernier homme de Nietzsche' },
-            ]
+             video : { url: '/aot/video/EP1_Hannes.mp4', title: 'S1E1 — Hannes : Le dernier homme de Nietzsche' },
           }
         },
         {
@@ -175,19 +172,14 @@ export const attackOnTitanPresentation: Presentation = {
           step: 2,
           column: 'right',
           data: {
-            title: '',
             content: 'Hannes : à l\'image de l\'homme moderne ?',
           }
         },
          {
-          type: 'videos',
+          type: 'video',
           step: 2,
           column: 'right',
-          data: {
-            items: [
-              { url: '/aot/video/EP1_Hannes_Actes.mp4', title: 'S1E1 — Hannes : Paroles vs actions' }
-            ]
-          }
+          data: { video: { url: '/aot/video/EP1_Hannes_Actes.mp4', title: 'S1E1 — Hannes : Paroles vs actions' } }
         },
       ]
     },
@@ -211,7 +203,7 @@ export const attackOnTitanPresentation: Presentation = {
       theme: 'green',
       blocks: [
         { type: 'heading', data: { category: 'LES AILES DE LA LIBERTÉ', title: "Le Bataillon d'Exploration", subtitle: "Confort ou Liberté — qu'est-ce qui compte vraiment ?", image : '/aot/bataillon.jpg' } },
-        { type: 'videos', column: 'left',  data: { items: [{ url: '/aot/video/s1e16_integration_bataillon.mp4', title: 'S1E16 — Les recrues choisissent leur corps d\'armée' }] } },
+        { type: 'video', column: 'left',  data: { video: { url: '/aot/video/s1e16_integration_bataillon.mp4', title: 'S1E16 — Les recrues choisissent leur corps d\'armée' } } },
         {
           type: 'icon-bullets',
           step : 1,
@@ -250,7 +242,7 @@ export const attackOnTitanPresentation: Presentation = {
             text: '"Songe que tu pourrais à l\'instant quitter la vie. Agis, parle, pense en conséquence."',
           }
         },
-                  { type: 'videos', column: 'left', data: { items: [{ url: '/aot/video/erwin_speech.mp4', title: 'S3E16 (Ep53) — Erwin face à la mort' }] } },
+                  { type: 'video', column: 'left', data: { video: { url: '/aot/video/erwin_speech.mp4', title: 'S3E16 (Ep53) — Erwin face à la mort' } } },
 
         {
           type: 'quote',
@@ -308,7 +300,7 @@ export const attackOnTitanPresentation: Presentation = {
             author: 'Arjuna — Bhagavad Gîta, Chant I'
           }
         },
-        { type: 'videos', column: 'left', data: { items: [{ url: '/aot/video/s2e12_eren_combat_interieur.mp4', title: 'S2E12 (Ep37) — Eren et Mikasa, la Bhagavad Gîta' }] } },
+        { type: 'video', column: 'left', data: { video: { url: '/aot/video/s2e12_eren_combat_interieur.mp4', title: 'S2E12 (Ep37) — Eren et Mikasa, la Bhagavad Gîta' } } },
          {
           type: 'quote',
            step : 1,
@@ -338,7 +330,7 @@ export const attackOnTitanPresentation: Presentation = {
       theme: 'blue',
       blocks: [
         { type: 'heading', data: {image:'/aot/jean.jpg', category: 'PORTRAIT • L\'HUMANITÉ', title: 'Jean Kirschtein', subtitle: 'L\'Homme Ordinaire qui agit extraordinairement' } },
-                { type: 'videos', column: 'left', data: { items: [{ url: '/aot/video/s4e8_jean_sasha.mp4', title: 'S4E8 — Une guerre où des enfants tuent des hommes' }] } },
+                { type: 'video', column: 'left', data: { video: { url: '/aot/video/s4e8_jean_sasha.mp4', title: 'S4E8 — Une guerre où des enfants tuent des hommes' } } },
 {
           type: 'bullets',
           column : 'left',
@@ -356,7 +348,6 @@ export const attackOnTitanPresentation: Presentation = {
           column : 'right',
           data: {
             title: 'Le meilleur de l\'humanité',
-            content: ""
           }
         },
         {
@@ -390,12 +381,12 @@ export const attackOnTitanPresentation: Presentation = {
       blocks: [
         { type: 'heading', data: { category: 'LE CYCLE DE LA HAINE', title: 'Gaby Braun',image: '/aot/gaby.jpg', subtitle: 'Produit de la Propagande • Vision Binaire' } },
         {
-          type: 'videos',
+          type: 'video',
           column: 'left',
           data: {
-            items: [
+            video: 
               { url: '/aot/video/s4e2_gaby_tranchee.mp4', title: 'S4E1 (Ep60) — Gaby l\'enfant soldat' },
-            ]
+            
           }
         },
         {
@@ -417,14 +408,10 @@ export const attackOnTitanPresentation: Presentation = {
           }
         },
         {
-          type: 'videos',
+          type: 'video',
           step : 2,
           column: 'left',
-          data: {
-            items: [
-              { url: '/aot/video/s4e11_gaby_dogme.mp4', title: 'S4E10 (Ep70) — Gaby sur l\'île des démons insulaires' }
-            ]
-          }
+          data: { video: { url: '/aot/video/s4e11_gaby_dogme.mp4', title: 'S4E10 (Ep70) — Gaby sur l\'île des démons insulaires' } }
         },
         {
           type: 'quote',
@@ -458,12 +445,12 @@ export const attackOnTitanPresentation: Presentation = {
         { type: 'heading', data: { category: 'LA MAÏEUTIQUE', title: 'Gaby Braun', image : '/aot/kaya.jpg', subtitle: 'Le parcours initiatique • La Maïeutique de Kaya' } },
         { type: 'section', data: { title: 'La Maïeutique de Kaya', content: "\"Qu'est-ce que ma mère avait fait de mal ?\" — Cette question simple fait s'effondrer tout l'édifice. Socrate utilisait la maïeutique pour \"accoucher\" les esprits de la vérité. Kaya, sans le savoir, devient la sage-femme de la conscience de Gaby." } },
        {
-          type: 'videos',
+          type: 'video',
           column: 'left',
           data: {
-            items: [
+            video: 
               { url: '/aot/video/s4e11_gaby_kaya_socrate.mp4', title: 'S4E11 (Ep70) — Kaya confronte Gaby' },
-            ]
+            
           }
         }, {
           type: 'bullets',
@@ -475,17 +462,8 @@ export const attackOnTitanPresentation: Presentation = {
             ]
           }
         },
-        {
-          type: 'videos',
-          column: 'left',
-          step : 1,
-          data: {
-            items: [
-              { url: '/aot/video/s4e12_peresasha.mp4', title: 'S4E12 (Ep71) — Le père de Sasha brise le cercle' },
-              { url: '/aot/video/e77_gaby_sagesse.mp4', title: 'S4E18 (Ep77) — Gaby prise de conscience' }
-            ]
-          }
-        },
+        { type: 'video', column: 'left', step: 1, data: { video: { url: '/aot/video/s4e12_peresasha.mp4', title: 'S4E12 (Ep71) — Le père de Sasha brise le cercle' } } },
+        { type: 'video', column: 'left', step: 1, data: { video: { url: '/aot/video/e77_gaby_sagesse.mp4', title: 'S4E18 (Ep77) — Gaby prise de conscience' } } },
          {
           type: 'quote',
           step : 2,
@@ -516,68 +494,62 @@ export const attackOnTitanPresentation: Presentation = {
       theme: 'red',
       blocks: [
         { type: 'heading', data: { title: "Les Leçons d'Isayama", image :'/aot/mywarbg.PNG', subtitle: "Ce que l'Attaque des Titans nous enseigne" } },
-
-        // 1. My War - Déshumanisation
         {
-          type: 'videos',
+          type: 'quote',
+          step: 1,
+          column: 'left',
+          data: {
+            text: '"C\'est pour voler que les oiseaux déchirent leur coquilles, Et non pour ramper sur le sol sans aucune dignité. Alors, pour quelle raison possèdes-tu des ailes ?"',
+            author: 'Linked Horizon, Jiyuu no Tsubasa (Traduit du générique)'
+          }
+        },
+       
+        {
+          type: 'video',
+          step: 1,
+          column: 'left',
+          data: { video: { url: '/aot/video/opening2.mp4', title: ' Générique Saison 1 Op.2 - Les ailes de la liberté' } }
+        },
+         {
+          type: 'icon-bullets',
+          step: 2,
           column: 'left',
           data: {
             items: [
-              { url: '/aot/video/mywar.mp4', title: 'Générique saison finale — My War' },
+              { icon: 'flame', title: 'Se battre pour la conscience', content: 'L\'idéaliste en nous qui cherche l\'aventure.' },
             ]
+          }
+        },
+        
+        {
+          type: 'video',
+          column: 'right',
+          step : 3,
+          data: {
+            video: { url: '/aot/video/mywar.mp4', title: 'Générique saison finale — My War' },
           }
         },
         {
           type: 'icon-bullets',
-          column: 'left',
+           column: 'right',
+          step : 4,
           data: {
             items: [
-              { icon: 'alert', title: 'Déshumanisation', content: "L'ennemi devient « l'autre », le démon" },
-              { icon: 'eye-off', title: 'Vision binaire', content: 'Nous vs Eux, Bien vs Mal' },
+              { icon: 'zap', title: 'Déshumanisation', content: "Vision binaire, propagande, dogme." },
             ]
           }
         },
         {
           type: 'quote',
-          step: 1,
-          column: 'left',
+           column: 'right',
+          step : 4,
           data: {
             text: '"Cette guerre, on ne savait pas pourquoi on la faisait. On se battait contre des gens comme nous."',
             author: 'Lazare Ponticelli, dernier poilu français'
           }
         },
 
-        // 2. Grand Terrassement - Liberté absolue
-        {
-          type: 'videos',
-          step: 2,
-          column: 'right',
-          data: {
-            items: [
-              { url: '/aot/video/e87_eren_grand_terassement.mp4', title: 'S4E28 (Ep87) - Grand Terrassement' }
-            ]
-          }
-        },
-        {
-          type: 'icon-bullets',
-          step: 2,
-          column: 'right',
-          data: {
-            items: [
-              { icon: 'flame', title: 'Liberté absolue nietzschéenne', content: 'Briser toutes les chaînes, sans limites' },
-              { icon: 'zap', title: 'Finalité vs Moyens', content: 'Arriver à la paix en faisant la guerre ?' }
-            ]
-          }
-        },
-        {
-          type: 'quote',
-          step: 3,
-          column: 'right',
-          data: {
-            text: '"I alone can fix it."',
-            author: 'Donald Trump, Convention républicaine 2016'
-          }
-        }
+        
       ]
     },
 
@@ -587,10 +559,10 @@ export const attackOnTitanPresentation: Presentation = {
       type: 'content',
       theme: 'blue',
       blocks: [
-        { type: 'heading', data: { category: 'CONCLUSION', title: 'Qu\'est-ce que la Liberté ?', subtitle: 'Trois visions, trois chemins' } },
-        { step: 1, type: 'quote', data: { text: "\"L'homme qui s'adonne à ses plaisirs devient moins libre que celui qui s'en restreint.\"", author: 'Spinoza', image: { src: '/aot/hannes.jpg', alt: 'Hannes', size: 80 } } },
-        { step: 2, type: 'quote', data: { text: "\"Imagine des hommes enchaînés [...], prenant ces ombres pour la réalité.\"", author: 'Platon, La République, Livre VII', image: { src: '/aot/gaby.jpg', alt: 'Gaby', size: 80 } } },
-        { step: 3, type: 'quote', data: { text: '"Une excellente manière de te défendre d\'eux, c\'est d\'éviter de leur ressembler."', author: 'Marc Aurèle, Pensées pour moi-même', image: { src: '/aot/jean.jpg', alt: 'Jean', size: 80 } } }
+        { type: 'heading', data: { category: 'CONCLUSION', title: 'Qu\'est-ce que la Liberté ?', subtitle: 'Trois visions, trois chemins', image : '/aot/bataillon.jpg' } },
+        { step: 1, type: 'quote', data: { text: "« L'homme qui s'adonne à ses plaisirs devient moins libre que celui qui s'en restreint. »", author: 'Spinoza', image: { src: '/aot/hannes.jpg', alt: 'Hannes', size: 80 } } },
+        { step: 2, type: 'quote', data: { text: "« Imagine des hommes enchaînés [...], prenant ces ombres pour la réalité. »", author: 'Platon, La République, Livre VII', image: { src: '/aot/gaby.jpg', alt: 'Gaby', size: 80 } } },
+        { step: 3, type: 'quote', data: { text: '« Être homme, c’est précisément être responsable. »', author: 'St Exupéry, Terre des hommes', image: { src: '/aot/jean.jpg', alt: 'Jean', size: 80 } } }
       ]
     }
   ]

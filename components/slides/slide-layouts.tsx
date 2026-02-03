@@ -20,8 +20,6 @@ const themeColors: Record<SlideTheme, { primary: string; accent: string; border:
   blue: { primary: 'text-blue-500', accent: 'text-blue-400', border: 'border-blue-500', bg: 'bg-blue-500/10' },
   green: { primary: 'text-emerald-500', accent: 'text-emerald-400', border: 'border-emerald-500', bg: 'bg-emerald-500/10' },
   orange: { primary: 'text-amber-500', accent: 'text-amber-400', border: 'border-amber-500', bg: 'bg-amber-500/10' },
-  purple: { primary: 'text-purple-500', accent: 'text-purple-400', border: 'border-purple-500', bg: 'bg-purple-500/10' },
-  cyan: { primary: 'text-cyan-500', accent: 'text-cyan-400', border: 'border-cyan-500', bg: 'bg-cyan-500/10' },
 }
 
 function getTheme(theme?: SlideTheme) {
@@ -163,7 +161,6 @@ export function PlanSlideLayout({ slide }: { slide: PlanSlide }) {
           {slide.category && <p className={`text-sm tracking-[0.2em] uppercase mb-2 ${theme.primary}`}>{slide.category}</p>}
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">{slide.title}</h2>
           {slide.subtitle && <p className="text-lg text-slate-400 max-w-3xl mx-auto">{slide.subtitle}</p>}
-          {slide.description && <p className="text-slate-300 mt-4 max-w-3xl mx-auto">{slide.description}</p>}
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {slide.items.map((item, i) => (
@@ -191,24 +188,16 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
       const d = block.data
       return (
         <div>
-          {d.image ? (
-            <div className={`relative w-full rounded-xl overflow-hidden border ${theme.border} shadow-lg shadow-black/30 mb-4`}>
-              <img src={d.image} alt={d.title} className="w-full aspect-[21/9] object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
-              <div className={`absolute bottom-0 left-0 right-0 h-[2px] ${theme.primary.replace('text-', 'bg-')}`} />
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                {d.category && <p className={`text-xs tracking-[0.2em] uppercase mb-2 ${theme.primary}`}>{d.category}</p>}
-                <h2 className="text-3xl md:text-4xl font-bold text-white">{d.title}</h2>
-                {d.subtitle && <p className="text-sm text-slate-300 mt-1">{d.subtitle}</p>}
-              </div>
+          <div className={`relative w-full rounded-xl overflow-hidden border ${theme.border} shadow-lg shadow-black/30 mb-4`}>
+            <img src={d.image} alt={d.title} className="w-full aspect-[21/9] object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
+            <div className={`absolute bottom-0 left-0 right-0 h-[2px] ${theme.primary.replace('text-', 'bg-')}`} />
+            <div className="absolute bottom-0 left-0 right-0 p-5">
+              {d.category && <p className={`text-xs tracking-[0.2em] uppercase mb-2 ${theme.primary}`}>{d.category}</p>}
+              <h2 className="text-3xl md:text-4xl font-bold text-white">{d.title}</h2>
+              {d.subtitle && <p className="text-sm text-slate-300 mt-1">{d.subtitle}</p>}
             </div>
-          ) : (
-            <div className="space-y-2">
-              {d.category && <p className={`text-sm tracking-[0.2em] uppercase ${theme.primary}`}>{d.category}</p>}
-              <h2 className="text-4xl md:text-5xl font-bold text-white">{d.title}</h2>
-              {d.subtitle && <p className="text-lg text-slate-400">{d.subtitle}</p>}
-            </div>
-          )}
+          </div>
         </div>
       )
     }
@@ -235,7 +224,7 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
           )}
           <div>
             <p className="text-slate-200 italic text-lg">{d.text}</p>
-            {d.author && <footer className="mt-3 text-sm text-slate-500">— {d.author}</footer>}
+            <footer className="mt-3 text-sm text-slate-500">— {d.author}</footer>
           </div>
         </blockquote>
       )
@@ -244,7 +233,6 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
       const d = block.data
       return (
         <div className="space-y-2">
-          {d.title && <h4 className={`text-lg font-semibold ${theme.primary}`}>{d.title}</h4>}
           <ul className="space-y-3">
             {d.items.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
@@ -260,10 +248,8 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
       const d = block.data
       return (
         <div className={`border ${theme.border} rounded-lg p-6 ${theme.bg}`}>
-          <h4 className="text-lg font-semibold text-white mb-3">{d.title}</h4>
+          {d.title && <h4 className="text-lg font-semibold text-white mb-3">{d.title}</h4>}
           <p className="text-slate-300 mb-2">{d.content}</p>
-          {d.highlight && <p className={`font-bold ${theme.primary}`}>{d.highlight}</p>}
-          {d.subtext && <p className="text-sm text-slate-400 italic mt-2">{d.subtext}</p>}
         </div>
       )
     }
@@ -275,15 +261,13 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
             <div key={i} className={`border ${theme.border} rounded-lg p-6 ${theme.bg}`}>
               <h4 className="text-lg font-semibold text-white mb-3">{card.title}</h4>
               <p className="text-slate-300 mb-2">{card.content}</p>
-              {card.highlight && <p className={`font-bold ${theme.primary}`}>{card.highlight}</p>}
-              {card.subtext && <p className="text-sm text-slate-400 italic mt-2">{card.subtext}</p>}
             </div>
           ))}
         </div>
       )
     }
-    case 'videos': {
-      return <EmbeddedVideos videos={block.data.items} theme={theme} />
+    case 'video': {
+      return <EmbeddedVideos videos={[block.data.video]} theme={theme} />
     }
     case 'image': {
       const d = block.data
@@ -292,11 +276,6 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
           <div className="rounded-lg overflow-hidden border border-slate-700">
             <img src={d.src || "/placeholder.svg"} alt={d.alt} className="w-full h-auto object-cover" />
           </div>
-          {d.caption && (
-            <div className={`${theme.bg} border ${theme.border} rounded-lg p-4 text-center mt-2`}>
-              <p className="text-slate-300 italic">{d.caption}</p>
-            </div>
-          )}
         </div>
       )
     }
@@ -305,86 +284,7 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
       return (
         <div>
           <h3 className={`text-xl font-semibold mb-3 ${theme.primary}`}>{d.title}</h3>
-          <p className="text-slate-300 leading-relaxed">{d.content}</p>
-        </div>
-      )
-    }
-    case 'timeline': {
-      const d = block.data
-      return (
-        <div className="relative">
-          <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-slate-700" />
-          <div className="space-y-8">
-            {d.events.map((event, i) => (
-              <div key={i} className="relative pl-10">
-                <div className={`absolute left-0 w-6 h-6 rounded-full ${theme.primary.replace('text-', 'bg-')} flex items-center justify-center`}>
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                </div>
-                <div>
-                  <p className={`text-sm font-semibold ${theme.primary}`}>{event.date}</p>
-                  <h3 className="text-lg font-bold text-white mt-1">{event.title}</h3>
-                  <p className="text-slate-400 text-sm mt-1">{event.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )
-    }
-    case 'parallels': {
-      const d = block.data
-      const singleItem = d.items.length === 1
-      return (
-        <div className={singleItem ? '' : 'md:col-span-2'}>
-          <div className={`${singleItem ? 'space-y-4' : 'grid md:grid-cols-2 gap-6 mb-8'}`}>
-            {d.items.map((parallel, i) => {
-              const IconComponent = iconMap[parallel.icon] || Globe
-              return (
-                <div key={i} className="bg-slate-800/30 border border-slate-700 rounded-lg p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className={`w-10 h-10 rounded-full border ${theme.border} flex items-center justify-center`}>
-                      <IconComponent className={`w-5 h-5 ${theme.primary}`} />
-                    </div>
-                    <h3 className="text-xl font-bold text-white">{parallel.title}</h3>
-                  </div>
-                  <div className="space-y-3">
-                    <div>
-                      <p className={`text-sm font-semibold ${theme.primary} mb-1`}>{"Dans l'anime :"}</p>
-                      <p className="text-slate-300 text-sm">{parallel.anime}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-blue-400 mb-1">Dans notre monde :</p>
-                      <p className="text-slate-300 text-sm">{parallel.realWorld}</p>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-          {d.bottomQuote && (
-            <div className={`${theme.bg} border ${theme.border} rounded-lg p-6 text-center`}>
-              <p className="text-slate-200 italic text-lg">{d.bottomQuote}</p>
-            </div>
-          )}
-        </div>
-      )
-    }
-    case 'plan-grid': {
-      const d = block.data
-      return (
-        <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {d.items.map((item, i) => (
-            <div key={i} className="group relative overflow-hidden rounded-xl border border-slate-700 hover:border-slate-500 transition-all">
-              <div className="aspect-[3/4] overflow-hidden">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <p className={`text-xs font-bold ${theme.primary} mb-1`}>{item.partNumber}</p>
-                <h3 className="text-sm md:text-base font-semibold text-white leading-tight">{item.title}</h3>
-              </div>
-            </div>
-          ))}
+          {d.content && <p className="text-slate-300 leading-relaxed">{d.content}</p>}
         </div>
       )
     }
