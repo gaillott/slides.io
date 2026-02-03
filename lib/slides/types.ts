@@ -40,6 +40,7 @@ interface BulletsBlockData {
 interface CardBlockData {
   title?: string
   content: string
+  icon?: string
 }
 
 interface CardsBlockData {

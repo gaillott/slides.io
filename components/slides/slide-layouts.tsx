@@ -188,9 +188,9 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
       const d = block.data
       return (
         <div>
-          <div className={`relative w-full rounded-xl overflow-hidden border ${theme.border} shadow-lg shadow-black/30 mb-4`}>
+          <div className={`relative w-full rounded-xl overflow-hidden border ${theme.border} shadow-lg shadow-black/30 mb-4 max-h-80`}>
             <img src={d.image} alt={d.title} className="w-full aspect-[21/9] object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent " />
             <div className={`absolute bottom-0 left-0 right-0 h-[2px] ${theme.primary.replace('text-', 'bg-')}`} />
             <div className="absolute bottom-0 left-0 right-0 p-5">
               {d.category && <p className={`text-xs tracking-[0.2em] uppercase mb-2 ${theme.primary}`}>{d.category}</p>}
@@ -246,10 +246,20 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
     }
     case 'card': {
       const d = block.data
+      const IconComponent = d.icon ? iconMap[d.icon] : null
       return (
-        <div className={`border ${theme.border} rounded-lg p-6 ${theme.bg}`}>
-          {d.title && <h4 className="text-lg font-semibold text-white mb-3">{d.title}</h4>}
-          <p className="text-slate-300 mb-2">{d.content}</p>
+        <div className={`rounded-lg p-5 bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-slate-700/50 hover:border-slate-600/50 transition-colors`}>
+          <div className="flex gap-4">
+            {IconComponent && (
+              <div className={`w-10 h-10 rounded-full ${theme.bg} flex items-center justify-center flex-shrink-0`}>
+                <IconComponent className={`w-5 h-5 ${theme.primary}`} />
+              </div>
+            )}
+            <div>
+              {d.title && <h4 className="text-lg font-semibold text-white mb-2">{d.title}</h4>}
+              <p className="text-slate-300">{d.content}</p>
+            </div>
+          </div>
         </div>
       )
     }
@@ -257,12 +267,24 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
       const d = block.data
       return (
         <div className="space-y-4">
-          {d.items.map((card, i) => (
-            <div key={i} className={`border ${theme.border} rounded-lg p-6 ${theme.bg}`}>
-              <h4 className="text-lg font-semibold text-white mb-3">{card.title}</h4>
-              <p className="text-slate-300 mb-2">{card.content}</p>
-            </div>
-          ))}
+          {d.items.map((card, i) => {
+            const IconComponent = card.icon ? iconMap[card.icon] : null
+            return (
+              <div key={i} className={`rounded-lg p-5 bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-slate-700/50 hover:border-slate-600/50 transition-colors`}>
+                <div className="flex gap-4">
+                  {IconComponent && (
+                    <div className={`w-10 h-10 rounded-full ${theme.bg} flex items-center justify-center flex-shrink-0`}>
+                      <IconComponent className={`w-5 h-5 ${theme.primary}`} />
+                    </div>
+                  )}
+                  <div>
+                    <h4 className="text-lg font-semibold text-white mb-2">{card.title}</h4>
+                    <p className="text-slate-300">{card.content}</p>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
       )
     }
