@@ -162,7 +162,7 @@ export function PlanSlideLayout({ slide }: { slide: PlanSlide }) {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">{slide.title}</h2>
           {slide.subtitle && <p className="text-lg text-slate-400 max-w-3xl mx-auto">{slide.subtitle}</p>}
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {slide.items.map((item, i) => (
             <div key={i} className="group relative overflow-hidden rounded-xl border border-slate-700 hover:border-slate-500 transition-all">
               <div className="aspect-[3/4] overflow-hidden">

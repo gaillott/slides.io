@@ -11,6 +11,7 @@ export interface BaseSlide {
   id: string
   type: string
   theme?: SlideTheme
+  notes?: string
 }
 
 // ========== Block data types ==========

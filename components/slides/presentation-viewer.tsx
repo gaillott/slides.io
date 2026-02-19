@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { ChevronLeft, ChevronRight, HelpCircle, X, Home } from 'lucide-react'
+import { ChevronLeft, ChevronRight, HelpCircle, X, Home, Monitor } from 'lucide-react'
 import type { Presentation, Slide } from '@/lib/slides/types'
 import { getMaxStep } from '@/lib/slides/types'
 import {
@@ -12,6 +12,20 @@ import {
   ContentSlideLayout,
   PlanSlideLayout
 } from './slide-layouts'
+
+function renderMarkdown(md: string): string {
+  return md
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/^### (.+)$/gm, '<h3 class="text-base font-semibold text-white/90 mt-4 mb-1">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 class="text-lg font-semibold text-white/90 mt-5 mb-2">$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1 class="text-xl font-bold text-white mt-6 mb-3">$1</h1>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em class="text-slate-300 italic">$1</em>')
+    .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc text-slate-300">$1</li>')
+    .replace(/\n/g, '<br />')
+}
 
 interface PresentationViewerProps {
   presentation: Presentation
@@ -38,12 +52,26 @@ function renderSlide(slide: Slide, allSlides: Slide[], visibleStep: number) {
   }
 }
 
+function getSlideTitle(slide: Slide): string {
+  switch (slide.type) {
+    case 'title':
+      return slide.title
+    case 'section':
+      return slide.subtitle
+    case 'plan':
+      return slide.title
+    default:
+      return 'Slide'
+  }
+}
+
 export function PresentationViewer({ presentation }: PresentationViewerProps) {
   const searchParams = useSearchParams()
   const router = useRouter()
   const pathname = usePathname()
 
   const totalSlides = presentation.slides.length
+  const isPresenterWindow = searchParams.get('presenter') === 'true'
 
   // Loading state
   const [loaded, setLoaded] = useState(false)
@@ -70,8 +98,40 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
   const [slideDirection, setSlideDirection] = useState<'next' | 'prev'>('next')
   const [isTransitioning, setIsTransitioning] = useState(false)
 
+  const presenterWindowRef = useRef<Window | null>(null)
+  const channelRef = useRef<BroadcastChannel | null>(null)
+
   const slide = presentation.slides[currentSlide]
   const maxStep = getMaxStep(slide)
+
+  // BroadcastChannel setup
+  useEffect(() => {
+    const channel = new BroadcastChannel('slides-presenter')
+    channelRef.current = channel
+
+    if (isPresenterWindow) {
+      // Presenter window listens for slide changes
+      channel.onmessage = (event) => {
+        const { slide: newSlide, step } = event.data
+        if (typeof newSlide === 'number' && newSlide >= 0 && newSlide < totalSlides) {
+          setCurrentSlide(newSlide)
+          setCurrentStep(step ?? 0)
+        }
+      }
+    }
+
+    return () => {
+      channel.close()
+      channelRef.current = null
+    }
+  }, [isPresenterWindow, totalSlides])
+
+  // Broadcast slide changes from main window
+  useEffect(() => {
+    if (!isPresenterWindow && channelRef.current) {
+      channelRef.current.postMessage({ slide: currentSlide, step: currentStep })
+    }
+  }, [currentSlide, currentStep, isPresenterWindow])
 
   // Sync state when URL changes (browser back/forward)
   useEffect(() => {
@@ -103,22 +163,18 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
 
   const nextAction = useCallback(() => {
     if (isTransitioning) return
-    // If there are more steps to reveal, advance step
     if (currentStep < maxStep) {
       setCurrentStep(currentStep + 1)
     } else {
-      // All steps revealed, go to next slide
       goToSlide(currentSlide + 1)
     }
   }, [currentSlide, currentStep, maxStep, goToSlide, isTransitioning])
 
   const prevAction = useCallback(() => {
     if (isTransitioning) return
-    // If steps are revealed, hide last step
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1)
     } else {
-      // At step 0, go to previous slide (show all its steps)
       if (currentSlide > 0) {
         const prevSlideIndex = currentSlide - 1
         const prevSlide = presentation.slides[prevSlideIndex]
@@ -135,8 +191,20 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
     }
   }, [currentSlide, currentStep, presentation.slides, goToSlide, isTransitioning, updateURL])
 
+  const openPresenterWindow = useCallback(() => {
+    // Reuse existing window if still open
+    if (presenterWindowRef.current && !presenterWindowRef.current.closed) {
+      presenterWindowRef.current.focus()
+      return
+    }
+    const url = `${pathname}?slide=${currentSlide + 1}&presenter=true`
+    presenterWindowRef.current = window.open(url, 'presenter-notes')
+  }, [pathname, currentSlide])
+
   // Keyboard navigation
   useEffect(() => {
+    if (isPresenterWindow) return // No keyboard nav in presenter window
+
     const handleKeyDown = (e: KeyboardEvent) => {
       switch (e.key) {
         case 'ArrowRight':
@@ -164,12 +232,15 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
         case '?':
           setShowHelp(prev => !prev)
           break
+        case 'p':
+          openPresenterWindow()
+          break
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [nextAction, prevAction, goToSlide, totalSlides])
+  }, [nextAction, prevAction, goToSlide, totalSlides, isPresenterWindow, openPresenterWindow])
 
   // Touch/swipe navigation
   const touchStartRef = useRef<{ x: number; y: number } | null>(null)
@@ -194,7 +265,6 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
   const onTouchEnd = useCallback(() => {
     if (!touchStartRef.current) return
 
-    // Tap detection: no significant movement
     if (!touchEndRef.current || (
       Math.abs(touchStartRef.current.x - touchEndRef.current.x) < 10 &&
       Math.abs(touchStartRef.current.y - touchEndRef.current.y) < 10
@@ -209,7 +279,6 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
 
     const distanceX = touchStartRef.current.x - touchEndRef.current.x
     const distanceY = touchStartRef.current.y - touchEndRef.current.y
-    // Only trigger horizontal swipe if it's clearly more horizontal than vertical
     if (Math.abs(distanceX) >= minSwipeDistance && Math.abs(distanceX) > Math.abs(distanceY) * 1.5) {
       if (distanceX > 0) nextAction()
       else prevAction()
@@ -220,6 +289,36 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
 
   const progress = ((currentSlide + 1) / totalSlides) * 100
 
+  // ── Presenter Window: notes-only layout ──
+  if (isPresenterWindow) {
+    return (
+      <div className="h-[100dvh] w-screen bg-slate-950 flex flex-col overflow-hidden">
+        {/* Header */}
+        <div className="shrink-0 px-6 py-4 border-b border-white/[0.08] flex items-center justify-between">
+          <h1 className="text-white/90 font-semibold text-lg truncate">
+            {getSlideTitle(slide)}
+          </h1>
+          <span className="text-slate-500 text-sm tabular-nums shrink-0 ml-4">
+            {currentSlide + 1} / {totalSlides}
+          </span>
+        </div>
+
+        {/* Notes */}
+        <div className="flex-1 overflow-y-auto p-8">
+          {slide.notes ? (
+            <div
+              className="text-base text-slate-300 leading-relaxed max-w-2xl"
+              dangerouslySetInnerHTML={{ __html: renderMarkdown(slide.notes) }}
+            />
+          ) : (
+            <p className="text-slate-600 italic">Aucune note pour cette slide.</p>
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  // ── Main Window: normal presentation ──
   return (
     <div
       className="relative flex flex-col h-[100dvh] w-screen bg-slate-900 overflow-hidden select-none"
@@ -317,11 +416,18 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
           ))}
         </div>
 
-        {/* Help */}
+        {/* Help & Presenter Mode */}
         <div className="flex items-center gap-2 sm:gap-4 shrink-0">
           <span className="text-slate-600 text-xs hidden lg:block">
             ← → Espace
           </span>
+          <button
+            onClick={openPresenterWindow}
+            className="w-8 h-8 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] flex items-center justify-center transition-all duration-200 text-white/70"
+            aria-label="Ouvrir les notes présentateur"
+          >
+            <Monitor className="w-4 h-4" />
+          </button>
           <button
             onClick={() => setShowHelp(true)}
             className="w-8 h-8 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] flex items-center justify-center transition-all duration-200"
@@ -354,6 +460,7 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
                 { label: 'Précédente / Étape précédente', keys: ['←', '↑'] },
                 { label: 'Première', keys: ['Home'] },
                 { label: 'Dernière', keys: ['End'] },
+                { label: 'Notes présentateur', keys: ['P'] },
                 { label: 'Aide', keys: ['?'] },
               ].map(({ label, keys }) => (
                 <div key={label} className="flex justify-between items-center">

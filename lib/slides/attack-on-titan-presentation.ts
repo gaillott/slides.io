@@ -19,6 +19,15 @@ export const attackOnTitanPresentation: Presentation = {
       subtitle: 'Liberté, conscience et absurdité de la guerre',
       description: "Une exploration philosophique du chef d'œuvre d'Hajime Isayama",
       backgroundImage: '/aot/attackontitanbg.jpg',
+      notes: `# Introduction
+
+Bienvenue dans cette présentation **Ciné Philo** sur l'Attaque des Titans.
+
+- Présenter le concept de Ciné Philo
+- Expliquer pourquoi cette œuvre est pertinente pour la philosophie
+- Mentionner les thèmes clés : **liberté**, **conscience**, **guerre**
+
+*Laisser le temps aux participants de s'installer avant de commencer.*`,
     },
 
     // Slide 2: Synopsis
@@ -68,9 +77,8 @@ export const attackOnTitanPresentation: Presentation = {
       items: [
         { partNumber: 'PARTIE I', title: 'La Caverne de Platon', image: '/aot/wall.webp' },
         { partNumber: 'PARTIE II', title: "L\'Aventure de la conscience", image: '/aot/expo.jpg' },
-        { partNumber: 'PARTIE III', title: 'Portraits (Eren, Jean)', image: '/aot/jean.jpg' },
-        { partNumber: 'PARTIE IV', title: 'L\'Absurdité de la guerre', image: '/aot/mywar.jpg' },
-        { partNumber: 'PARTIE V', title: "Les Leçons d'Isayama", image: '/aot/putin.jpg' }
+        { partNumber: 'PARTIE III', title: 'L\'Absurdité de la guerre', image: '/aot/mywar.jpg' },
+        { partNumber: 'PARTIE IV', title: "Les Leçons d'Isayama", image: '/aot/putin.jpg' }
       ]
     },
 
@@ -81,8 +89,21 @@ export const attackOnTitanPresentation: Presentation = {
       theme: 'red',
       partNumber: 'I',
       title: 'Partie I',
-      subtitle: 'Paradis : la Caverne de Platon',
-      backgroundImage: '/aot/wall.webp'
+      subtitle: 'Les 3 murs : la Caverne de Platon',
+      backgroundImage: '/aot/wall.webp',
+      notes: `# La Caverne de Platon
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+## Points clés à aborder
+
+- **L'allégorie de la caverne** : les prisonniers enchaînés ne voient que des ombres
+- Les murs dans l'anime représentent les limites de la connaissance
+- Faire le parallèle entre les habitants de Paradis et les prisonniers de Platon
+
+## Transition
+
+*Demander au public : "Quelles sont nos propres cavernes ?"*`,
     },
 
    // Slide 5: La Caverne de Platon
@@ -90,8 +111,38 @@ export const attackOnTitanPresentation: Presentation = {
       id: 'caverne-platon',
       type: 'content',
       theme: 'red',
+      notes: `
+      *Platon disait : 'Imaginez ...' *
+
+      Pour Platon, nous vivons dans une caverne et nous prenons les murs pour la réalité. 
+      Le seul moyen de se libérer est de se défaire de ses chaines, de ses illusions et oser sortir de la caverne.
+      Nos chaines sont le confort, la peur et les habitudes.
+
+      Dans le 1er episode, Isayama met en scène la caverne de Platon en nous lorsque le bataillon d'exploration, ce corps d'armée qui sors des murs pour découvrir la vérité,
+      rentre après une expédition hors des murs.
+
+      D'un côté, le peuple de la caverne de Platon, qui ne comprend plus ce bataillon et pourquoi ils sortent des murs.
+      De l'autre, Eren, et l'innocence et la fougue de l'enfant qui voit dans le bataillon le symbole de la liberté.
+
+      *Vidéo*
+
+      D'un point de vue matériel, il n'y a rien à gagner. 
+      Gouffre économique, les enfants vont mourir au combat.
+
+      Mais à travers les yeux d'Eren, on se questionne : La quête de la vérité n'est pas-elle supérieur à n'importe quelle bien matériel ?
+
+      *Step 3 - Les 3 Corps d'armée*
+
+      Plus tard, Eren s'engage dans l'armée et arrive le moment où lui est présenté les 3 corps d'armée : La garnison, pour garder les murs de Titans qui n'attaquent pas, La brigade spéciale, pour les meilleurs qui auront la gloire, proche du pouvoir. Ou le bataillon d'exploration, avec ses ailes vertes de la liberté, pour sortir des murs à la recherche de la vérité.
+      
+      *Vidéo*
+
+      Isayama nous propose de choisir : A leur place, choisirons nous le confort, la gloire ou la quête de la vérité.
+
+      `,
       blocks: [
-        { type: 'heading', data: { category: 'ALLÉGORIE PHILOSOPHIQUE', title: 'La Caverne de Platon', image: '/aot/wall3.jpg' } },
+        { type: 'heading', data: { category: 'LES 3 MURS', title: 'La Caverne de Platon', image: '/aot/wall3.jpg' } },
+
         {
           type: 'quote',
 
@@ -101,26 +152,15 @@ export const attackOnTitanPresentation: Presentation = {
           }
         },
         
-        { type: 'video',column: 'left', data: { video: { url: '/aot/video/S1E1_Retour_du_bataillon.mp4', title: 'S1E1 (Ep1) - Eren au retour du bataillon d\'exploration' } } },
+        { type: 'video',step : 1, column: 'left', data: { video: { url: '/aot/video/S1E1_Retour_du_bataillon.mp4', title: 'S1E1 (Ep1) - Eren au retour du bataillon d\'exploration' } } },
          {
           type: 'video',
-          step: 2,
+          step: 3,
           column: 'right',
           data: {
             
               video : {url: '/aot/video/S1E4_Trois_Corps_Armee.mp4', title: 'S1E4 (Ep4) - Fin de la sélection, 3 corps d\'armée' }
             
-          }
-        },
-        {
-          type: 'bullets',
-          column: "left",
-          step :1,
-          data: {
-            items: [
-              'Le bataillon représente les prisonniers qui sortent de la caverne',
-              'les habitants de Paradis préfèrent l\'ignorance confortable',
-            ]
           }
         },
         {
@@ -131,17 +171,7 @@ export const attackOnTitanPresentation: Presentation = {
             src: '/aot/corpsarmee.webp',
             alt: 'Les trois corps d\'armée'
           }
-        },
-        {
-          type: 'bullets',
-          column: "right",
-          step :2,
-          data: {
-            items: [
-              'A nous de choisir : Confort, Gloire ou Vérité ?',
-            ]
-          }
-        },
+        }
       ]
     },
    
@@ -233,6 +263,21 @@ export const attackOnTitanPresentation: Presentation = {
       id: 'erwin-philosophie',
       type: 'content',
       theme: 'green',
+      notes: `# Erwin Smith — Le Stoïcien
+
+## Contexte
+
+Erwin est le commandant du bataillon d'exploration. Il incarne le **stoïcisme** face à la mort.
+
+## Références philosophiques
+
+- **Marc Aurèle** : Pensées pour moi-même
+- Le concept de *memento mori* dans la philosophie stoïcienne
+- La transcendance par le sacrifice
+
+## À retenir
+
+Le discours d'Erwin est l'un des moments les plus marquants de l'anime. Laisser la vidéo parler d'elle-même avant de commenter.`,
       blocks: [
         { type: 'heading', data: { image : '/aot/erwin.jpg',category: 'STOÏCISME ET TRANSCENDANCE', title: 'Erwin Smith', subtitle: 'Le Stoïcien • Le Chef qui transcende la mort' } },
            {
@@ -269,107 +314,15 @@ export const attackOnTitanPresentation: Presentation = {
       ]
     },
 
-    // Slide 10: Section - Partie III
-    {
-      id: 'partie-3',
-      type: 'section',
-      theme: 'blue',
-      partNumber: 'III',
-      title: 'Partie III',
-      subtitle: 'Portrait : Eren, Jean',
-      backgroundImage: '/aot/jean.jpg'
-    },
-
-    // Slide 11: Bhagavad Gîta — Eren
-    {
-      id: 'bhagavad-gita-intro',
-      type: 'content',
-      theme: 'blue',
-      blocks: [
-        { type: 'heading', data: { image:'/aot/eren.jpeg',category: 'PORTRAIT • COMBAT INTERIEUR', title: 'Eren Jäger', subtitle: 'Quand l\'homme tombe à genoux' } },
-        {
-          type: 'text',
-          data: {
-            highlightedText: 'Dans la Bhagavad Gîta, Arjuna doit lancer le combat.',
-            content: " En voyant dans le camp ennemi ses amis et sa famille, il refuse de combattre et s'effondre."
-          }
-        },
-        {
-          type: 'quote',
-          data: {
-            text: '"Mon arc glisse de mes mains, ma peau brûle, je ne peux plus tenir debout, mon esprit vacille..."',
-            author: 'Arjuna — Bhagavad Gîta, Chant I'
-          }
-        },
-        { type: 'video', column: 'left', data: { video: { url: '/aot/video/s2e12_eren_combat_interieur.mp4', title: 'S2E12 (Ep37) — Eren et Mikasa, la Bhagavad Gîta' } } },
-         {
-          type: 'quote',
-           step : 1,
-          column: 'right',
-          data: {
-            text: '"Tu t\'apitoies là où il ne faut pas. Les sages ne pleurent ni les vivants ni les morts. Lève-toi, fils de Kuntî, et combats."',
-            author: 'Krishna à Arjuna,  Bhagavad Gîta, Chant II, v.11 & v.37'
-          }
-        },
-        {
-          type: 'bullets',
-          step: 1,
-          column : 'right',
-          data: {
-            items: [
-              'Qu\'est ce qui a changé chez Eren ?',
-            ]
-          }
-        },
-      ]
-    },
-
-    // Slide 12: Jean Kirschtein
-    {
-      id: 'jean',
-      type: 'content',
-      theme: 'blue',
-      blocks: [
-        { type: 'heading', data: {image:'/aot/jean.jpg', category: 'PORTRAIT • L\'HUMANITÉ', title: 'Jean Kirschtein', subtitle: 'L\'Homme Ordinaire qui agit extraordinairement' } },
-                { type: 'video', column: 'left', data: { video: { url: '/aot/video/s4e8_jean_sasha.mp4', title: 'S4E8 — Une guerre où des enfants tuent des hommes' } } },
-{
-          type: 'bullets',
-          column : 'left',
-          data: {
-            items: [
-              'Il rêvait de la tranquilité',
-              "La mort de Marco et l\'éveil de sa conscience",
-              'Celui qui écoute sa conscience plutôt que sa peur'
-            ]
-          }
-        },
-        {
-          type: 'section',
-          step: 1,
-          column : 'right',
-          data: {
-            title: 'Le meilleur de l\'humanité',
-          }
-        },
-        {
-          type: 'quote',
-          step: 1,
-          column: 'right',
-          data: {
-            author: 'Aristote — Éthique à Nicomaque',
-            text: '"C\'est en pratiquant les actions justes que nous devenons justes, les actions tempérantes que nous devenons tempérants, les actions courageuses que nous devenons courageux."',
-          }
-        }
-      ]
-    },
+    
 
     // Slide 13: Section - Partie IV
     {
-      id: 'partie-4',
+      id: 'partie-3',
       type: 'section',
       theme: 'red',
-      partNumber: 'IV',
-      title: 'Partie IV',
+      partNumber: 'III',
+      title: 'Partie III',
       subtitle: 'Gaby : Absurdité de la guerre',
       backgroundImage: '/aot/gaby.jpg'
     },
@@ -498,13 +451,16 @@ export const attackOnTitanPresentation: Presentation = {
       ]
     },
 
+
+   
+
     // Slide 16: Section - Partie V
     {
       id: 'partie-5',
       type: 'section',
       theme: 'blue',
-      partNumber: 'V',
-      title: 'Partie V',
+      partNumber: 'IV',
+      title: 'Partie IV',
       subtitle: "Les Leçons d'Isayama",
       backgroundImage: '/aot/putin.jpg'
     },
@@ -573,6 +529,45 @@ export const attackOnTitanPresentation: Presentation = {
         },
 
         
+      ]
+    },
+
+     // Slide 12: Jean Kirschtein
+    {
+      id: 'jean',
+      type: 'content',
+      theme: 'blue',
+      blocks: [
+        { type: 'heading', data: {image:'/aot/jean.jpg', category: 'PORTRAIT • L\'HUMANITÉ', title: 'Jean Kirschtein', subtitle: 'L\'Homme Ordinaire qui agit extraordinairement' } },
+        { type: 'video', column: 'left', data: { video: { url: '/aot/video/s4e8_jean_sasha.mp4', title: 'S4E8 — Une guerre où des enfants tuent des hommes' } } },
+{
+          type: 'bullets',
+          column : 'left',
+          data: {
+            items: [
+              'Il rêvait de la tranquilité',
+              "La mort de Marco et l\'éveil de sa conscience",
+              'Celui qui écoute sa conscience plutôt que sa peur'
+            ]
+          }
+        },
+        {
+          type: 'section',
+          step: 1,
+          column : 'right',
+          data: {
+            title: 'Le meilleur de l\'humanité',
+          }
+        },
+        {
+          type: 'quote',
+          step: 1,
+          column: 'right',
+          data: {
+            author: 'Aristote — Éthique à Nicomaque',
+            text: '"C\'est en pratiquant les actions justes que nous devenons justes, les actions tempérantes que nous devenons tempérants, les actions courageuses que nous devenons courageux."',
+          }
+        }
       ]
     },
 
