@@ -1,10 +1,12 @@
 import { attackOnTitanPresentation } from './attack-on-titan-presentation'
+import { attackOnTitanGuerrePresentation } from './attack-on-titan-guerre'
 import { vivreEnSocietePresentation } from './vivre-en-societe-presentation'
 import type { Presentation } from './types'
 
 // Registry of all presentations - add new presentations here
 export const presentations: Presentation[] = [
   attackOnTitanPresentation,
+  attackOnTitanGuerrePresentation,
   vivreEnSocietePresentation,
 ]
 

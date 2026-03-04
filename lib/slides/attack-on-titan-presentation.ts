@@ -4,7 +4,7 @@ export const attackOnTitanPresentation: Presentation = {
   id: 'attack-on-titan',
   title: "L'Attaque des Titans",
   author: "Ciné Philo",
-  description: "Liberté, conscience et absurdité de la guerre",
+  description: "Liberté, conscience et choix",
   coverImage: '/aot/attackontitanbg.jpg',
   createdAt: '2026-01-28',
   category: 'cine-philo',
@@ -38,7 +38,7 @@ Bienvenue dans cette présentation **Ciné Philo** sur l'Attaque des Titans.
       blocks: [
         { type: 'heading', data: { category: 'SYNOPSIS', title: "L'Attaque des Titans" , subtitle : 'L\'humanité ignorante, enfermée derrière trois murs.', image: '/aot/wall.jpg' } },
         { type: 'video', column: 'left', data: { video: { url: '/aot/video/s1e2_explication.mp4', title: 'S1E2 (Ep2) — L\'explication du monde' } } },
-       
+
          {
           type: 'bullets',
           column: "left",
@@ -51,7 +51,7 @@ Bienvenue dans cette présentation **Ciné Philo** sur l'Attaque des Titans.
             ]
           }
         },
-         
+
         { type: 'video', step : 2, column: 'right', data: { video: { url: '/aot/video/EP1_00_00.mp4', title: 'S1E1 (Ep1) — Début de l\'anime' } } },
        {
           type: 'bullets',
@@ -77,8 +77,8 @@ Bienvenue dans cette présentation **Ciné Philo** sur l'Attaque des Titans.
       items: [
         { partNumber: 'PARTIE I', title: 'La Caverne de Platon', image: '/aot/wall.webp' },
         { partNumber: 'PARTIE II', title: "L\'Aventure de la conscience", image: '/aot/expo.jpg' },
-        { partNumber: 'PARTIE III', title: 'L\'Absurdité de la guerre', image: '/aot/mywar.jpg' },
-        { partNumber: 'PARTIE IV', title: "Les Leçons d'Isayama", image: '/aot/putin.jpg' }
+        { partNumber: 'PARTIE III', title: 'Portrait : Jean', image: '/aot/jean.jpg' },
+        { partNumber: 'PARTIE IV', title: "Liberté du choix", image: '/aot/snkbg.webp' }
       ]
     },
 
@@ -114,7 +114,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
       notes: `
       *Platon disait : 'Imaginez ...' *
 
-      Pour Platon, nous vivons dans une caverne et nous prenons les murs pour la réalité. 
+      Pour Platon, nous vivons dans une caverne et nous prenons les murs pour la réalité.
       Le seul moyen de se libérer est de se défaire de ses chaines, de ses illusions et oser sortir de la caverne.
       Nos chaines sont le confort, la peur et les habitudes.
 
@@ -126,7 +126,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 
       *Vidéo*
 
-      D'un point de vue matériel, il n'y a rien à gagner. 
+      D'un point de vue matériel, il n'y a rien à gagner.
       Gouffre économique, les enfants vont mourir au combat.
 
       Mais à travers les yeux d'Eren, on se questionne : La quête de la vérité n'est pas-elle supérieur à n'importe quelle bien matériel ?
@@ -134,7 +134,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
       *Step 3 - Les 3 Corps d'armée*
 
       Plus tard, Eren s'engage dans l'armée et arrive le moment où lui est présenté les 3 corps d'armée : La garnison, pour garder les murs de Titans qui n'attaquent pas, La brigade spéciale, pour les meilleurs qui auront la gloire, proche du pouvoir. Ou le bataillon d'exploration, avec ses ailes vertes de la liberté, pour sortir des murs à la recherche de la vérité.
-      
+
       *Vidéo*
 
       Isayama nous propose de choisir : A leur place, choisirons nous le confort, la gloire ou la quête de la vérité.
@@ -152,16 +152,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
             author: "Platon, La République, Livre VII"
           }
         },
-        
+
         { type: 'video',step : 1, column: 'left', data: { video: { url: '/aot/video/S1E1_Retour_du_bataillon.mp4', title: 'S1E1 (Ep1) - Eren au retour du bataillon d\'exploration' } } },
          {
           type: 'video',
           step: 3,
           column: 'right',
           data: {
-            
+
               video : {url: '/aot/video/S1E4_Trois_Corps_Armee.mp4', title: 'S1E4 (Ep4) - Fin de la sélection, 3 corps d\'armée' }
-            
+
           }
         },
         {
@@ -175,7 +175,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
         }
       ]
     },
-   
+
  // Slide 6: Hannes
     {
       id: 'hannes',
@@ -215,7 +215,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
         },
       ]
     },
- 
+
 
     // Slide 7: Section - Partie II
     {
@@ -228,7 +228,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
       backgroundImage: '/aot/expo.jpg'
     },
 
-    // Slide 8: Le Bataillon d'Exploration (was two-column)
+    // Slide 8: Le Bataillon d'Exploration
     {
       id: 'bataillon',
       type: 'content',
@@ -311,277 +311,160 @@ Le discours d'Erwin est l'un des moments les plus marquants de l'anime. Laisser 
             ]
           }
         },
-       
+
       ]
     },
 
-    
-
-    // Slide 13: Section - Partie IV
+    // Slide 10: Section - Partie III (Jean)
     {
-      id: 'partie-3',
+      id: 'partie-3-jean',
       type: 'section',
-      theme: 'red',
+      theme: 'blue',
       partNumber: 'III',
       title: 'Partie III',
-      subtitle: 'Gaby : Absurdité de la guerre',
-      backgroundImage: '/aot/gaby.jpg'
+      subtitle: 'Portrait : Jean Kirschtein',
+      backgroundImage: '/aot/jean.jpg'
     },
 
-    // Slide 14: Gaby — Produit de la Propagande
+    // Slide 11: Jean — Le philosophe qui doute
     {
-      id: 'gaby-propagande',
+      id: 'jean-doute',
       type: 'content',
-      theme: 'red',
+      theme: 'blue',
       blocks: [
-        { type: 'heading', data: { category: 'LE CYCLE DE LA HAINE', title: 'Gaby Braun',image: '/aot/gaby.jpg', subtitle: 'Produit de la Propagande • Vision Binaire' } },
+        { type: 'heading', data: { category: 'PORTRAIT • LE PHILOSOPHE', title: 'Jean Kirschtein', subtitle: 'Celui qui doute, mais qui choisit et qui assume', image: '/aot/jean.jpg' } },
+        { type: 'video', column: 'left', data: { video: { url: '/aot/video/s4e8_jean_sasha.mp4', title: 'S4E8 — Une guerre où des enfants tuent des hommes' } } },
         {
-          type: 'video',
+          type: 'bullets',
           column: 'left',
           data: {
-            video: 
-              { url: '/aot/video/s4e2_gaby_tranchee.mp4', title: 'S4E1 (Ep60) — Gaby l\'enfant soldat' },
-            
+            items: [
+              'Il rêvait de tranquillité',
+              'La mort de Marco → éveil de conscience',
+              'La peur ne disparaît pas, mais il choisit quand même'
+            ]
           }
         },
         {
           type: 'quote',
-          step : 1,
-          data: {
-            text: '"Eradiquer tous ces maudits démons insulaires à cause de qui nous souffrons !"',
-            author: 'Gaby Braun — Avant sa déconstruction'
-          }
-        },
-          {
-          type: 'bullets',
-           column: 'left',
           step: 1,
+          column: 'right',
           data: {
-            items: [
-              'Séparativité et parti politique',
-            ]
+            text: '"Pour examiner la vérité, il est besoin, une fois en sa vie, de mettre toutes choses en doute autant qu\'on le peut."',
+            author: 'Descartes, Méditations'
           }
-        },
-        {
-          type: 'video',
-          step : 2,
-          column: 'left',
-          data: { video: { url: '/aot/video/s4e11_gaby_dogme.mp4', title: 'S4E10 (Ep70) — Début du voyage initiatique de la conscience' } }
         },
         {
           type: 'quote',
-          step : 3,
-           column : 'right',
+          step: 2,
+          column: 'right',
           data: {
-            text: '"Dure époque que celle où il est plus simple de désagréger un atome qu\'un préjugé."',
-            author: 'Einstein'
+            text: '"L\'existence précède l\'essence […] l\'homme n\'est rien d\'autre que ce qu\'il se fait."',
+            author: 'Sartre'
           }
         },
-         {
+        {
           type: 'bullets',
-          step: 3,
-          column : 'right',
+          step: 2,
+          column: 'right',
+          data: {
+            items: ['Jean ne naît pas héros, il le devient par ses choix']
+          }
+        },
+      ]
+    },
+
+    // Slide 12: Jean — Le choix assumé
+    {
+      id: 'jean-assume',
+      type: 'content',
+      theme: 'blue',
+      blocks: [
+        { type: 'heading', data: { category: 'VERTU ET RESPONSABILITÉ', title: 'Jean Kirschtein', subtitle: "L'action comme réponse au doute", image: '/aot/jean.jpg' } },
+        { type: 'section', data: { title: 'Le doute est le commencement de la sagesse' } },
+        {
+          type: 'quote',
+          column: 'left',
+          data: {
+            text: '"C\'est en pratiquant les actions justes que nous devenons justes […] les actions courageuses que nous devenons courageux."',
+            author: 'Aristote'
+          }
+        },
+        {
+          type: 'quote',
+          step: 1,
+          column: 'right',
+          data: {
+            text: '"Ou bien ou bien" : choisir c\'est renoncer et assumer.',
+            author: 'Kierkegaard — Le saut dans le choix'
+          }
+        },
+        {
+          type: 'icon-bullets',
+          step: 2,
           data: {
             items: [
-              "Le récit est supérieur au réel",
+              { icon: 'flame', title: 'Il doute', content: 'Comme Socrate, il remet en question' },
+              { icon: 'compass', title: 'Il choisit', content: 'Malgré la peur, il agit' },
+              { icon: 'heart', title: 'Il assume', content: 'La responsabilité comme chemin vers la vertu' }
             ]
           }
         },
+      ]
+    },
+
+    // Slide 13: Section - Partie IV (Liberté)
+    {
+      id: 'partie-4-liberte',
+      type: 'section',
+      theme: 'orange',
+      partNumber: 'IV',
+      title: 'Partie IV',
+      subtitle: 'Liberté du choix',
+      backgroundImage: '/aot/snkbg.webp'
+    },
+
+    // Slide 14: Liberté du choix — Les trois chemins
+    {
+      id: 'liberte-choix',
+      type: 'content',
+      theme: 'orange',
+      blocks: [
+        { type: 'heading', data: { category: 'LA PHILOSOPHIE EST UN CHOIX', title: 'Liberté du choix', subtitle: 'Hannes • Jean • Eren', image: '/aot/snkbg.webp' } },
+        {
+          type: 'quote',
+          data: {
+            text: '"L\'homme est condamné à être libre."',
+            author: 'Sartre'
+          }
+        },
+        { type: 'video', step: 1, column: 'left', data: { video: { url: '/aot/video/EP1_Hannes.mp4', title: 'Hannes : le confort comme prison' } } },
+        { type: 'section', step: 1, column: 'left', data: { title: 'Hannes — Dominé par son confort' } },
+        { type: 'video', step: 2, column: 'left', data: { video: { url: '/aot/video/s4e8_jean_sasha.mp4', title: 'Jean : l\'action malgré le doute' } } },
+        { type: 'section', step: 2, column: 'left', data: { title: 'Jean — La vertu par le choix' } },
+        { type: 'video', step: 3, column: 'right', data: { video: { url: '/aot/video/e87_eren_grand_terassement.mp4', title: 'S4 — Eren : quand la liberté devient tyrannie' } } },
+        { type: 'section', step: 3, column: 'right', data: { title: 'Eren — Dominé par sa colère' } },
         {
           type: 'bullets',
           step: 4,
-          column : 'right',
-          data: {
-            items: [
-              "Comment sortir de l'illusion ?",
-            ]
-          }
-        },
-        
-      ]
-    },
-
-    // Slide 15: Gaby — Déconstruite
-    {
-      id: 'gaby-deconstruite',
-      type: 'content',
-      theme: 'red',
-      blocks: [
-        { type: 'heading', data: { category: 'LA MAÏEUTIQUE', title: 'Gaby Braun', image : '/aot/kaya.jpg', subtitle: 'Le parcours initiatique • La Maïeutique de Kaya' } },
-        {
-          type: 'video',
-          column: 'left',
-          data: {
-            video: 
-              { url: '/aot/video/s4e11_gaby_kaya_socrate.mp4', title: 'S4E11 (Ep70) — La Maïeutique de Kaya' },
-            
-          }
-        },
-        { type: 'section',step:1, data: { title: 'La Maïeutique de Kaya', content: "\"Qu'est-ce que ma mère avait fait de mal ?\" "} },
-        {
-          type: 'bullets',
-          step: 2,
-          data: {
-            items: [
-              'De la certitude au doute : le premier pas vers la sagesse',
-              'Sortir de la caverne est difficile et long...'
-            ]
-          }
-        },
-        { type: 'video', column: 'left', step: 3, data: { video: { url: '/aot/video/s4e12_peresasha.mp4', title: 'S4E12 (Ep71) — Le père de Sasha, héros de l\'ombre' } } },
-        { type: 'video', column: 'left', step: 3, data: { video: { url: '/aot/video/e77_gaby_sagesse.mp4', title: 'S4E18 (Ep77) — Gaby sors de la caverne' } } },
-         {
-          type: 'quote',
-          step : 4,
-           column : 'right',
-          data: {
-            text: '"Il n\'y avait aucun démons sur cette île, rien que des gens normaux."',
-            author: 'Gaby, Ep77'
-          }
-        },
-        {
-          type: 'bullets',
-          step: 5,
-          column : 'right',
-          data: {
-            items: [
-              'l\'homme n\'apprend pas par le savoir, mais par le vécu'
-            ]
-          }
-        },
-      ]
-    },
-
-
-   
-
-    // Slide 16: Section - Partie V
-    {
-      id: 'partie-5',
-      type: 'section',
-      theme: 'blue',
-      partNumber: 'IV',
-      title: 'Partie IV',
-      subtitle: "Les Leçons d'Isayama",
-      backgroundImage: '/aot/putin.jpg'
-    },
-
-    // Slide 17: Les Leçons d'Isayama (was parallels)
-    {
-      id: 'lecons-isayama',
-      type: 'content',
-      theme: 'red',
-      blocks: [
-        { type: 'heading', data: { title: "Les Leçons d'Isayama", image :'/aot/mywarbg.PNG', subtitle: "Ce que l'Attaque des Titans nous enseigne" } },
-        {
-          type: 'quote',
-          step: 1,
-          column: 'left',
-          data: {
-            text: '"C\'est pour voler que les oiseaux déchirent leur coquilles, Et non pour ramper sur le sol sans aucune dignité. Alors, pour quelle raison possèdes-tu des ailes ?"',
-            author: 'Linked Horizon, Jiyuu no Tsubasa (Traduit du générique)'
-          }
-        },
-       
-        {
-          type: 'video',
-          step: 1,
-          column: 'left',
-          data: { video: { url: '/aot/video/opening2.mp4', title: ' Générique Saison 1 Op.2 - Les ailes de la liberté' } }
-        },
-         {
-          type: 'icon-bullets',
-          step: 2,
-          column: 'left',
-          data: {
-            items: [
-              { icon: 'flame', title: 'Allumer la flamme', content: 'Réveiller l\'idéaliste en nous qui cherche l\'aventure.' },
-            ]
-          }
-        },
-        
-        {
-          type: 'video',
-          column: 'right',
-          step : 3,
-          data: {
-            video: { url: '/aot/video/mywar.mp4', title: 'Générique saison finale — My War' },
-          }
-        },
-        
-        {
-          type: 'quote',
-           column: 'right',
-          step : 4,
-          data: {
-            text: '"Cette guerre, on ne savait pas pourquoi on la faisait. On se battait contre des gens comme nous."',
-            author: 'Lazare Ponticelli, dernier poilu français'
-          }
-        },
-        {
-          type: 'icon-bullets',
-           column: 'right',
-          step : 4,
-          data: {
-            items: [
-              { icon: 'zap', title: 'Danger de la séparativité', content: "Vision binaire, propagande, dogme." },
-            ]
-          }
-        },
-
-        
-      ]
-    },
-
-     // Slide 12: Jean Kirschtein
-    {
-      id: 'jean',
-      type: 'content',
-      theme: 'blue',
-      blocks: [
-        { type: 'heading', data: {image:'/aot/jean.jpg', category: 'PORTRAIT • L\'HUMANITÉ', title: 'Jean Kirschtein', subtitle: 'L\'Homme Ordinaire qui agit extraordinairement' } },
-        { type: 'video', column: 'left', data: { video: { url: '/aot/video/s4e8_jean_sasha.mp4', title: 'S4E8 — Une guerre où des enfants tuent des hommes' } } },
-{
-          type: 'bullets',
-          column : 'left',
-          data: {
-            items: [
-              'Il rêvait de la tranquilité',
-              "La mort de Marco et l\'éveil de sa conscience",
-              'Celui qui écoute sa conscience plutôt que sa peur'
-            ]
-          }
-        },
-        {
-          type: 'section',
-          step: 1,
-          column : 'right',
-          data: {
-            title: 'Le meilleur de l\'humanité',
-          }
-        },
-        {
-          type: 'quote',
-          step: 1,
           column: 'right',
           data: {
-            author: 'Aristote — Éthique à Nicomaque',
-            text: '"C\'est en pratiquant les actions justes que nous devenons justes, les actions tempérantes que nous devenons tempérants, les actions courageuses que nous devenons courageux."',
+            items: ['Veut-on choisir d\'être comme Hannes, Jean, ou Eren ?']
           }
-        }
+        },
       ]
     },
 
-    // Slide 18: Conclusion
+    // Slide 15: Conclusion
     {
       id: 'conclusion',
       type: 'content',
       theme: 'blue',
       blocks: [
-        { type: 'heading', data: { category: 'CONCLUSION', title: 'Qu\'est-ce que la Liberté ?', subtitle: 'Trois visions, trois chemins', image : '/aot/bataillon.jpg' } },
-        { step: 1, type: 'quote', data: { text: "« L'homme qui s'adonne à ses plaisirs devient moins libre que celui qui s'en restreint. »", author: 'Spinoza', image: { src: '/aot/hannes.jpg', alt: 'Hannes', size: 80 } } },
-        { step: 2, type: 'quote', data: { text: "« Je ne crois pas savoir ce que je ne sais point.  »", author: 'Socrate', image: { src: '/aot/gaby.jpg', alt: 'Gaby', size: 80 } } },
-        { step: 3, type: 'quote', data: { text: '« Être homme, c’est précisément être responsable. »', author: 'St Exupéry, Terre des hommes', image: { src: '/aot/jean.jpg', alt: 'Jean', size: 80 } } }
+        { type: 'heading', data: { category: 'CONCLUSION', title: 'La Philosophie est un choix', subtitle: 'Trois chemins, une liberté', image: '/aot/bataillon.jpg' } },
+        { step: 1, type: 'quote', data: { text: "« L'homme qui s'adonne à ses plaisirs devient moins libre... »", author: 'Spinoza', image: { src: '/aot/hannes.jpg', alt: 'Hannes', size: 80 } } },
+        { step: 2, type: 'quote', data: { text: '"C\'est en pratiquant les actions justes que nous devenons justes, les actions courageuses que nous devenons courageux."', author: 'Aristote', image: { src: '/aot/jean.jpg', alt: 'Jean', size: 80 } } },
+        { step: 3, type: 'quote', data: { text: '"Deviens ce que tu es."', author: 'Nietzsche', image: { src: '/aot/eren.jpeg', alt: 'Eren', size: 80 } } }
       ]
     }
   ]

@@ -12,6 +12,7 @@ export interface BaseSlide {
   type: string
   theme?: SlideTheme
   notes?: string
+  hidden?:boolean
 }
 
 // ========== Block data types ==========
