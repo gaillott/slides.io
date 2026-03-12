@@ -12,7 +12,15 @@
       "Bash(where:*)",
       "Bash(node:*)",
       "Bash(npm install:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Read(//c/Users/thoma/Desktop/Album photo 2025/**)",
+      "Read(//c/Users/thoma/Desktop/Album photo 2025//**)",
+      "Bash(find \"C:/Users/thoma/Desktop/Album photo 2025/\" -type f -name \"*.jpg\" -o -name \"*.jpeg\" -o -name \"*.png\" | sed 's/.*\\\\///' | sed 's/[_ ].*//' | sort | uniq -c | sort -rn | head -20)",
+      "Bash(ls \"C:/Users/thoma/Desktop/Album photo 2025/1. Découverte et préparation/\" | sed 's/_.*//' | sort -u && echo \"===\" && ls \"C:/Users/thoma/Desktop/Album photo 2025/2. Traversée/\" | sed 's/_.*//' | sort -u && echo \"===\" && ls \"C:/Users/thoma/Desktop/Album photo 2025/3. Retour dans la cité/\" | sed 's/_.*//' | sort -u)",
+      "Bash(FOLDER1=\"C:/Users/thoma/Desktop/Album photo 2025/1. Découverte et préparation\" FOLDER2=\"C:/Users/thoma/Desktop/Album photo 2025/2. Traversée\" FOLDER3=\"C:/Users/thoma/Desktop/Album photo 2025/3. Retour dans la cité\" echo \"=== Folder 1 count ===\")",
+      "Read(//c/Users/thoma/Desktop/slide/**)",
+      "Bash(cmd.exe /c \"mklink /J \\\\\"C:\\\\Users\\\\thoma\\\\Desktop\\\\slide\\\\public\\\\album\\\\\" \\\\\"C:\\\\Users\\\\thoma\\\\Desktop\\\\Album photo 2025\\\\\"\")",
+      "Bash(find /c/Users/thoma/Desktop/slide/public/album -name \"*.mp3\" 2>/dev/null | head -20; echo \"---\"; ls \"/c/Users/thoma/Desktop/slide/public/album/\" 2>/dev/null)"
     ]
   }
 }
