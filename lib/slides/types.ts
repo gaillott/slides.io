@@ -99,6 +99,7 @@ export interface SectionSlide extends BaseSlide {
   title: string
   subtitle: string
   backgroundImage?: string
+  audio?: string
 }
 
 export interface ContentSlide extends BaseSlide {
@@ -118,9 +119,36 @@ export interface PlanSlide extends BaseSlide {
   }[]
 }
 
-export type Slide = TitleSlide | SectionSlide | ContentSlide | PlanSlide
+// ========== Photo slide types ==========
 
-export type PresentationCategory = 'cine-philo' | 'conference'
+export interface PhotoSlide extends BaseSlide {
+  type: 'photo'
+  src: string
+  alt: string
+  caption?: string
+  anecdote?: string
+}
+
+export type PhotoGridLayout = 'row-2' | 'row-3' | 'col-2' | 'mosaic-3' | 'mosaic-4' | 'grid-4' | 'grid-6'
+
+export interface PhotoGridSlide extends BaseSlide {
+  type: 'photo-grid'
+  layout: PhotoGridLayout
+  photos: { src: string; alt: string; caption?: string; span?: number }[]
+  sectionTitle?: string
+}
+
+export interface PhotoTextSlide extends BaseSlide {
+  type: 'photo-text'
+  photo: { src: string; alt: string; position: 'left' | 'right' }
+  title?: string
+  text: string
+  highlight?: string
+}
+
+export type Slide = TitleSlide | SectionSlide | ContentSlide | PlanSlide | PhotoSlide | PhotoGridSlide | PhotoTextSlide
+
+export type PresentationCategory = 'cine-philo' | 'conference' | 'album-photo'
 
 export interface Presentation {
   id: string
@@ -135,6 +163,8 @@ export interface Presentation {
 
 /** Compute the max step number for a content slide's blocks */
 export function getMaxStep(slide: Slide): number {
-  if (slide.type !== 'content') return 0
-  return Math.max(0, ...slide.blocks.map(b => b.step ?? 0))
+  if (slide.type === 'content') {
+    return Math.max(0, ...slide.blocks.map(b => b.step ?? 0))
+  }
+  return 0
 }

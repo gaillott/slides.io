@@ -7,6 +7,9 @@ import type {
   SectionSlide,
   ContentSlide,
   PlanSlide,
+  PhotoSlide,
+  PhotoGridSlide,
+  PhotoTextSlide,
   ContentBlock,
   SlideTheme,
   SlideVideo
@@ -103,7 +106,7 @@ export function TitleSlideLayout({ slide }: { slide: TitleSlide }) {
   return (
     <div className="relative h-full w-full flex items-center justify-center overflow-hidden">
       {slide.backgroundImage && (
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${slide.backgroundImage})` }}>
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${encodeURI(slide.backgroundImage)})` }}>
           <div className="absolute inset-0 bg-slate-900/60" />
         </div>
       )}
@@ -121,21 +124,34 @@ export function TitleSlideLayout({ slide }: { slide: TitleSlide }) {
 export function SectionSlideLayout({ slide, allSections = [] }: { slide: SectionSlide; allSections?: { partNumber: string; subtitle: string }[] }) {
   const theme = getTheme(slide.theme)
   return (
-    <div className="relative h-full w-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {slide.backgroundImage && (
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${slide.backgroundImage})` }}>
-          <div className="absolute inset-0 bg-slate-900/85" />
+    <div className="relative h-full w-full flex items-end justify-start overflow-hidden">
+      {/* Background: image or elegant gradient */}
+      {slide.backgroundImage ? (
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${encodeURI(slide.backgroundImage)})` }}>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+        </div>
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+          <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-red-900/15 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-slate-700/20 rounded-full blur-[100px]" />
         </div>
       )}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-red-900/30 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-700/30 rounded-full blur-3xl" />
-      <div className="relative z-10 text-center">
-        <div className={`w-24 h-1 mx-auto mb-8 ${theme.primary.replace('text-', 'bg-')}`} />
-        <h2 className="text-5xl md:text-7xl font-bold text-white mb-4">{slide.title}</h2>
-        <p className="text-xl md:text-2xl text-slate-400">{slide.subtitle}</p>
-        <div className={`w-24 h-1 mx-auto mt-8 ${theme.primary.replace('text-', 'bg-')}`} />
+
+      {/* Content — cinematic bottom-left layout */}
+      <div className="relative z-10 w-full p-10 md:p-16">
+        {/* Part number */}
+        <p className={`text-sm md:text-base tracking-[0.3em] uppercase mb-4 ${theme.primary} font-semibold`}>
+          {slide.partNumber}
+        </p>
+        {/* Accent line */}
+        <div className={`w-16 h-1 mb-6 ${theme.primary.replace('text-', 'bg-')}`} />
+        {/* Title */}
+        <h2 className="text-5xl md:text-8xl font-bold text-white mb-4 leading-[0.95]">{slide.title}</h2>
+        {/* Subtitle */}
+        <p className="text-xl md:text-3xl text-white/70 font-light">{slide.subtitle}</p>
+
         {allSections.length > 0 && (
-          <div className="mt-12 space-y-2">
+          <div className="mt-10 space-y-2">
             {allSections.map((section, i) => {
               const isCurrent = section.partNumber === slide.partNumber
               return (
@@ -155,23 +171,21 @@ export function SectionSlideLayout({ slide, allSections = [] }: { slide: Section
 export function PlanSlideLayout({ slide }: { slide: PlanSlide }) {
   const theme = getTheme(slide.theme)
   return (
-    <div className="h-full w-full bg-slate-900 p-8 md:p-12 overflow-y-auto">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-10 text-center">
-          {slide.category && <p className={`text-sm tracking-[0.2em] uppercase mb-2 ${theme.primary}`}>{slide.category}</p>}
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">{slide.title}</h2>
-          {slide.subtitle && <p className="text-lg text-slate-400 max-w-3xl mx-auto">{slide.subtitle}</p>}
+    <div className="h-full w-full bg-slate-900 p-4 md:p-6 flex flex-col overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full flex flex-col flex-1 min-h-0">
+        <div className="mb-4 text-center shrink-0">
+          {slide.category && <p className={`text-xs tracking-[0.2em] uppercase mb-1 ${theme.primary}`}>{slide.category}</p>}
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{slide.title}</h2>
+          {slide.subtitle && <p className="text-sm text-slate-400 max-w-3xl mx-auto">{slide.subtitle}</p>}
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1 min-h-0">
           {slide.items.map((item, i) => (
             <div key={i} className="group relative overflow-hidden rounded-xl border border-slate-700 hover:border-slate-500 transition-all">
-              <div className="aspect-[3/4] overflow-hidden">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <p className={`text-xs font-bold ${theme.primary} mb-1`}>{item.partNumber}</p>
-                <h3 className="text-sm md:text-base font-semibold text-white leading-tight">{item.title}</h3>
+              <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <p className={`text-sm font-bold ${theme.primary} mb-1 tracking-wider`}>{item.partNumber}</p>
+                <h3 className="text-lg md:text-xl font-semibold text-white leading-tight">{item.title}</h3>
               </div>
             </div>
           ))}
@@ -334,6 +348,96 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
     default:
       return null
   }
+}
+
+// ========== PHOTO SLIDE (fullscreen) ==========
+export function PhotoSlideLayout({ slide }: { slide: PhotoSlide }) {
+  return (
+    <div className="relative h-full w-full bg-black flex items-center justify-center overflow-hidden">
+      <img
+        src={slide.src}
+        alt={slide.alt}
+        className="max-w-full max-h-full w-full h-full object-contain"
+        draggable={false}
+      />
+      {(slide.caption || slide.anecdote) && (
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pt-16 pb-6 px-8">
+          {slide.caption && (
+            <p className="text-amber-100/90 text-lg font-medium">{slide.caption}</p>
+          )}
+          {slide.anecdote && (
+            <p className="text-white/60 text-sm mt-1 italic">{slide.anecdote}</p>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ========== PHOTO GRID SLIDE (max 3 photos) ==========
+function getGridClasses(count: number): string {
+  switch (count) {
+    case 1: return 'grid grid-cols-1 gap-2'
+    case 2: return 'grid grid-cols-2 gap-2'
+    default: return 'grid grid-cols-3 gap-2'
+  }
+}
+
+export function PhotoGridSlideLayout({ slide }: { slide: PhotoGridSlide }) {
+  const photos = slide.photos.slice(0, 3)
+  return (
+    <div className="h-full w-full bg-black p-3 flex flex-col overflow-hidden">
+      {slide.sectionTitle && (
+        <p className="text-amber-100/90 text-base font-medium mb-2 px-2 py-1 shrink-0 bg-white/[0.06] rounded-md inline-block">{slide.sectionTitle}</p>
+      )}
+      <div className={`${getGridClasses(photos.length)} flex-1 min-h-0`}>
+        {photos.map((photo, i) => (
+          <div key={i} className="relative overflow-hidden rounded-lg">
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              className="w-full h-full object-cover"
+              draggable={false}
+            />
+            {photo.caption && (
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent pt-8 pb-2 px-3">
+                <p className="text-white/80 text-xs">{photo.caption}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+// ========== PHOTO TEXT SLIDE ==========
+export function PhotoTextSlideLayout({ slide }: { slide: PhotoTextSlide }) {
+  const isLeft = slide.photo.position === 'left'
+  return (
+    <div className={`h-full w-full bg-slate-950 flex ${isLeft ? 'flex-row' : 'flex-row-reverse'} overflow-hidden`}>
+      {/* Photo side — 60% */}
+      <div className="w-[60%] h-full relative shrink-0">
+        <img
+          src={slide.photo.src}
+          alt={slide.photo.alt}
+          className="w-full h-full object-cover"
+          draggable={false}
+        />
+        <div className={`absolute inset-0 bg-gradient-to-${isLeft ? 'r' : 'l'} from-transparent to-slate-950/40`} />
+      </div>
+      {/* Text side — 40% */}
+      <div className="w-[40%] h-full flex flex-col justify-center px-8 md:px-12">
+        {slide.title && (
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{slide.title}</h2>
+        )}
+        {slide.highlight && (
+          <p className="text-amber-400 text-sm tracking-wider uppercase mb-4">{slide.highlight}</p>
+        )}
+        <p className="text-slate-300 leading-relaxed text-base md:text-lg">{slide.text}</p>
+      </div>
+    </div>
+  )
 }
 
 // ========== CONTENT SLIDE ==========
