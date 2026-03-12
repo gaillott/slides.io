@@ -60,7 +60,7 @@ const slides: Slide[] = [
   // ==========================================
   // ACTE I — DÉCOUVERTE ET PRÉPARATION
   // ==========================================
-  section('act1', 'ACTE I', 'TOULOUSE', 'Découverte et préparation', 'orange', `${ACT1}/2_DECOUVERTE_garonne.jpg`),
+  section('act1', 'ACTE I', 'TOULOUSE', 'Découverte et préparation', 'orange', `${ACT1}/2_DECOUVERTE_garonne.jpg`, 'album/audio/1DEMENAGEMENT.mp3'),
 
   // --- Déménagement ---
   section('s1-demenagement', '1', 'Le Déménagement', 'Une nouvelle vie commence', 'orange',  `${ACT1}/1_DEMENAGEMENT.jpg`, 'album/audio/1DEMENAGEMENT.mp3'),
@@ -74,7 +74,7 @@ const slides: Slide[] = [
   ], 'Installation dans notre nouveau chez-nous'),
 
   // --- Découverte de Toulouse ---
-  section('s1-decouverte', '2', 'Découverte', 'Explorer Toulouse', 'orange',`${ACT1}/2_DECOUVERTE_capitole.jpg`),
+  section('s1-decouverte', '2', 'Découverte', 'Explorer Toulouse', 'orange',`${ACT1}/2_DECOUVERTE_capitole.jpg`, 'album/audio/2SECANTO.mp3'),
 
 
   grid('decouverte-garonne', [
@@ -101,7 +101,7 @@ const slides: Slide[] = [
   ], 'Paysages, brunchs et rugby'),
 
   // --- Manger ---
-  section('s1-manger', '3', 'Manger', 'Chez nous et au resto', 'orange', `${ACT1}/3_MANGER_cheznousetauresto_nous3drole.jpg`),
+  section('s1-manger', '3', 'Manger', 'Chez nous et au resto', 'orange', `${ACT1}/3_MANGER_cheznousetauresto_nous3drole.jpg`, 'album/audio/2SECANTO.mp3'),
 
    photoText('manger-drole', `${ACT1}/3_MANGER_cheznousetauresto_RAMEN.jpg`, 'Drôle', 'left',
     "Nous aimons manger. Et à Toulouse, on découvre de nouvelles saveurs qu'il faut absolument refaire à la maison !",
@@ -123,7 +123,7 @@ const slides: Slide[] = [
  
 
   // --- Découverte Albi ---
-  section('s1-albi', '4', 'Escapade', 'Alentours et petites escapades', 'orange',  `${ACT1}/4_DECOUVERTE_ALBY.jpg`),
+  section('s1-albi', '4', 'Escapade', 'Alentours et petites escapades', 'orange',  `${ACT1}/4_DECOUVERTE_ALBY.jpg`, 'album/audio/2SECANTO.mp3'),
 
   photo('albi-1', `${ACT1}/4_DECOUVERTE_ALBY.jpg`, 'Albi', 'Albi, la ville rouge'),
 
@@ -139,7 +139,7 @@ const slides: Slide[] = [
   ], 'Escapade et chateaux'),
 
   // --- Début philo ---
-  section('s1-philo', '5', 'Philosophie', 'Les premiers pas', 'orange',  `${ACT1}/5_DEBUT_PHILO2.jpg`),
+  section('s1-philo', '5', 'Philosophie', 'Les premiers pas', 'orange',  `${ACT1}/5_DEBUT_PHILO2.jpg`, 'album/audio/3ADVENTUREBEGIN.mp3'),
 
   photoText('philo-debut', `${ACT1}/5_DEBUT_PHILO.jpg`, 'debut philo', 'left',
     "C'est le début de l'aventure philosophique... Nous plongeons vers l'inconnu, ensemble à la recherche de la sagesse.",
@@ -159,7 +159,7 @@ const slides: Slide[] = [
     'ART', 'Concert de Benjamin'),
 
   // --- Famille & amis ---
-  section('s1-famille', '6', 'Garder le lien', 'Famille et amis', 'orange',`${ACT1}/6_FAMILLE_10Famille.jpg`),
+  section('s1-famille', '6', 'Garder le lien', 'Famille et amis', 'orange',`${ACT1}/6_FAMILLE_10Famille.jpg`, 'album/audio/3ADVENTUREBEGIN.mp3'),
 
 
 
@@ -167,7 +167,7 @@ const slides: Slide[] = [
     { src: `${ACT1}/6_FAMILLE_2Potes.jpg`, alt: 'Potes' },
     { src: `${ACT1}/6_FAMILLE_3Estelle.jpg`, alt: 'Estelle' },
     { src: `${ACT1}/6_FAMILLE_4Potes.jpeg`, alt: 'Potes 2' },
-  ], 'Les amis, toujours présents'),
+  ], 'Les amis viennent à Toulouse'),
 
   grid('famille-potes2', [
     { src: `${ACT1}/6_FAMILLE_5Potes.jpeg`, alt: 'Potes 3' },
@@ -177,11 +177,8 @@ const slides: Slide[] = [
 
   grid('famille-famille1', [
     { src: `${ACT1}/6_FAMILLE_9Famille.jpg`, alt: 'Famille' },
-     { src: `${ACT1}/6_FAMILLE_1Thomas.jpg`, alt: 'Famille' }
-  ], 'En famille'),
-
-
-  photo('famille-12', `${ACT1}/6_FAMILLE_12Famille.jpg`, 'Famille', 'La famille réunie'),
+     { src:  `${ACT1}/6_FAMILLE_12Famille.jpg`, alt: 'Famille' }
+  ], 'Nos familles découvrent eux aussi Toulouse. Au menu, Pizzas, restaus et visites'),
 
   // --- Drôle + Perseus ---
   photoText('drole', `${ACT1}/7_DROLE_Pendant ce temps estelle.jpg`, 'Pendant ce temps Estelle...', 'left',
@@ -193,7 +190,7 @@ const slides: Slide[] = [
   // ==========================================
   // ACTE II — LA TRAVERSÉE
   // ==========================================
-  section('act2', 'ACTE II', 'La Traversée', 'Épreuves et transformations', 'red',`${ACT2}/1_PERSEUS_1Une aventure commence.jpg`),
+  section('act2', 'ACTE II', 'La Traversée', 'Épreuves et transformations', 'red',`${ACT2}/1_PERSEUS_1Une aventure commence.jpg`, 'album/audio/4PERSEE.mp3'),
   
   // --- Drôle + Perseus ---
   photoText('perseus-1', `${ACT2}/1_PERSEUS_1Une aventure commence.jpg`, 'Pendant ce temps Estelle...', 'left',
@@ -211,21 +208,16 @@ const slides: Slide[] = [
   ], 'L\'initiation'),
 
   // --- Un bébé (pizza) ---
-  section('s2-bebe', '2', 'On a une annonce', 'Un Bébé ?', 'red'),
+  section('s2-bebe', '2', 'On a une annonce', 'Un Bébé ?', 'red', '','album/audio/5VOLARE.mp3'),
 
   photo('bebe-pizza', `${ACT2}/2_UN BEBE_Et non des pizzas.jpg`, 'Pizzas', 'Et non, des pizzas !'),
 
-  grid('bebe-grid1', [
-    { src: `${ACT2}/2_UN BEBE_Et non des pizzas (5).jpg`, alt: 'Pizzas' },
-    { src: `${ACT2}/2_UN BEBE_Et non des pizzas (6).jpg`, alt: 'Pizzas' },
-    { src: `${ACT2}/2_UN BEBE_Et non des pizzas (8).jpg`, alt: 'Pizzas' },
-  ], 'La production de pizzas bat son plein'),
 
   grid('bebe-grid2', [
     { src: `${ACT2}/2_UN BEBE_Et non des pizzas (9).jpg`, alt: 'Pizzas' },
     { src: `${ACT2}/2_UN BEBE_Et non des pizzas (10).jpg`, alt: 'Pizzas' },
     { src: `${ACT2}/2_UN BEBE_Et non des pizzas_Chef.jpg`, alt: 'Chef' },
-  ], 'Le chef en action'),
+  ], 'Une nouvelle passion'),
 
   grid('bebe-chef', [
     { src: `${ACT2}/2_UN BEBE_Et non des pizzas_Chef (2).jpg`, alt: 'Chef 2' },
@@ -234,7 +226,7 @@ const slides: Slide[] = [
   ], 'La relève est assurée'),
 
   // --- Académie ---
-  section('s2-academie', '3', 'Académie des arts', 'Arts et découverte', 'red', `${ACT2}/3_ACADEMIE_Arts et découverte Cour Pétral.jpg`),
+  section('s2-academie', '3', 'Académie des arts', 'Arts et découverte', 'red', `${ACT2}/3_ACADEMIE_Arts et découverte Cour Pétral.jpg`,'album/audio/6ART.mp3'),
 
 
   grid('academie-grid', [
@@ -253,7 +245,7 @@ const slides: Slide[] = [
   ], 'Des épreuves ...'),
 
   // --- Kraken ---
-  section('s2-kraken', '4', 'Le combat intérieur', 'Le Kraken', 'red',`${ACT2}/4_KRAKEN_ LE COMBAT INTERIEUR_1Team.jpg`),
+  section('s2-kraken', '4', 'Le combat intérieur', 'Le Kraken', 'red',`${ACT2}/4_KRAKEN_ LE COMBAT INTERIEUR_1Team.jpg`,'album/audio/7KRAKEN.mp3'),
 
   grid('kraken-team2', [
     { src: `${ACT2}/4_KRAKEN_ LE COMBAT INTERIEUR_1Team3.jpg`, alt: 'Team 3' },
@@ -294,7 +286,7 @@ const slides: Slide[] = [
   ], 'Le retour.. En vie '),
 
   // --- Voyage Van Trip ---
-  section('s2-voyage', '5', 'Le Voyage', 'Van Trip', 'red', `${ACT2}/5_VOYAGE_VANTRIP11_PaysBasque_de la vie qui déborde.jpg`),
+  section('s2-voyage', '5', 'Le Voyage', 'Van Trip', 'red', `${ACT2}/5_VOYAGE_VANTRIP11_PaysBasque_de la vie qui déborde.jpg`,'album/audio/8THESHIRE.mp3'),
 
 
   photoText('voyage-depart',`${ACT2}/5_VOYAGE_VANTRIP1_depart.jpg`, 'Van Trip', 'left',
@@ -405,14 +397,14 @@ const slides: Slide[] = [
   ], 'Quel beau voyage... '),
 
   // --- Académie voie héroïque ---
-  section('s2-academie2', '6', 'Académie', 'La voie héroïque', 'red', `${ACT2}/6_ACADEMIE_LA VOIE HEROIQUE.jpg`),
+  section('s2-academie2', '6', 'Académie', 'La voie héroïque', 'red', `${ACT2}/6_ACADEMIE_LA VOIE HEROIQUE.jpg`,'album/audio/9ACADEMIE.mp3'),
 
   photoText('voyage-deborde-trop',  `${ACT2}/6_ACADEMIE_LA VOIE HEROIQUE (2).jpg`, 'Voie héroïque', 'left',
     'A Nouvelle Acropole, on se retrouve tout les 6 mois pour suivre une formation philosophique. La première étape est la Voix Héroïque.',
     '1ère académie à la Cour Pétral', 'LA VOIE HEROIQUE'),
 
   // --- Été philosophique ---
-  section('s2-ete', '7', 'Un Été', 'Philosophique', 'red',`${ACT2}/7_UN ETE PHILOSOPHIQUE3_ Weekend Ecole encore des pratiques.jpg`),
+  section('s2-ete', '7', 'Un Été', 'Philosophique', 'red',`${ACT2}/7_UN ETE PHILOSOPHIQUE3_ Weekend Ecole encore des pratiques.jpg`,'album/audio/10ETE.mp3'),
 
    photoText('voyage-deborde-trop',  `${ACT2}/7_UN ETE PHILOSOPHIQUE_ Debut du chant.jpg`, 'Voie héroïque', 'left',
     'Estelle et Thomas découvrent qu\'ils peuvent chanter... Et que ça fait du bien !',
@@ -446,9 +438,12 @@ const slides: Slide[] = [
   ], 'Des liens qui se tissent'),
 
   // --- Camp volontariat ---
-  section('s2-camp', '8', 'Camp', 'Volontariat', 'red',`${ACT2}/8_CAMP VOLONTARIAT_0 LA vie du camp.jpg`),
+  section('s2-camp', '8', 'Volontariat', 'Le Camp Perséus', 'red',`${ACT2}/8_CAMP VOLONTARIAT_0 LA vie du camp.jpg`,'album/audio/11CAMP.mp3'),
 
-  photo('camp-vie', `${ACT2}/8_CAMP VOLONTARIAT_0 LA vie du camp.jpg`, 'La vie du camp', 'La vie du camp'),
+  photoText('voyage-deborde-trop',  `${ACT2}/8_CAMP VOLONTARIAT_0 LA vie du camp.jpg`, 'Voie héroïque', 'left',
+    '1 Semaine de volontariat. Des rires, des pleurs, de la vie en équipe.',
+    'CAMP PERSEUS', 'Camp de volontariat - 7 jours'),
+
 
   grid('camp-estelle1', [
     { src: `${ACT2}/8_CAMP VOLONTARIAT_1Estelle.jpg`, alt: 'Estelle' },
@@ -482,7 +477,7 @@ const slides: Slide[] = [
   ], 'No Comment'),
 
   // --- Une annonce ---
-  section('s2-annonce', '9', '', 'Une Annonce', 'red'),
+  section('s2-annonce', '9', '', 'Une Annonce', 'red','','album/audio/12PIZZA.mp3'),
 
   grid('annonce', [
     { src: `${ACT2}/9_UNE ANNONCE_Encore des pizzas.jpg`, alt: 'Annonce' },
@@ -492,10 +487,10 @@ const slides: Slide[] = [
   // ==========================================
   // ACTE III — RETOUR DANS LA CITÉ
   // ==========================================
-  section('act3', 'ACTE III', 'Retour', 'Dans la cité', 'green',`${ACT3}/1_Retour a toulouse.jpg`),
+  section('act3', 'ACTE III', 'Retour', 'Dans la cité', 'green',`${ACT3}/1_Retour a toulouse.jpg`,'album/audio/13RETOUR.mp3'),
 
   // --- Retour famille ---
-  section('s3-famille', '0', 'Retour', 'Dans la famille', 'green',`${ACT3}/0_Retour dans la famille.jpg`),
+  section('s3-famille', '0', 'Retour', 'Dans la famille', 'green',`${ACT3}/0_Retour dans la famille.jpg`,'album/audio/13RETOUR.mp3'),
 
 
   grid('retour-famille-g1', [
@@ -521,7 +516,7 @@ const slides: Slide[] = [
   ], 'Ensemble, tout simplement'),
 
   // --- Retour à Toulouse ---
-  section('s3-toulouse', '1', 'Retour', 'À Toulouse', 'green', `${ACT3}/1_Retour a toulouse.jpg`),
+  section('s3-toulouse', '1', 'Retour', 'À Toulouse', 'green', `${ACT3}/1_Retour a toulouse.jpg`,'album/audio/13RETOUR.mp3'),
 
   photo('toulouse-magnifique', `${ACT3}/1_Retour a toulouse magnifique.jpg`, 'Toulouse magnifique', 'Toulouse, magnifique'),
 
@@ -537,7 +532,7 @@ const slides: Slide[] = [
   ], 'Visite de Paola'),
 
   // --- Partage des mondes ---
-  section('s3-partage', '2', 'Retour', 'Des pizzas à l\'école', 'green'),
+  section('s3-partage', '2', 'Retour', 'Des pizzas à l\'école', 'green','','album/audio/13RETOUR.mp3'),
 
   grid('partage-mondes', [
     { src: `${ACT3}/2_PARTAGE DES MONDES.jpg`, alt: 'Partage des mondes' },
@@ -545,7 +540,7 @@ const slides: Slide[] = [
   ], 'Quand la philo rencontre la pizza'),
 
   // --- Volontariat dans la cité ---
-  section('s3-volontariat', '3', 'Retour ', 'Volontariat dans la cité', 'green', `${ACT3}/3_VOLONTARIAT DANS LA CITE.jpg`),
+  section('s3-volontariat', '3', 'Retour ', 'Volontariat dans la cité', 'green', `${ACT3}/3_VOLONTARIAT DANS LA CITE.jpg`,'album/audio/13RETOUR.mp3'),
 
 
   grid('volontariat-g1', [
@@ -564,7 +559,7 @@ const slides: Slide[] = [
   ], 'Le futur à construire !!'),
 
   // --- Café associatif ---
-  section('s3-cafe', '4', 'Nouvelle aventure', 'Le café associatif', 'green',`${ACT3}/4_Nouvelle aventure Tenir un cafe associatif.jpg`),
+  section('s3-cafe', '4', 'Nouvelle aventure', 'Le café associatif', 'green',`${ACT3}/4_Nouvelle aventure Tenir un cafe associatif.jpg`,'album/audio/14NEW.mp3'),
 
 
   grid('cafe-g1', [
@@ -597,7 +592,7 @@ const slides: Slide[] = [
   ], 'On aime toujours faire à manger et manger !'),
 
   // --- Académie d'automne ---
-  section('s3-thesee', '5', 'Académie', 'D\'automne — Thésée', 'green', `${ACT3}/5_ACADEMIE D'AUTOMNE - THESEE.jpg`),
+  section('s3-thesee', '5', 'Académie', 'D\'automne — Thésée', 'green', `${ACT3}/5_ACADEMIE D'AUTOMNE-THESEE.jpg`,'album/audio/14NEW.mp3'),
 
 
       photoText('acaddemie1', `${ACT3}/5_ACADEMIE D'AUTOMNE - THESEE (2).jpg`, 'Première Académie à Bordeaux', 'left',
@@ -606,7 +601,7 @@ const slides: Slide[] = [
     'THESEE'),
 
   // --- Des crises ---
-  section('s3-crises', '6', 'Des Crises', 'Les épreuves continuent', 'green',  `${ACT3}/6_DES CRISES.jpg`),
+  section('s3-crises', '6', 'Des Crises', 'Les épreuves continuent', 'green',  `${ACT3}/6_DES CRISES.jpg`,'album/audio/14NEW.mp3'),
 
   // Video slide for the MP4
   {
@@ -627,7 +622,7 @@ const slides: Slide[] = [
   },
 
   // --- Bonus ---
-  section('s3-bonus', '7', 'Bonus', 'Les coulisses', 'green', `${ACT3}/7_BONUS_5.jpg`),
+  section('s3-bonus', '7', 'Bonus', 'Les coulisses', 'green', `${ACT3}/7_BONUS_5.jpg`,'album/audio/14NEW.mp3'),
 
 
   grid('bonus-g1', [
