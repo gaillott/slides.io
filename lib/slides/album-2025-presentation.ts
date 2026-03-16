@@ -65,7 +65,7 @@ const slides: Slide[] = [
   // --- Déménagement ---
   section('s1-demenagement', '1', 'Le Déménagement', 'Une nouvelle vie commence', 'orange',  `${ACT1}/1_DEMENAGEMENT.jpg`, 'album/audio/1DEMENAGEMENT.mp3'),
 
-  photo('demenagement-1', `${ACT1}/1_DEMENAGEMENT.jpg`, 'Déménagement', 'Le grand départ ! (Non ce n\'est pas Estelle s\'est prise le portail au bout de 5 minutes de location)'),
+  photo('demenagement-1', `${ACT1}/1_DEMENAGEMENT.jpg`, 'Déménagement', 'Le grand départ ! Heureusement, nous avons pris l\'assurance 5 minutes avant le pépin ...'),
 
   grid('demenagement-grid', [
     { src: `${ACT1}/1_DEMENAGEMENT2.jpg`, alt: 'Déménagement' },
@@ -78,14 +78,12 @@ const slides: Slide[] = [
 
 
   grid('decouverte-garonne', [
-    { src: `${ACT1}/2_DECOUVERTE_garonne.jpg`, alt: 'La Garonne' },
     { src: `${ACT1}/2_DECOUVERTE_pont.jpg`, alt: 'Le pont' },
     { src: `${ACT1}/2_DECOUVERTE_vue_garonne.jpg`, alt: 'Vue Garonne' },
   ], 'La Garonne et ses ponts'),
 
   grid('decouverte-vues', [
     { src: `${ACT1}/2_DECOUVERTE_vue_favorie.jpg`, alt: 'Vue favorite' },
-    { src: `${ACT1}/2_DECOUVERTE_vue_garonne (2).jpg`, alt: 'Vue Garonne 2' },
     { src: `${ACT1}/2_DECOUVERTE_vue_garonne (3).jpg`, alt: 'Vue Garonne 3' },
   ], 'Nos vues favorites sur la ville'),
 
@@ -165,24 +163,22 @@ const slides: Slide[] = [
 
   grid('famille-potes1', [
     { src: `${ACT1}/6_FAMILLE_2Potes.jpg`, alt: 'Potes' },
-    { src: `${ACT1}/6_FAMILLE_3Estelle.jpg`, alt: 'Estelle' },
-    { src: `${ACT1}/6_FAMILLE_4Potes.jpeg`, alt: 'Potes 2' },
+    { src: `${ACT1}/6_FAMILLE_5Potes.jpeg`, alt: 'Potes 3' },
   ], 'Les amis viennent à Toulouse'),
 
   grid('famille-potes2', [
-    { src: `${ACT1}/6_FAMILLE_5Potes.jpeg`, alt: 'Potes 3' },
     { src: `${ACT1}/6_FAMILLE_6Potes.jpeg`, alt: 'Potes 4' },
     { src: `${ACT1}/6_FAMILLE_8Potes.jpg`, alt: 'Potes 5' },
   ], 'Des moments de joie ensemble'),
 
   grid('famille-famille1', [
     { src: `${ACT1}/6_FAMILLE_9Famille.jpg`, alt: 'Famille' },
-     { src:  `${ACT1}/6_FAMILLE_12Famille.jpg`, alt: 'Famille' }
+     { src:  `${ACT1}/6_FAMILLE_12Famille.jpg`, alt: 'Famille' },
   ], 'Nos familles découvrent eux aussi Toulouse. Au menu, Pizzas, restaus et visites'),
 
   // --- Drôle + Perseus ---
   photoText('drole', `${ACT1}/7_DROLE_Pendant ce temps estelle.jpg`, 'Pendant ce temps Estelle...', 'left',
-    'Pendant ce temps, Estelle vit sa meilleure vie.',
+    '.',
     'Pendant ce temps...', 'INTERLUDE'),
 
   photo('perseus-prep', `${ACT1}/8_PERSEUS_Affronte_tes_peurs.jpg`, 'Quelque chose de sombre est sur le chemin', 'Une sensation étrange se fait pourtant ressentir ...', 'Perseuuuuuuuuuuuus ...'),
@@ -208,9 +204,9 @@ const slides: Slide[] = [
   ], 'L\'initiation'),
 
   // --- Un bébé (pizza) ---
-  section('s2-bebe', '2', 'On a une annonce', 'Un Bébé ?', 'red', '','album/audio/5VOLARE.mp3'),
+  section('s2-bebe', '2', 'On a une annonce', '30 ans bientôt... C\'est l\'heure ...', 'red', '','album/audio/5VOLARE.mp3'),
 
-  photo('bebe-pizza', `${ACT2}/2_UN BEBE_Et non des pizzas.jpg`, 'Pizzas', 'Et non, des pizzas !'),
+  photo('bebe-pizza', `${ACT2}/2_UN BEBE_Et non des pizzas.jpg`, 'Pizzas', 'Des pizzas !'),
 
 
   grid('bebe-grid2', [
@@ -448,33 +444,32 @@ const slides: Slide[] = [
   grid('camp-estelle1', [
     { src: `${ACT2}/8_CAMP VOLONTARIAT_1Estelle.jpg`, alt: 'Estelle' },
     { src: `${ACT2}/8_CAMP VOLONTARIAT_1Estelle (2).jpg`, alt: 'Estelle' },
-    { src: `${ACT2}/8_CAMP VOLONTARIAT_1Estelle (3).jpg`, alt: 'Estelle' },
   ], 'Estelle au camp'),
 
   grid('camp-estelle2', [
     { src: `${ACT2}/8_CAMP VOLONTARIAT_1Estelle (5).jpg`, alt: 'Estelle' },
     { src: `${ACT2}/8_CAMP VOLONTARIAT_1Estelle (7).jpg`, alt: 'Estelle' },
-  ], 'Estelle en pleine action'),
+  ], 'Estelle : Projet Mare aux paons'),
 
   grid('camp-thomas', [
     { src: `${ACT2}/8_CAMP VOLONTARIAT_2Thomas.jpg`, alt: 'Thomas' },
     { src: `${ACT2}/8_CAMP VOLONTARIAT_2Thomas groupe.jpg`, alt: 'Thomas groupe' },
-  ], 'Thomas et le volontariat à la ferme'),
+  ], 'Thomas et le projet isolation terre-paille'),
 
 
 
    photoText('encoreunkraken',  `${ACT2}/8_CAMP VOLONTARIAT_3 ENCORE UN KRAKEN ....jpg`, 'Voie héroïque', 'left',
     'Nouveau Kraken, nouveaux défis à affronter',
-    'KRAKEN. 2', 'secourisme dans une ville abandonnée'),
+    'KRAKEN, le Retour', 'secourisme dans une ville abandonnée'),
 
      photoText('encoreunkraken',  `${ACT2}/8_CAMP VOLONTARIAT_4 Groupe philosophique engagé.jpg`, 'Voie héroïque', 'left',
-    'Des jeunes volontaires qui travaillent, rient, pleurent et vivent pour bâtir le meilleur...  En eux et dans la cité.',
+    'Des jeunes volontaires qui travaillent, rient, pleurent et vivent pour bâtir le meilleur...  A l\'intérieur comme à l\'extérieur.',
     'Le Camp Perseus', '7 jours - 80 participants - rires, pleurs et fraternité'),
 
   grid('camp-fin2', [
     { src: `${ACT2}/8_CAMP VOLONTARIAT_5 Inexplicable.jpg`, alt: 'Inexplicable' },
     { src: `${ACT2}/8_CAMP VOLONTARIAT_5 Inexplicable (2).jpg`, alt: 'Inexplicable 2' },
-  ], 'No Comment'),
+  ], '*-*'),
 
   // --- Une annonce ---
   section('s2-annonce', '9', '', 'Une Annonce', 'red','','album/audio/12PIZZA.mp3'),
@@ -600,44 +595,39 @@ const slides: Slide[] = [
     'Deuxième Académie à la Cour Pétral', 
     'THESEE'),
 
-  // --- Des crises ---
-  section('s3-crises', '6', 'Des Crises', 'Les épreuves continuent', 'green',  `${ACT3}/6_DES CRISES.jpg`,'album/audio/14NEW.mp3'),
-
-  // Video slide for the MP4
-  {
-    id: 'crises-video',
-    type: 'content',
-    theme: 'green',
-    blocks: [
-      {
-        type: 'video',
-        data: {
-          video: {
-            url: `${ACT3}/6_DES CRISES.mp4`,
-            title: 'Pardon mon amoureuse',
-          },
-        },
-      },
-    ],
-  },
-
   // --- Bonus ---
-  section('s3-bonus', '7', 'Bonus', 'Les coulisses', 'green', `${ACT3}/7_BONUS_5.jpg`,'album/audio/14NEW.mp3'),
+  section('s3-bonus', '6', 'Bonus', 'Les coulisses', 'green', `${ACT3}/7_BONUS_5.jpg`,'album/audio/14NEW.mp3'),
+
+
+grid('bonus-g1', [
+    { src: `${ACT3}/7_BONUS (2).jpg`, alt: 'Bonus' },
+     { src: `${ACT3}/6_DES CRISES.jpg`, alt: 'Bonus' },
+  ], 'BONUS'),
 
 
   grid('bonus-g1', [
     { src: `${ACT3}/7_BONUS (1).jpg`, alt: 'Bonus' },
-    { src: `${ACT3}/7_BONUS (3).jpg`, alt: 'Bonus' },
      { src: `${ACT3}/7_BONUS (4).jpg`, alt: 'Bonus' },
-  ], 'Les coulisses de notre année'),
-
-
+  ], 'BONUS'),
 
   grid('bonus-g3', [
-    { src: `${ACT3}/7_BONUS (2).jpg`, alt: 'Bonus' },
     { src: `${ACT3}/7_BONUS (7).jpg`, alt: 'Bonus' },
     { src: `${ACT3}/7_BONUS (6).jpg`, alt: 'Bonus' },
-  ], 'Et quelques derniers sourires'),
+  ], 'BONUS'),
+
+    grid('bonus-g4', [
+    { src: `${ACT3}/7_BONUS22 (2).jpg`, alt: 'Bonus' },
+    { src: `${ACT3}/7_BONUS22.jpg`, alt: 'Bonus' },
+   
+    
+  ], 'BONUS'),
+  grid('bonus-g4', [
+    { src:  `${ACT3}/7_BONUS_5.jpg`, alt: 'Bonus' },
+ { src: `${ACT3}/7_BONUS22 (4).jpg`, alt: 'Bonus' },
+  ], 'BONUS'),
+   grid('bonus-g4', [
+    { src: `${ACT3}/7_BONUS22 (5).jpg`, alt: 'Bonus' },
+  ], 'BONUS'),
 
   // ==========================================
   // FIN
@@ -645,7 +635,7 @@ const slides: Slide[] = [
   {
     id: 'album-fin',
     type: 'title',
-    category: '2025',
+    category: 'en route pour 2026',
     title: 'Merci',
     subtitle: 'Pour cette année incroyable',
     description: 'L\'aventure continue...',
