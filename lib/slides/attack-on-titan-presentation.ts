@@ -15,19 +15,44 @@ export const attackOnTitanPresentation: Presentation = {
       type: 'title',
       theme: 'red',
       category: 'CINÉ PHILO',
-      title: "L'Attaque des Titans",
-      subtitle: 'Liberté, conscience et absurdité de la guerre',
+      title: "L'Attaque des Titans ",
+      subtitle: 'Liberté et aventure de la conscience (Saison 1 et 2)',
       description: "Une exploration philosophique du chef d'œuvre d'Hajime Isayama",
       backgroundImage: '/aot/attackontitanbg.jpg',
-      notes: `# Introduction
+      notes: `
+Bonjour à tous,
+Merci d'être présent ce soir pour ce ciné-philo sur l'attaque des Titans, qui est un manga japonais qui personnellement, m'a profondément touché tant il dépeint des personnages humains et profond, et des sociétés, politiques et religions qui est frappante tant elle ressemble à nos sociétés.
 
-Bienvenue dans cette présentation **Ciné Philo** sur l'Attaque des Titans.
+Pour ceux qui n'ont jamais vu de manga, on pourrait s'attendre à quelque chose d'enfantin et fantastique, dénué de messages et seulement là le divertisssement.
+Si on lit le synopsis d'ailleurs, 
+* " Témoin du massacre de sa ville natale, le jeune Eren Yeager décide de prendre sa revanche et de tuer les géants qui menacent d'exterminer l'humanité. " *
+je comprend que l'on ait du mal à entrevoir quelconque finesse ou message.
 
-- Présenter le concept de Ciné Philo
-- Expliquer pourquoi cette œuvre est pertinente pour la philosophie
-- Mentionner les thèmes clés : **liberté**, **conscience**, **guerre**
+Et je vous propose donc de vous laisser surprendre...
 
-*Laisser le temps aux participants de s'installer avant de commencer.*`,
+### Pourquoi un ciné-philo ?
+Le cinéma est pour moi un art qui permet de vivre et de partager une expérience commune, sans mentalliser, le vécu est direct. Et la philosophie est ce qui permet de comprendre un vécu, et d'en tirer des apprentissages.
+
+Encore faut-il que l'oeuvre ait un message philosophique et ne soit pas seulement un oeuvre commerciale pour divertir.
+
+Personnellement, j'ai d'abord été touché par des personnages et une histoire qui m'a transporté dans une aventure puissante.
+Ensuite, est venue la philosophie qui m'a permis de mettre des mots sur ce que j'avais vécu.
+
+
+Ce ciné-philo a pour objectif de faire le pont entre mes deux vécu : le premier visionnage, qui comme pour certains vont découvir l'oeuvre à travers les extraits,
+et mon second visionnage où j'ai essayé de comprendre à l'aide de la philosophie, ce qui m'avait touché la première fois.
+
+
+### Avant d'aller plus loin ...
+Je m'appelle Thomas,
+J'ai 29 ans, je suis développeur informatique dans la vie, mais ici, je fais partie de l'école de philosophie Nouvelle Acropole.
+
+Et pour moi, Nouvelle Acropole, c'est une école qui met l'accent sur ce qui est vraiment important : "Avoir confiance en soi". Car lorsque l'on a confiance en soi, on reprend le chemin vers ses rêves et on arrête de se plaindre.
+
+C'est pour cela que ce soir, en ne me sentant absolument pas prêt pour cet exercice, je suis présent, et je remercie N.A. de m'avoir donné cette opportunité.
+
+### Bienvenue dans ce ciné-philo sur l'attaque des titans.
+`,
     },
 
     // Slide 2: Synopsis
