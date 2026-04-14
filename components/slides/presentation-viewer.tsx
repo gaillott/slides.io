@@ -15,6 +15,7 @@ import {
   PhotoGridSlideLayout,
   PhotoTextSlideLayout
 } from './slide-layouts'
+import { cn } from '@/lib/utils'
 
 function renderMarkdown(md: string): string {
   return md
@@ -136,7 +137,7 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
     }
     return 0
   }, [searchParams, totalSlides])
-
+  const [tocOpen ,setTocOpen] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(getInitialSlide)
   const [currentStep, setCurrentStep] = useState(0)
   const [showHelp, setShowHelp] = useState(false)
@@ -463,7 +464,13 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
           const tocItems = buildTOC(presentation.slides)
           const currentIdx = getCurrentTOCIndex(tocItems, currentSlide)
           return (
-            <div className="hidden md:flex w-56 shrink-0 bg-slate-950/90 border-r border-white/[0.06] flex-col overflow-hidden z-20">
+            <>
+            <button className="text-slate-500 w-2" onClick={() => setTocOpen(!tocOpen)}>
+              {tocOpen ?  <ChevronRight className='size-3' /> : <ChevronLeft  className='size-3' />}
+            </button>
+            <div className={cn("hidden md:flex w-56 shrink-0 bg-slate-950/90 border-r border-white/[0.06] flex-col overflow-hidden z-20",
+              !!tocOpen && 'hidden w-0'
+            )}>
               <div className="flex-1 overflow-y-auto py-1 scrollbar-hide">
                 {tocItems.map((entry, i) => {
                   const isCurrent = i === currentIdx
@@ -484,6 +491,7 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
                 })}
               </div>
             </div>
+            </>
           )
         })()}
 
