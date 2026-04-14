@@ -137,3 +137,54 @@
 .animate-fade-in {
   animation: fade-in 0.4s ease-out;
 }
+
+/* ---------------------------------------------------------------- */
+/* Constellation module theme — warm cream / amber palette          */
+/* Scoped to .theme-constellation so the slides dark theme is safe. */
+/* ---------------------------------------------------------------- */
+.theme-constellation {
+  --c-bg: #fdfbf7;
+  --c-ink: #2c2c2c;
+  --c-warm: #c4834b;
+  --c-light-warm: #e8d5bf;
+  --c-soft-gray: #d0ccc6;
+  --c-faint: #ebe7e0;
+  --c-noyau: #fff8f0;
+  --c-manas: #7b5ea7;
+  --c-kama: #c4834b;
+  --c-vecu-border: #8b6e4e;
+  --c-vecu-bg: #f5ede3;
+  --c-reference-border: #5b7a6e;
+  --c-reference-bg: #e8f0eb;
+  --c-friction-border: #9e4a4a;
+  --c-friction-bg: #f5e6e6;
+  color: var(--c-ink);
+  background-color: var(--c-bg);
+}
+
+.theme-constellation ::selection {
+  background: #e8d5bf;
+  color: #2c2c2c;
+}
+
+.theme-constellation .font-serif,
+.theme-constellation h1,
+.theme-constellation h2,
+.theme-constellation h3 {
+  font-family: var(--font-serif-constellation), ui-serif, Georgia, serif;
+  font-feature-settings: "ss01", "ss02";
+}
+
+/* Soft pulse used on the noyau */
+@keyframes noyau-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.animate-noyau-pulse {
+  animation: noyau-pulse 3s ease-in-out infinite;
+}

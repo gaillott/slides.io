@@ -1,88 +1,134 @@
-'use client'
+"use client"
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { getAllPresentations } from '@/lib/slides/presentations'
-import { BookOpen, Film, Camera, ArrowRight } from 'lucide-react'
+import { useEffect, useState } from "react"
+import { Presentation } from "lucide-react"
+
+import { getAllPresentations } from "@/lib/slides/presentations"
+import { useConstellationStore } from "@/lib/constellation/store"
+import { ModuleCard } from "@/components/home/ModuleCard"
+
+function ConstellationGlyph() {
+  // 5 satellites + a noyau, linked by hairlines
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      className="w-8 h-8 text-[#E8D5BF]"
+      aria-hidden="true"
+    >
+      <g stroke="currentColor" strokeWidth="1" opacity="0.5">
+        <line x1="24" y1="24" x2="24" y2="6" />
+        <line x1="24" y1="24" x2="41" y2="17" />
+        <line x1="24" y1="24" x2="36" y2="40" />
+        <line x1="24" y1="24" x2="12" y2="40" />
+        <line x1="24" y1="24" x2="7" y2="17" />
+      </g>
+      <g fill="currentColor">
+        <circle cx="24" cy="6" r="2.2" />
+        <circle cx="41" cy="17" r="2.2" />
+        <circle cx="36" cy="40" r="2.2" />
+        <circle cx="12" cy="40" r="2.2" />
+        <circle cx="7" cy="17" r="2.2" />
+      </g>
+      <circle
+        cx="24"
+        cy="24"
+        r="4"
+        fill="#C4834B"
+        stroke="#FFF8F0"
+        strokeWidth="1.5"
+      />
+    </svg>
+  )
+}
 
 export default function Home() {
-  const presentations = getAllPresentations()
   const [mounted, setMounted] = useState(false)
+  const presentations = getAllPresentations()
+  const hydrated = useConstellationStore((s) => s.hydrated)
+  const constellationCount = useConstellationStore(
+    (s) => s.constellations.length
+  )
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  return (
-    <div className="min-h-[100dvh] bg-slate-900 flex flex-col items-center justify-center px-6 overflow-hidden">
-      {/* Subtle background grain */}
-      <div className="fixed inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")' }} />
+  const slidesCount = presentations.length
+  const constellationCountLabel = hydrated
+    ? `${constellationCount} ${
+        constellationCount > 1 ? "constellations" : "constellation"
+      }`
+    : "\u00A0"
 
-      {/* Ambient glow */}
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-slate-800/30 rounded-full blur-[120px] pointer-events-none" />
+  return (
+    <div className="min-h-[100dvh] bg-[#0E0C0A] flex flex-col items-center justify-center px-6 py-16 overflow-hidden relative">
+      {/* Subtle background grain */}
+      <div
+        className="fixed inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage:
+            'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")',
+        }}
+      />
+
+      {/* Two ambient glows — one cool, one warm */}
+      <div className="fixed top-1/3 left-1/4 w-[500px] h-[500px] bg-slate-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="fixed bottom-1/3 right-1/4 w-[500px] h-[500px] bg-[#C4834B]/10 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Header */}
       <div
-        className="relative transition-all duration-700 ease-out"
+        className="relative text-center transition-all duration-700 ease-out"
         style={{
           opacity: mounted ? 1 : 0,
-          transform: mounted ? 'translateY(0)' : 'translateY(-20px)',
+          transform: mounted ? "translateY(0)" : "translateY(-16px)",
         }}
       >
-        <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-          Ataraxis
+        <p className="text-xs uppercase tracking-[0.3em] text-slate-500">
+          Hub
+        </p>
+        <h1 className="mt-3 font-serif text-4xl sm:text-5xl text-white tracking-tight">
+          Mes outils de cours
         </h1>
-        <div className="mt-2 h-px w-12 mx-auto bg-gradient-to-r from-transparent via-slate-500 to-transparent" />
+        <div className="mt-4 h-px w-16 mx-auto bg-gradient-to-r from-transparent via-slate-500 to-transparent" />
       </div>
 
-      {/* Presentations list */}
-      <div className="relative mt-12 sm:mt-16 w-full max-w-md flex flex-col gap-2">
-        {presentations.map((presentation, i) => (
-          <Link
-            key={presentation.id}
-            href={`/presentation/${presentation.id}`}
-            className="group relative flex items-center gap-4 px-5 py-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.04] hover:border-white/[0.1] transition-all duration-300"
-            style={{
-              opacity: mounted ? 1 : 0,
-              transform: mounted ? 'translateY(0)' : 'translateY(16px)',
-              transitionDelay: `${150 + i * 80}ms`,
-              transitionProperty: 'opacity, transform, background-color, border-color',
-              transitionDuration: '500ms, 500ms, 300ms, 300ms',
-            }}
-          >
-            <span className="w-10 h-10 bg-white/[0.06] group-hover:bg-white/[0.1] rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300">
-              {presentation.category === 'cine-philo' ? (
-                <Film className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
-              ) : presentation.category === 'album-photo' ? (
-                <Camera className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
-              ) : (
-                <BookOpen className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
-              )}
-            </span>
-            <div className="flex-1 min-w-0">
-              <span className="text-[15px] text-slate-300 group-hover:text-white transition-colors duration-300 block truncate">
-                {presentation.title}
-              </span>
-              {presentation.description && (
-                <span className="text-xs text-slate-500 group-hover:text-slate-400 transition-colors duration-300 block truncate mt-0.5">
-                  {presentation.description}
-                </span>
-              )}
-            </div>
-            <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-slate-300 group-hover:translate-x-0.5 transition-all duration-300 flex-shrink-0" />
-          </Link>
-        ))}
+      {/* Two module cards */}
+      <div className="relative mt-16 sm:mt-20 w-full max-w-3xl grid grid-cols-1 md:grid-cols-2 gap-5">
+        <ModuleCard
+          mounted={mounted}
+          delayMs={150}
+          href="/slides"
+          title="Slides"
+          description="Créer et jouer des présentations interactives."
+          countLabel={`${slidesCount} ${
+            slidesCount > 1 ? "présentations" : "présentation"
+          }`}
+          accent="slides"
+          icon={<Presentation className="w-7 h-7 text-slate-200" />}
+        />
+
+        <ModuleCard
+          mounted={mounted}
+          delayMs={280}
+          href="/constellations"
+          title="Constellations"
+          description="Préparer un cours vivant — carte de navigation intérieure."
+          countLabel={constellationCountLabel}
+          accent="constellation"
+          icon={<ConstellationGlyph />}
+        />
       </div>
 
-      {/* Footer hint */}
+      {/* Footer */}
       <p
-        className="relative mt-12 text-xs text-slate-600 transition-all duration-700"
+        className="relative mt-16 text-xs text-slate-600 italic transition-all duration-700"
         style={{
           opacity: mounted ? 1 : 0,
-          transitionDelay: '600ms',
+          transitionDelay: "600ms",
         }}
       >
-        {presentations.length} {presentations.length > 1 ? 'presentations' : 'presentation'}
+        Libérer, pas convertir. Feu, pas fumée.
       </p>
     </div>
   )
