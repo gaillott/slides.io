@@ -88,7 +88,7 @@ export default function Home() {
           Hub
         </p>
         <h1 className="mt-3 font-serif text-4xl sm:text-5xl text-white tracking-tight">
-          Mes outils de cours
+          Ataraxis
         </h1>
         <div className="mt-4 h-px w-16 mx-auto bg-gradient-to-r from-transparent via-slate-500 to-transparent" />
       </div>
@@ -128,7 +128,7 @@ export default function Home() {
           transitionDelay: "600ms",
         }}
       >
-        Libérer, pas convertir. Feu, pas fumée.
+        Recherchez la discipline et vous trouverez la liberté
       </p>
     </div>
   )

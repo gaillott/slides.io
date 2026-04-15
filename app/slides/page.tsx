@@ -39,7 +39,7 @@ export default function SlidesPage() {
         }}
       >
         <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-          Ataraxis
+          Ataraxis - Slides
         </h1>
         <div className="mt-2 h-px w-12 mx-auto bg-gradient-to-r from-transparent via-slate-500 to-transparent" />
       </div>

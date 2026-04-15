@@ -31,11 +31,11 @@ je comprend que l'on ait du mal à entrevoir quelconque finesse ou message.
 Et je vous propose donc de vous laisser surprendre...
 
 ### Pourquoi un ciné-philo ?
-Le cinéma est pour moi un art qui permet de vivre et de partager une expérience commune, sans mentalliser, le vécu est direct. Et la philosophie est ce qui permet de comprendre un vécu, et d'en tirer des apprentissages.
+Je suis un amateur de cinéma comme beaucoup d'entre nous ce soir, et c'est pour moi un art qui permet de vivre et de partager une expérience commune, sans mentalliser, le vécu est direct. Et la philosophie est ce qui permet de comprendre un vécu, et d'en tirer des apprentissages.
 
 Encore faut-il que l'oeuvre ait un message philosophique et ne soit pas seulement un oeuvre commerciale pour divertir.
 
-Personnellement, j'ai d'abord été touché par des personnages et une histoire qui m'a transporté dans une aventure puissante.
+Dans l'Attaque des Titans, j'ai été touché par la profondeur des personnages et de l'histoire ; qui m'a transporté dans une vrai aventure, celle où on oublie tout le reste.
 Ensuite, est venue la philosophie qui m'a permis de mettre des mots sur ce que j'avais vécu.
 
 
@@ -47,9 +47,9 @@ et mon second visionnage où j'ai essayé de comprendre à l'aide de la philosop
 Je m'appelle Thomas,
 J'ai 29 ans, je suis développeur informatique dans la vie, mais ici, je fais partie de l'école de philosophie Nouvelle Acropole.
 
-Et pour moi, Nouvelle Acropole, c'est une école qui met l'accent sur ce qui est vraiment important : "Avoir confiance en soi". Car lorsque l'on a confiance en soi, on reprend le chemin vers ses rêves et on arrête de se plaindre.
+Et pour moi, Nouvelle Acropole, c'est une école qui met l'accent sur ce qui est vraiment important : "Avoir confiance en soi". Car lorsque l'on a confiance en soi, on reprend le chemin vers ses rêves et on accepte que la seule personne qui peut nous y emmener, c'est nous même.
 
-C'est pour cela que ce soir, en ne me sentant absolument pas prêt pour cet exercice, je suis présent, et je remercie N.A. de m'avoir donné cette opportunité.
+C'est pour cela que ce soir, en ne me sentant absolument pas prêt pour cet exercice, je suis présent, et je remercie N.A. et tout ceux qui m'ont donné confiance pour me lancer dans le grand bain.
 
 ### Bienvenue dans ce ciné-philo sur l'attaque des titans.
 `,
@@ -88,7 +88,23 @@ C'est pour cela que ce soir, en ne me sentant absolument pas prêt pour cet exer
             ]
           }
         },
-      ]
+      ],
+      notes: `
+L'attaque des Titans, dépeint une humanité qui a oublié d'où elle venait. Une histoire commune est néanmoins partagée : "Il y a 100 ans, sont apparus les titans, géants mangeurs d'humain. L'humanité a construit des murs dans lesquels ils se sont réfugiés."
+Voilà l'explication qu'on reçu tout les habitants.
+### Vidéo S1E2
+- En résumé, les habitants ont oubliés leur propre histoire ;
+- ils vivent dans un semblant de paix, assuré par le secret, la peur et l'ordre ;
+- La plupart acceptent cette vie et font mine d'ignorer le problème, pourtant bien visible;
+Pourtant, l'histoire comporte des trous : 
+Que s'est-il passé avant ces 100 ans, comment sont apparus les titans, comment assiégés par des titans on peut construire des murs de plusieurs centaines de mètre de hauts, ...
+Toutes ces questions, on a pas vraiment le temps de se les poser, nous spectateurs, car l'anime commence par la fin du semblant de paix qui régnait entre les murs...
+### Vidéo S1E1
+
+La prémière scène de l'attaque des titans annonce la fin de la paix. 
+Les titans sont revenus, et les murs sont sur le points d'être détruits.
+
+      `,
     },
 
     // Slide 3: Plan
@@ -103,8 +119,23 @@ C'est pour cela que ce soir, en ne me sentant absolument pas prêt pour cet exer
         { partNumber: 'PARTIE I', title: 'La Caverne de Platon', image: '/aot/wall.webp' },
         { partNumber: 'PARTIE II', title: "L\'Aventure de la conscience", image: '/aot/expo.jpg' },
         { partNumber: 'PARTIE III', title: 'Portrait : Jean', image: '/aot/jean.jpg' },
-        { partNumber: 'PARTIE IV', title: "Liberté du choix", image: '/aot/snkbg.webp' }
-      ]
+        { partNumber: 'PARTIE IV', title: "L'art du choix", image: '/aot/snkbg.webp' }
+      ],
+      notes:`
+L'attaque des titans est un animé qui en plus d'être brillament mis en scène, est remplis de messages philosophiques qui pourraient être survolés tant l'histoire est prenante.
+
+Isayama, l'auteur du manga aborde des sujets complexes tel que la notion de liberté, les relations humaines et l'injustice.
+
+J'ai décidé de vous parler ce soir de 4 thèmes qui m'ont particulièrement touchés dans cet anime : 
+1. La situation initiale de l'anime, ayant oublié sa nature et vivant dans des murs, c'est la caverne de Platon.
+2. Néanmoins, un petit groupe ose sortir des murs à la recherche de la vérité, et ce peux importe les risques car ils sont conscients que la vérité est plus important que leur propre vie : c'est le bataillon d'exploration, dont le symbole est les ailes de la liberté, et ça représente pour moi l'aventure de la conscience.
+3. Ensuite, j'aimerais présenter le personnage qui pour moi est le plus proche du philosophe : Jean, l'homme qui doute et dont ce doute le rend profondément humain.
+4. Enfin, nous terminerons sur la notion de choix : Faire des choix, dans l'attaque des titans, c'est une question de vie ou de mort. Mais ceux qui choisissent de mourir digne nous inspirent plus que ceux qui préfèrent le confort.
+
+Sans plus attendre, découvrons la manière dont Isayama, comme Platon à son époque, nous dépeint à travers une histoire la manière dont les hommes s'enchainent eux-mêmes et refusent de voir la vérité en face.
+
+
+`
     },
 
     // Slide 4: Section - Partie I
@@ -445,7 +476,7 @@ Le discours d'Erwin est l'un des moments les plus marquants de l'anime. Laisser 
       theme: 'orange',
       partNumber: 'IV',
       title: 'Partie IV',
-      subtitle: 'Liberté du choix',
+      subtitle: "L'art du choix",
       backgroundImage: '/aot/snkbg.webp'
     },
 
@@ -455,7 +486,7 @@ Le discours d'Erwin est l'un des moments les plus marquants de l'anime. Laisser 
       type: 'content',
       theme: 'orange',
       blocks: [
-        { type: 'heading', data: { category: 'LA PHILOSOPHIE EST UN CHOIX', title: 'Liberté du choix', subtitle: 'Hannes • Jean • Eren', image: '/aot/snkbg.webp' } },
+        { type: 'heading', data: { category: 'LA PHILOSOPHIE EST UN CHOIX', title: "L'art du choix", subtitle: 'Hannes • Jean • Eren', image: '/aot/snkbg.webp' } },
         {
           type: 'quote',
           data: {
