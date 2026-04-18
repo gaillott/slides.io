@@ -44,12 +44,13 @@ et mon second visionnage où j'ai essayé de comprendre à l'aide de la philosop
 
 
 ### Avant d'aller plus loin ...
-Je m'appelle Thomas,
-J'ai 29 ans, je suis développeur informatique dans la vie, mais ici, je fais partie de l'école de philosophie Nouvelle Acropole.
+Moi c'est Thomas, je suis développeur informatique dans la vie, mais ici, je pratique la philosophe à l'école Nouvelle Acropole depuis 1 an et demi.
 
 Et pour moi, Nouvelle Acropole, c'est une école qui met l'accent sur ce qui est vraiment important : "Avoir confiance en soi". Car lorsque l'on a confiance en soi, on reprend le chemin vers ses rêves et on accepte que la seule personne qui peut nous y emmener, c'est nous même.
 
 C'est pour cela que ce soir, en ne me sentant absolument pas prêt pour cet exercice, je suis présent, et je remercie N.A. et tout ceux qui m'ont donné confiance pour me lancer dans le grand bain.
+
+Il faut une première à tout : C'est ma première conférence.
 
 ### Bienvenue dans ce ciné-philo sur l'attaque des titans.
 `,
@@ -77,10 +78,10 @@ C'est pour cela que ce soir, en ne me sentant absolument pas prêt pour cet exer
           }
         },
 
-        { type: 'video', step : 2, column: 'right', data: { video: { url: '/aot/video/EP1_00_00.mp4', title: 'S1E1 (Ep1) — Début de l\'anime' } } },
+        { type: 'video', step : 2, column: 'left', data: { video: { url: '/aot/video/EP1_00_00.mp4', title: 'S1E1 (Ep1) — Début de l\'anime' } } },
        {
           type: 'bullets',
-          column: "right",
+          column: "left",
            step : 2,
           data: {
             items: [
@@ -118,8 +119,7 @@ Les titans sont revenus, et les murs sont sur le points d'être détruits.
       items: [
         { partNumber: 'I. SITUATION INITIALE', title: 'La Caverne de Platon', image: '/aot/wall.webp' },
         { partNumber: 'II. LE BATAILLON D\'EXPLORATION', title: "L\'Aventure de la conscience", image: '/aot/expo.jpg' },
-        { partNumber: 'III. PORTRAIT', title: 'Jean', image: '/aot/jean.jpg' },
-        { partNumber: 'IV. UN ANIME A MESSAGE', title: "L'art du choix", image: '/aot/snkbg.webp' }
+        { partNumber: 'III. UN ANIME A MESSAGE', title: "L'art du choix", image: '/aot/snkbg.webp' }
       ],
       notes:`
 L'attaque des titans est un animé qui en plus d'être brillament mis en scène, est remplis de messages philosophiques qui pourraient être survolés tant l'histoire est prenante.
@@ -129,8 +129,7 @@ Isayama, l'auteur du manga aborde des sujets complexes tel que la notion de libe
 J'ai décidé de vous parler ce soir de 4 thèmes qui m'ont particulièrement touchés dans cet anime : 
 1. La situation initiale de l'anime, ayant oublié sa nature et vivant dans des murs, c'est la caverne de Platon.
 2. Néanmoins, un petit groupe ose sortir des murs à la recherche de la vérité, et ce peux importe les risques car ils sont conscients que la vérité est plus important que leur propre vie : c'est le bataillon d'exploration, dont le symbole est les ailes de la liberté, et ça représente pour moi l'aventure de la conscience.
-3. Ensuite, j'aimerais présenter le personnage qui pour moi est le plus proche du philosophe : Jean, l'homme qui doute et dont ce doute le rend profondément humain.
-4. Enfin, nous terminerons sur la notion de choix : Faire des choix, dans l'attaque des titans, c'est une question de vie ou de mort. Mais ceux qui choisissent de mourir digne nous inspirent plus que ceux qui préfèrent le confort.
+3. Enfin, nous terminerons sur la notion de choix : Faire des choix, dans l'attaque des titans, c'est une question de vie ou de mort. Mais ceux qui choisissent de mourir digne nous inspirent plus que ceux qui préfèrent le confort.
 
 Sans plus attendre, découvrons la manière dont Isayama, comme Platon à son époque, nous dépeint à travers une histoire la manière dont les hommes s'enchainent eux-mêmes et refusent de voir la vérité en face.
 
@@ -159,43 +158,44 @@ Pause. Respire. Boit de l'eau.
       type: 'content',
       theme: 'red',
       notes: `
-      *Platon disait : 'Imaginez ...' *
+      ***Platon disait : 'Imaginez ...' ***
 
       Cette histoire de l'homme dans la caverne est une allégorie.
-      Une allégorie, c'est une manière d'exprimer quelque chose d'abstrait sous la forme d'une histoire.
+      **Une allégorie, c'est une manière d'exprimer quelque chose d'abstrait sous la forme d'une histoire.**
 
-      C'est ce que fait Platon, dans l'allégorie de la caverne, où il explique que nous, les êtres humains, nous sommes ces hommes qui refusont de voir la réalité tel qu'elle est et préférons nous enchainer nous-même dans une caverne.
+      **C'est ce que fait Platon, dans l'allégorie de la caverne,** où il explique que nous, les êtres humains, nous sommes ces hommes qui refusont de voir la réalité tel qu'elle est et préférons nous enchainer nous-même dans une caverne.
       Platon explique que nous nous enchainons nous-même par confort, par peur du rejet des autres, même si cela nous rend malheureux. 
       Le seul moyen de se libérer est de se défaire de ses chaines, de ses illusions et oser sortir de la caverne.
 
-      Dans le 1er épisode de la série, Isayama nous montre pour moi sa version de la caverne de Platon : le peuple vit retranché à l'intérieur des murs. 
+      **Dans le 1er épisode de la série, Isayama nous montre sa version de la caverne de Platon** : le peuple vit retranché à l'intérieur des murs. 
       Ce peuple devrait avoir envie de découvrir la vérité : Pourquoi y a t il des titans ? Quel est leur nature ? Pourquoi les livres d'histoires n'expliquent rien avant 100 ans ? 
-      C'est d'ailleurs l'objectif principal d'un corps d'armée : Le bataillon d'exploration, un groupe d'hommes et de femmes qui sortent des murs pour découvrir la vérité, au péril de leur vie.
+      **C'est l'objectif principal d'un corps d'armée : Le bataillon d'exploration**, un groupe d'hommes et de femmes qui sortent des murs pour découvrir la vérité, au péril de leur vie.
 
-      Mais vous allez voir dans cette scène où l'on voit le bataillon d'exploration rentrer après une expédition, que le peuple n'est plus en accord avec cette idée de découvrir la vérité : elle s'est confortée dans la caverne.
+      **Mais vous allez voir dans cette scène** où l'on voit le bataillon d'exploration rentrer après une expédition, que le peuple n'est plus en accord avec cette idée de découvrir la vérité : elle s'est confortée dans la caverne.
      
-      *Vidéo*
+      **Vidéo**
 
-      En voyant cet extrait, on peut comprendre le peuple : A quoi bon chercher la vérité si elle est tant difficile à atteindre, si elle coute la vie et l'argent du contribuable ?
+      **En voyant cet extrait, on peut comprendre le peuple **: A quoi bon chercher la vérité si elle est tant difficile à atteindre, si elle coute la vie et l'argent du contribuable ?
 
-      Pourtant, à travers les yeux d'Eren, on se questionne : La quête de la vérité n'est pas-elle supérieur à n'importe quelle bien matériel ?
+      **Pourtant, à travers les yeux d'Eren, on se questionne** : La quête de la vérité n'est pas-elle supérieur à n'importe quelle bien matériel ?
       
-      En tant que spectateur, as-t-on envie de suivre le peuple et de rester enfermer dans les murs ? Ou as-t-on envie de suivre Eren et le bataillon d'exploration, qui continuent de sortir des murs pour essayer de trouver des réponses ...
-      Dans l'anime, nous allons suivre Eren, ce jeune idéaliste, qui va decider de rejoindre l'armée, après avoir vu sa mère se faire dévorer par un Titan.
+      **En tant que spectateur, as-t-on envie de suivre le peuple et de rester enfermer dans les murs ?** Ou as-t-on envie de suivre Eren et le bataillon d'exploration, qui continuent de sortir des murs pour essayer de trouver des réponses ...
+      
+      **Dans l'anime, nous allons suivre Eren,** ce jeune idéaliste, qui va decider de rejoindre l'armée, après avoir vu sa mère se faire dévorer par un Titan.
 
       *Step 3 - Les 3 Corps d'armée*
       
-      Il va suivre une formation, où on va lui présenter les 3 corps d'armée : 
+      **Eren, ce jeune idéaliste va suivre une formation militaire, où on va lui présenter les 3 corps d'armée : **
       - La garnison, pour garder les murs de Titans qui n'attaquent pas, 
       - La brigade spéciale, pour les meilleurs qui auront la gloire, proche du pouvoir. 
       - Ou le bataillon d'exploration, avec ses ailes vertes de la liberté, pour sortir des murs à la recherche de la vérité.
 
       *Vidéo*
 
-      Isayama nous propose de choisir : A leur place, choisirons nous le confort, la gloire ou la quête de la vérité.
-      Bon, on est d'accord, à ce moment de l'anime, on a tous eu envie de choisir le bataillon d'exploration, et suivre notre soif d'aventure.
+      **Isayama nous propose de choisir** : A leur place, choisirons nous le confort, la gloire ou la quête de la vérité.
+      **Bon, on est d'accord**, à ce moment de l'anime, on a tous eu envie de choisir le bataillon d'exploration, et suivre notre soif d'aventure.
 
-      Mais dans notre vie, et moi le premier, ma vie ressemble plutôt à celle de la Garnison et du confort, et un personnage est l'archétype de l'homme qui a choisi de rester dans la caverne plutôt que de suivre son Idéal.
+      **Mais dans notre vie, et moi le premier**, ma vie ressemble plutôt à celle de la Garnison et du confort, et un personnage est l'archétype de l'homme qui a choisi de rester dans la caverne plutôt que de suivre son Idéal.
 
       `,
       blocks: [
@@ -211,25 +211,26 @@ Pause. Respire. Boit de l'eau.
         },
 
         { type: 'video',step : 1, column: 'left', data: { video: { url: '/aot/video/S1E1_Retour_du_bataillon.mp4', title: 'S1E1 (Ep1) - Eren au retour du bataillon d\'exploration' } } },
-         {
+         
+        {
+          type: 'image',
+          step: 2,
+          column: 'left',
+          data: {
+            src: '/aot/corpsarmee.webp',
+            alt: 'Les trois corps d\'armée'
+          }
+        },
+        {
           type: 'video',
           step: 3,
-          column: 'right',
+          column: 'left',
           data: {
 
               video : {url: '/aot/video/S1E4_Trois_Corps_Armee.mp4', title: 'S1E4 (Ep4) - Fin de la sélection, 3 corps d\'armée' }
 
           }
         },
-        {
-          type: 'image',
-          step: 2,
-          column: 'right',
-          data: {
-            src: '/aot/corpsarmee.webp',
-            alt: 'Les trois corps d\'armée'
-          }
-        }
       ]
     },
 
@@ -268,7 +269,7 @@ Pause. Respire. Boit de l'eau.
          {
           type: 'video',
           step: 4,
-          column: 'right',
+          column: 'left',
           data: { video: { url: '/aot/video/EP1_Hannes_Actes.mp4', title: 'S1E1 — Hannes : Paroles vs actions' } }
         },
       ],
@@ -323,29 +324,66 @@ Ca tombe bien, car nous allons suivre ceux qui osent chercher la vérité : Le b
       type: 'content',
       theme: 'green',
       blocks: [
-        { type: 'heading', data: { category: 'LES AILES DE LA LIBERTÉ', title: "Le Bataillon d'Exploration", subtitle: "Confort ou Liberté — qu'est-ce qui compte vraiment ?", image : '/aot/bataillon.jpg' } },
+        { type: 'heading', data: { category: 'LES AILES DE LA LIBERTÉ', title: "Le Bataillon d'Exploration", subtitle: "L'appel de l'âme", image : '/aot/bataillon.jpg' } },
         { type: 'video', column: 'left',  data: { video: { url: '/aot/video/s1e16_integration_bataillon.mp4', title: 'S1E16 — Les recrues choisissent leur corps d\'armée' } } },
         {
-          type: 'icon-bullets',
-          step : 1,
+          type: 'quote',
+          step: 1,
+          column : 'left',
           data: {
-            items: [
-              { icon: 'compass', title: 'Quête de Vérité', content: 'Sortir des murs, c\'est choisir.' },
-              { icon: 'heart', title: 'Le Prix de la Liberté', content: 'Les épreuves, la mort et le doute.' },
-              { icon: 'flame', title: "l'éveil de la conscience", content: "Jean, Connie et Sasha se révèlent." }
-            ]
+            text: "‟ C'est dans l'épreuve que l'idéaliste se révèle. ”",
+            author: 'Jean, Connie et Sasha nous inspirent par cet acte qui ne s\'explique pas ...'
           }
         },
          {
           type: 'quote',
           step: 2,
-          column : 'right',
+          column : 'left',
           data: {
-            text: "\"Celui qui travaille pour sa seule vie ne construit rien. Mais celui qui travaille pour l'éternité, celui-là bâtit un empire [...].\"",
-            author: 'Saint-Exupéry, Citadelle'
+            text: "‟Celui qui a un pourquoi, [...] peut vivre avec n'importe quel comment.”",
+            author: 'Nietzsche'
           }
         },
-      ]
+      ],
+      notes : `
+**Pour comprendre ce qu'est le bataillon d'exploration **, il faut comprendre qu'est-ce-qui motive ces gens à choisir le risque plutôt que la gloire ou le confort,
+
+**Dans cet extrait, c'est la fin de la sélection des jeunes recrues**, et le Major Smith, vient de présenter le bataillon d'exploration : une unité à la recherche de la vérité, mais où 50% des jeunes meurent la 1ère année, et 80% meurent sous 3 ans.
+Alors je vous laisse observer le combat intérieur qu'il se passe dans certaines recrues, qui font face à leur instincts qui leur disent de fuir et à quelque chose d'autre, innomable, qui leur disent de rester.
+
+**Vidéo**
+
+Pour moi cette scène est assez extraordinaire, car elle montre des personnes qui ne comprennent pas eux-même pourquoi ils restent. 
+On voit les trois personnages qui se parlent à eux-même en se disant qu'ils doivent partir, qu'ils seraient heureux dans un autre corps d'armée.
+Pourtant, leur corps ne bouge pas... 
+
+**NEXT - ‟ C'est dans l'épreuve que l'idéaliste se révèle ”**
+
+Ce qui est intéréssant de remarquer ici, c'est nous, spectateur.
+Face à ce choix incohérent de la part de Sasha, Connie et Jean, qui choisissent envers leur raison de s'engager dans le bataillon d'exploration,
+nous, spectateur, que ressentons-nous ? 
+
+De l'incompréhension ou de l'admiration ? 
+
+Je crois que si vous sommes admiratif de ces personnes dans cette scène, c'est qu'une partie de nous est idéaliste.
+Une partie de nous refuse le monde dans lequel nous vivons, et veut tout mettre en place pour créer un monde meilleur.
+
+
+**NEXT - ‟ Celui qui a un pourquoi ”**
+
+Aujourd'hui, je pense qu'on peut être d'accord pour dire qu'on a les comments pour résoudre pas mal de nos problèmes sur Terre.
+
+Pourtant, on continue de chercher d'autres moyens pour faire plus.
+
+Cette scène nous montre qu'il y a une question, qui ne s'explique pas, qui doit provenir de notre intériorité, mais qui est essentielle :
+
+"Pourquoi on vit ? Pourquoi on meurt ?" Car on va tous mourir, ça c'est certain.
+Et c'est la où la philosophie est intéréssante, car là où l'intellect peut répondre à des problèmes logiques, la philosophie essaie de répondre à des problèmes de sens.
+
+**Les questions existentielles,  c'est cela auquel nous confronte le bataillon d'exploration. ** C'est oser reprendre le chemin de ses rêves et mourir pour cela.
+Peu importe les circonstances et les difficultés.
+Et il y a un personnage qui incarne parfaitement cet état d'esprit : Vivre et mourir pour un idéal.
+      `
     },
 
     // Slide 9: Erwin Smith
@@ -353,195 +391,85 @@ Ca tombe bien, car nous allons suivre ceux qui osent chercher la vérité : Le b
       id: 'erwin-philosophie',
       type: 'content',
       theme: 'green',
-      notes: `# Erwin Smith — Le Stoïcien
-
-## Contexte
-
-Erwin est le commandant du bataillon d'exploration. Il incarne le **stoïcisme** face à la mort.
-
-## Références philosophiques
-
-- **Marc Aurèle** : Pensées pour moi-même
-- Le concept de *memento mori* dans la philosophie stoïcienne
-- La transcendance par le sacrifice
-
-## À retenir
-
-Le discours d'Erwin est l'un des moments les plus marquants de l'anime. Laisser la vidéo parler d'elle-même avant de commenter.`,
       blocks: [
-        { type: 'heading', data: { image : '/aot/erwin.jpg',category: 'STOÏCISME ET TRANSCENDANCE', title: 'Erwin Smith', subtitle: 'Le Stoïcien • Le Chef qui transcende la mort' } },
+        { type: 'heading', data: { image : '/aot/erwin.jpg',category: 'L\'aventure de la conscience', title: 'Erwin Smith', subtitle: 'Commandant du bataillon d\'exploration •  Le Stoïcien' } },
            {
           type: 'quote',
+          step : 1,
           column: 'left',
           data: {
             author: 'Marc Aurèle, Pensées pour moi-même, Livre II, §11',
             text: '"Songe que tu pourrais à l\'instant quitter la vie. Agis, parle, pense en conséquence."',
           }
         },
-                  { type: 'video', column: 'left', data: { video: { url: '/aot/video/erwin_speech.mp4', title: 'S3E16 (Ep53) — Erwin face à la mort' } } },
+        { type: 'video', step : 1, column: 'left', data: { video: { url: '/aot/video/erwin_speech.mp4', title: 'S3E16 (Ep53) — Erwin face à la mort' } } },
 
         {
           type: 'quote',
-          step: 1,
-          column : 'right',
+          step: 2,
+          column : 'left',
           data: {
-            text: '"Quels que soient vos rêves ou vos espoirs [...] , l\'homme ne peut échapper à la mort."',
+            text: '"Votre séjour en ce monde a-t-il été vide de sens ? [...] C\'est à nous les vivants de reprendre leur flambeau !"',
             author: 'Erwin Smith — La charge vers le Titan Bestial (S3 E16, Ep53)'
           }
         },
-        {
-          type: 'bullets',
-          step: 1,
-          column : 'right',
-          data: {
-            items: [
-              'Métitation stoïcienne sur la mort,',
-              "L'idéal au dessus de sa propre vie"
-            ]
-          }
-        },
+      ],
+notes: `
+Erwin Smith, c'est le commandant du bataillon d'exploration. C'est aussi le stoïcien incarné de cette série.
+Le stoïcisme est un courant philosophique grec qui apprend à se détacher des circonstances et des instincts pour se concentrer sur l'essentiel, devenir soi-même et acteur de sa vie.
 
-      ]
-    },
+** Songe que tu pourrais ... **
 
-    // Slide 10: Section - Partie III (Jean)
-    {
-      id: 'partie-3-jean',
-      type: 'section',
-      theme: 'blue',
-      partNumber: 'III',
-      title: 'Partie III',
-      subtitle: 'Portrait : Jean Kirschtein',
-      backgroundImage: '/aot/jean.jpg'
-    },
+Pour faire le bon choix, le choix juste, Marc Aurèle nous propose de penser à notre mort. Si l'on devait mourir à l'instant, quelle serait notre dernière action ?
 
-    // Slide 11: Jean — Le philosophe qui doute
-    {
-      id: 'jean-doute',
-      type: 'content',
-      theme: 'blue',
-      blocks: [
-        { type: 'heading', data: { category: 'PORTRAIT • LE PHILOSOPHE', title: 'Jean Kirschtein', subtitle: 'Celui qui doute, mais qui choisit et qui assume', image: '/aot/jean.jpg' } },
-        { type: 'video', column: 'left', data: { video: { url: '/aot/video/s4e8_jean_sasha.mp4', title: 'S4E8 — Une guerre où des enfants tuent des hommes' } } },
-        {
-          type: 'bullets',
-          column: 'left',
-          data: {
-            items: [
-              'Il rêvait de tranquillité',
-              'La mort de Marco → éveil de conscience',
-              'La peur ne disparaît pas, mais il choisit quand même'
-            ]
-          }
-        },
-        {
-          type: 'quote',
-          step: 1,
-          column: 'right',
-          data: {
-            text: '"Pour examiner la vérité, il est besoin, une fois en sa vie, de mettre toutes choses en doute autant qu\'on le peut."',
-            author: 'Descartes, Méditations'
-          }
-        },
-        {
-          type: 'quote',
-          step: 2,
-          column: 'right',
-          data: {
-            text: '"L\'existence précède l\'essence […] l\'homme n\'est rien d\'autre que ce qu\'il se fait."',
-            author: 'Sartre'
-          }
-        },
-        {
-          type: 'bullets',
-          step: 2,
-          column: 'right',
-          data: {
-            items: ['Jean ne naît pas héros, il le devient par ses choix']
-          }
-        },
-      ]
-    },
+On avance de quelques saisons dans l'anime, Le bataillon d'exploration, suite à maintes et maintes petites victoires, est maintenant à une dernière épreuve de découvrir enfin la vérité.
+C'est le rêve du bataillon, et c'est le rêve d'Erwin.
+Mais la situation est désespérée, dans tout les cas, la mort semble être certaine.
+Alors que va faire Erwin dans cette situation ? 
+Que ferions-nous dans cette situation désespérée ? 
 
-    // Slide 12: Jean — Le choix assumé
-    {
-      id: 'jean-assume',
-      type: 'content',
-      theme: 'blue',
-      blocks: [
-        { type: 'heading', data: { category: 'VERTU ET RESPONSABILITÉ', title: 'Jean Kirschtein', subtitle: "L'action comme réponse au doute", image: '/aot/jean.jpg' } },
-        { type: 'section', data: { title: 'Le doute est le commencement de la sagesse' } },
-        {
-          type: 'quote',
-          column: 'left',
-          data: {
-            text: '"C\'est en pratiquant les actions justes que nous devenons justes […] les actions courageuses que nous devenons courageux."',
-            author: 'Aristote'
-          }
-        },
-        {
-          type: 'quote',
-          step: 1,
-          column: 'right',
-          data: {
-            text: '"Ou bien ou bien" : choisir c\'est renoncer et assumer.',
-            author: 'Kierkegaard — Le saut dans le choix'
-          }
-        },
-        {
-          type: 'icon-bullets',
-          step: 2,
-          data: {
-            items: [
-              { icon: 'flame', title: 'Il doute', content: 'Comme Socrate, il remet en question' },
-              { icon: 'compass', title: 'Il choisit', content: 'Malgré la peur, il agit' },
-              { icon: 'heart', title: 'Il assume', content: 'La responsabilité comme chemin vers la vertu' }
-            ]
-          }
-        },
-      ]
+
+** Vidéo ** 
+
+***Ca va ? Moi non...***
+
+Si vous avez dans un sens, compris pourquoi les soldats vont mourir intentionnellement, vous avez ressentis quelque chose d'important :
+Il y a des choses qui ne doivent pas s'intellectualiser ni faire sens.
+
+La loyauté, l'honneur, le courage, la justice sont des choses qui ne peuvent pas s'intellectualiser. 
+
+Par exemple, avec le courage : Alors si tu as peur, et que tout tes sens te disent que tu vas mourir, il faut que tu y ailles, ça va te rendre heureux !
+Ce sont des choses qui ne s'intellectualisent pas mais se vivent.
+
+
+** Votre séjour en ce monde a-t-il été vide de sens ?... **
+
+C'est à ce moment là que les soldats chargent.
+
+** C'est à nous les vivants de reprendre leur flambeau ! **
+
+**Il nous donne une responsabilité :** "Si les actes, les enseignements d'une personne a vraiment compté pour moi, appris quelque chose, vraiment inspiré, et m'a un peu sorti du chaos, alors il devient de ma responsabilité de vivre et transmettre cet enseignement ."
+
+
+C'est pour moi l'un des **objectifs des écoles de philosophies à Nouvelle Acropole**, et c'est la raison principale qui fait que je suis ici, ce soir.
+
+Parce que j'avais perdu le sens de ma vie dans le confort et que j'ai reçu un enseignement qui m'a donné des clés pour m'en sortir.
+Parce que cette école n'apprend pas des compétences, elle apprend des valeurs : Le courage, l'honneur, La responsabilité.
+
+Et je pense que c'est de ces valeurs que l'on a besoin pour changer le monde. En commençant par soi.
+
+`,
     },
 
     // Slide 13: Section - Partie IV (Liberté)
     {
-      id: 'partie-4-liberte',
+      id: 'partie-3-liberte',
       type: 'section',
       theme: 'orange',
-      partNumber: 'IV',
-      title: 'Partie IV',
+      partNumber: 'III',
+      title: 'Partie III',
       subtitle: "L'art du choix",
       backgroundImage: '/aot/snkbg.webp'
-    },
-
-    // Slide 14: Liberté du choix — Les trois chemins
-    {
-      id: 'liberte-choix',
-      type: 'content',
-      theme: 'orange',
-      blocks: [
-        { type: 'heading', data: { category: 'LA PHILOSOPHIE EST UN CHOIX', title: "L'art du choix", subtitle: 'Hannes • Jean • Eren', image: '/aot/snkbg.webp' } },
-        {
-          type: 'quote',
-          data: {
-            text: '"L\'homme est condamné à être libre."',
-            author: 'Sartre'
-          }
-        },
-        { type: 'video', step: 1, column: 'left', data: { video: { url: '/aot/video/EP1_Hannes.mp4', title: 'Hannes : le confort comme prison' } } },
-        { type: 'section', step: 1, column: 'left', data: { title: 'Hannes — Dominé par son confort' } },
-        { type: 'video', step: 2, column: 'left', data: { video: { url: '/aot/video/s4e8_jean_sasha.mp4', title: 'Jean : l\'action malgré le doute' } } },
-        { type: 'section', step: 2, column: 'left', data: { title: 'Jean — La vertu par le choix' } },
-        { type: 'video', step: 3, column: 'right', data: { video: { url: '/aot/video/e87_eren_grand_terassement.mp4', title: 'S4 — Eren : quand la liberté devient tyrannie' } } },
-        { type: 'section', step: 3, column: 'right', data: { title: 'Eren — Dominé par sa colère' } },
-        {
-          type: 'bullets',
-          step: 4,
-          column: 'right',
-          data: {
-            items: ['Veut-on choisir d\'être comme Hannes, Jean, ou Eren ?']
-          }
-        },
-      ]
     },
 
     // Slide 15: Conclusion
@@ -553,8 +481,11 @@ Le discours d'Erwin est l'un des moments les plus marquants de l'anime. Laisser 
         { type: 'heading', data: { category: 'CONCLUSION', title: 'La Philosophie est un choix', subtitle: 'Trois chemins, une liberté', image: '/aot/bataillon.jpg' } },
         { step: 1, type: 'quote', data: { text: "« L'homme qui s'adonne à ses plaisirs devient moins libre... »", author: 'Spinoza', image: { src: '/aot/hannes.jpg', alt: 'Hannes', size: 80 } } },
         { step: 2, type: 'quote', data: { text: '"C\'est en pratiquant les actions justes que nous devenons justes, les actions courageuses que nous devenons courageux."', author: 'Aristote', image: { src: '/aot/jean.jpg', alt: 'Jean', size: 80 } } },
-        { step: 3, type: 'quote', data: { text: '"Deviens ce que tu es."', author: 'Nietzsche', image: { src: '/aot/eren.jpeg', alt: 'Eren', size: 80 } } }
-      ]
+        { step: 3, type: 'quote', data: { text: " Les plus sages renoncèrent d'ailleurs à assumer le pouvoir, ce qui est sans doute la pire des trahisons.", author: 'Nietzsche', image: { src: '/aot/eren.jpeg', alt: 'Eren', size: 80 } } }
+      ],
+      notes:`
+Pour conclure, 
+      `
     }
   ]
 }

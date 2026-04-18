@@ -178,7 +178,7 @@ export function PlanSlideLayout({ slide }: { slide: PlanSlide }) {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{slide.title}</h2>
           {slide.subtitle && <p className="text-sm text-slate-400 max-w-3xl mx-auto">{slide.subtitle}</p>}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1 min-h-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1 min-h-0">
           {slide.items.map((item, i) => (
             <div key={i} className="group relative overflow-hidden rounded-xl border border-slate-700 hover:border-slate-500 transition-all">
               <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -310,7 +310,7 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
       return (
         <div>
           <div className="rounded-lg overflow-hidden border border-slate-700">
-            <img src={d.src || "/placeholder.svg"} alt={d.alt} className="w-full h-auto object-cover" />
+            <img src={d.src || "/placeholder.svg"} alt={d.alt} className="w-full h-auto object-cover max-h-[420px]" />
           </div>
         </div>
       )
