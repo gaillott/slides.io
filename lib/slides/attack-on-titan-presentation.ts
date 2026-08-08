@@ -119,7 +119,6 @@ Les titans sont revenus, et les murs sont sur le points d'être détruits.
       items: [
         { partNumber: 'I. SITUATION INITIALE', title: 'La Caverne de Platon', image: '/aot/wall.webp' },
         { partNumber: 'II. LE BATAILLON D\'EXPLORATION', title: "L\'Aventure de la conscience", image: '/aot/expo.jpg' },
-        { partNumber: 'III. UN ANIME A MESSAGE', title: "L'art du choix", image: '/aot/snkbg.webp' }
       ],
       notes:`
 L'attaque des titans est un animé qui en plus d'être brillament mis en scène, est remplis de messages philosophiques qui pourraient être survolés tant l'histoire est prenante.
@@ -461,27 +460,16 @@ Et je pense que c'est de ces valeurs que l'on a besoin pour changer le monde. En
 `,
     },
 
-    // Slide 13: Section - Partie IV (Liberté)
-    {
-      id: 'partie-3-liberte',
-      type: 'section',
-      theme: 'orange',
-      partNumber: 'III',
-      title: 'Partie III',
-      subtitle: "L'art du choix",
-      backgroundImage: '/aot/snkbg.webp'
-    },
-
     // Slide 15: Conclusion
     {
-      id: 'conclusion',
+      id: 'Partie 3',
       type: 'content',
       theme: 'blue',
       blocks: [
-        { type: 'heading', data: { category: 'CONCLUSION', title: 'La Philosophie est un choix', subtitle: 'Trois chemins, une liberté', image: '/aot/bataillon.jpg' } },
-        { step: 1, type: 'quote', data: { text: "« L'homme qui s'adonne à ses plaisirs devient moins libre... »", author: 'Spinoza', image: { src: '/aot/hannes.jpg', alt: 'Hannes', size: 80 } } },
-        { step: 2, type: 'quote', data: { text: '"C\'est en pratiquant les actions justes que nous devenons justes, les actions courageuses que nous devenons courageux."', author: 'Aristote', image: { src: '/aot/jean.jpg', alt: 'Jean', size: 80 } } },
-        { step: 3, type: 'quote', data: { text: " Les plus sages renoncèrent d'ailleurs à assumer le pouvoir, ce qui est sans doute la pire des trahisons.", author: 'Nietzsche', image: { src: '/aot/eren.jpeg', alt: 'Eren', size: 80 } } }
+        { type: 'heading', data: { category: 'Conclusion', title: 'Et nous ?', subtitle: '', image: '/aot/wall.webp' } },
+        { step: 1, type: 'quote', data: { text: "‟ Nous portons sur notre dos les ‟Ailes de la liberté‟. Avec notre détermination gravée dans notre cœur nous tranchons le cercle de la folie‟ ", author: 'Paroles - Générique Saison 2', image: { src: '/aot/expo.jpg', alt: 'Hannes', size: 240 } } },
+        { type: 'video', step : 3, column: 'left', data: { video: { url: '/aot/video/opening2.mp4', title: 'Opening Saison 2' } } },
+
       ],
       notes:`
 Pour conclure, 
