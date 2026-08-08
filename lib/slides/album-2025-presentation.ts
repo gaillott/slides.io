@@ -650,6 +650,7 @@ export const album2025Presentation: Presentation = {
   author: 'Thomas & Estelle',
   description: 'Notre année — Le Parcours du Héros',
   coverImage: `${ACT1}/2_DECOUVERTE_garonne.jpg`,
+  archived: true,
   createdAt: '2025-12-31',
   category: 'album-photo',
   slides,

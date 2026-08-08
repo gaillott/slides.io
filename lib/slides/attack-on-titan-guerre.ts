@@ -6,6 +6,7 @@ export const attackOnTitanGuerrePresentation: Presentation = {
   author: "Ciné Philo",
   description: "Une exploration de la propagande, du cycle de la haine et de la folie des guerres",
   coverImage: '/aot/mywarbg.PNG',
+  archived: true,
   createdAt: '2026-01-28',
   category: 'cine-philo',
   slides: [

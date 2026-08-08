@@ -3,11 +3,52 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { getAllPresentations } from '@/lib/slides/presentations'
-import { BookOpen, Film, Camera, ArrowRight, ArrowLeft } from 'lucide-react'
+import type { Presentation } from '@/lib/slides/types'
+import { BookOpen, Film, Camera, ArrowRight, ArrowLeft, ChevronDown, Archive } from 'lucide-react'
+
+function PresentationRow({ presentation, mounted, delay }: { presentation: Presentation; mounted: boolean; delay: number }) {
+  return (
+    <Link
+      href={`/presentation/${presentation.id}`}
+      className="group relative flex items-center gap-4 px-5 py-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.04] hover:border-white/[0.1] transition-all duration-300"
+      style={{
+        opacity: mounted ? 1 : 0,
+        transform: mounted ? 'translateY(0)' : 'translateY(16px)',
+        transitionDelay: `${delay}ms`,
+        transitionProperty: 'opacity, transform, background-color, border-color',
+        transitionDuration: '500ms, 500ms, 300ms, 300ms',
+      }}
+    >
+      <span className="w-10 h-10 bg-white/[0.06] group-hover:bg-white/[0.1] rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+        {presentation.category === 'cine-philo' ? (
+          <Film className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
+        ) : presentation.category === 'album-photo' ? (
+          <Camera className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
+        ) : (
+          <BookOpen className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
+        )}
+      </span>
+      <div className="flex-1 min-w-0">
+        <span className="text-[15px] text-slate-300 group-hover:text-white transition-colors duration-300 block truncate">
+          {presentation.title}
+        </span>
+        {presentation.description && (
+          <span className="text-xs text-slate-500 group-hover:text-slate-400 transition-colors duration-300 block truncate mt-0.5">
+            {presentation.description}
+          </span>
+        )}
+      </div>
+      <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-slate-300 group-hover:translate-x-0.5 transition-all duration-300 flex-shrink-0" />
+    </Link>
+  )
+}
 
 export default function SlidesPage() {
-  const presentations = getAllPresentations()
+  const allPresentations = getAllPresentations()
+  const presentations = allPresentations.filter(p => !p.archived)
+  const archivedPresentations = allPresentations.filter(p => p.archived)
   const [mounted, setMounted] = useState(false)
+  const [showArchived, setShowArchived] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -47,41 +88,39 @@ export default function SlidesPage() {
       {/* Presentations list */}
       <div className="relative mt-12 sm:mt-16 w-full max-w-md flex flex-col gap-2">
         {presentations.map((presentation, i) => (
-          <Link
-            key={presentation.id}
-            href={`/presentation/${presentation.id}`}
-            className="group relative flex items-center gap-4 px-5 py-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.04] hover:border-white/[0.1] transition-all duration-300"
-            style={{
-              opacity: mounted ? 1 : 0,
-              transform: mounted ? 'translateY(0)' : 'translateY(16px)',
-              transitionDelay: `${150 + i * 80}ms`,
-              transitionProperty: 'opacity, transform, background-color, border-color',
-              transitionDuration: '500ms, 500ms, 300ms, 300ms',
-            }}
-          >
-            <span className="w-10 h-10 bg-white/[0.06] group-hover:bg-white/[0.1] rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300">
-              {presentation.category === 'cine-philo' ? (
-                <Film className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
-              ) : presentation.category === 'album-photo' ? (
-                <Camera className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
-              ) : (
-                <BookOpen className="w-[18px] h-[18px] text-slate-400 group-hover:text-white transition-colors duration-300" />
-              )}
-            </span>
-            <div className="flex-1 min-w-0">
-              <span className="text-[15px] text-slate-300 group-hover:text-white transition-colors duration-300 block truncate">
-                {presentation.title}
-              </span>
-              {presentation.description && (
-                <span className="text-xs text-slate-500 group-hover:text-slate-400 transition-colors duration-300 block truncate mt-0.5">
-                  {presentation.description}
-                </span>
-              )}
-            </div>
-            <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-slate-300 group-hover:translate-x-0.5 transition-all duration-300 flex-shrink-0" />
-          </Link>
+          <PresentationRow key={presentation.id} presentation={presentation} mounted={mounted} delay={150 + i * 80} />
         ))}
       </div>
+
+      {/* Archived presentations (collapsible) */}
+      {archivedPresentations.length > 0 && (
+        <div
+          className="relative mt-4 w-full max-w-md"
+          style={{
+            opacity: mounted ? 1 : 0,
+            transitionDelay: '450ms',
+            transitionProperty: 'opacity',
+            transitionDuration: '500ms',
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setShowArchived(v => !v)}
+            className="flex items-center gap-1.5 mx-auto text-xs text-slate-500 hover:text-slate-300 transition-colors py-2"
+          >
+            <Archive className="w-3.5 h-3.5" />
+            {showArchived ? 'Masquer les archives' : `Voir les archives (${archivedPresentations.length})`}
+            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${showArchived ? 'rotate-180' : ''}`} />
+          </button>
+          {showArchived && (
+            <div className="flex flex-col gap-2 mt-2">
+              {archivedPresentations.map((presentation, i) => (
+                <PresentationRow key={presentation.id} presentation={presentation} mounted={mounted} delay={i * 60} />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Footer hint */}
       <p

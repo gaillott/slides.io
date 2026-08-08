@@ -6,6 +6,7 @@ export const vivreEnSocietePresentation: Presentation = {
   author: 'Philosophie à Vivre',
   description: 'Le défi du vivre ensemble',
   coverImage: '/societe/cover.jpg',
+  archived: true,
   createdAt: '2026-02-03',
   category: 'conference',
   slides: [

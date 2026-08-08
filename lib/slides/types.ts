@@ -159,6 +159,8 @@ export interface Presentation {
   createdAt: string
   category: PresentationCategory
   slides: Slide[]
+  /** When true, the presentation is archived: hidden from the main list, shown under a collapsible "archived" section */
+  archived?: boolean
 }
 
 /** Compute the max step number for a content slide's blocks */
