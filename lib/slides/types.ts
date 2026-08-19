@@ -5,6 +5,7 @@ export type SlideTheme = 'red' | 'blue' | 'green' | 'orange'
 export interface SlideVideo {
   url: string
   title: string
+  image?: string
 }
 
 export interface BaseSlide {
@@ -100,6 +101,8 @@ export interface SectionSlide extends BaseSlide {
   subtitle: string
   backgroundImage?: string
   audio?: string
+  /** Play audio once on this slide only, no loop, no carry-over to later slides (default: loops and persists like background music) */
+  playOnce?: boolean
 }
 
 export interface ContentSlide extends BaseSlide {

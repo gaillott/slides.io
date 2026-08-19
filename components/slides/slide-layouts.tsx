@@ -76,6 +76,41 @@ export function EmbeddedVideos({ videos, theme }: { videos: SlideVideo[]; theme:
     document.body.appendChild(videoEl)
   }
 
+  const hasImages = videos.some(v => v.image)
+
+  if (hasImages) {
+    return (
+      <div className="flex flex-col gap-4">
+        {videos.map((video, i) => (
+          <button
+            key={i}
+            onClick={() => handlePlay(video.url)}
+            className={`group relative w-full h-64 md:h-80 overflow-hidden rounded-xl border ${theme.border} text-left cursor-pointer`}
+          >
+            {video.image ? (
+              <img
+                src={video.image}
+                alt={video.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            ) : (
+              <div className="absolute inset-0 bg-slate-800" />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-slate-900/10" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className={`w-14 h-14 rounded-full ${theme.bg} border ${theme.border} backdrop-blur-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
+                <Play className={`w-6 h-6 ${theme.primary} translate-x-0.5`} fill="currentColor" />
+              </div>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <span className="text-sm md:text-base font-medium text-white">{video.title}</span>
+            </div>
+          </button>
+        ))}
+      </div>
+    )
+  }
+
   return (
     <TooltipProvider delayDuration={300}>
       <div className="flex gap-2 flex-wrap">
@@ -170,6 +205,11 @@ export function SectionSlideLayout({ slide, allSections = [] }: { slide: Section
 // ========== PLAN SLIDE ==========
 export function PlanSlideLayout({ slide }: { slide: PlanSlide }) {
   const theme = getTheme(slide.theme)
+  const gridColsClass = slide.items.length === 1
+    ? 'md:grid-cols-1'
+    : slide.items.length === 2
+    ? 'md:grid-cols-2'
+    : 'md:grid-cols-3'
   return (
     <div className="h-full w-full bg-slate-900 p-4 md:p-6 flex flex-col overflow-hidden">
       <div className="max-w-7xl mx-auto w-full flex flex-col flex-1 min-h-0">
@@ -178,7 +218,7 @@ export function PlanSlideLayout({ slide }: { slide: PlanSlide }) {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{slide.title}</h2>
           {slide.subtitle && <p className="text-sm text-slate-400 max-w-3xl mx-auto">{slide.subtitle}</p>}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1 min-h-0">
+        <div className={`grid grid-cols-1 ${gridColsClass} gap-4 flex-1 min-h-0`}>
           {slide.items.map((item, i) => (
             <div key={i} className="group relative overflow-hidden rounded-xl border border-slate-700 hover:border-slate-500 transition-all">
               <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -202,13 +242,13 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
       const d = block.data
       return (
         <div>
-          <div className={`relative w-full rounded-xl overflow-hidden border ${theme.border} shadow-lg shadow-black/30 mb-4 max-h-80`}>
-            <img src={d.image} alt={d.title} className="w-full aspect-[21/9] object-cover" />
+          <div className={`relative w-full rounded-xl overflow-hidden border ${theme.border} shadow-lg shadow-black/30 mb-4 max-h-64`}>
+            <img src={d.image} alt={d.title} className="w-full aspect-[32/9] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent " />
             <div className={`absolute bottom-0 left-0 right-0 h-[2px] ${theme.primary.replace('text-', 'bg-')}`} />
-            <div className="absolute bottom-0 left-0 right-0 p-5">
-              {d.category && <p className={`text-xs tracking-[0.2em] uppercase mb-2 ${theme.primary}`}>{d.category}</p>}
-              <h2 className="text-3xl md:text-4xl font-bold text-white">{d.title}</h2>
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              {d.category && <p className={`text-xs tracking-[0.2em] uppercase mb-1 ${theme.primary}`}>{d.category}</p>}
+              <h2 className="text-2xl md:text-3xl font-bold text-white">{d.title}</h2>
               {d.subtitle && <p className="text-sm text-slate-300 mt-1">{d.subtitle}</p>}
             </div>
           </div>

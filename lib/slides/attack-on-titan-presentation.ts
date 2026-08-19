@@ -16,7 +16,7 @@ export const attackOnTitanPresentation: Presentation = {
       theme: 'red',
       category: 'CINÉ PHILO',
       title: "L'Attaque des Titans ",
-      subtitle: 'Liberté et aventure de la conscience (Saison 1 et 2)',
+      subtitle: 'La caverne de Platon',
       description: "Une exploration philosophique du chef d'œuvre d'Hajime Isayama",
       backgroundImage: '/aot/attackontitanbg.jpg',
       notes: `
@@ -63,32 +63,8 @@ Il faut une première à tout : C'est ma première conférence.
       theme: 'red',
       blocks: [
         { type: 'heading', data: { category: 'SYNOPSIS', title: "L'Attaque des Titans" , subtitle : 'L\'humanité ignorante, enfermée derrière trois murs.', image: '/aot/wall.jpg' } },
-        { type: 'video', column: 'left', data: { video: { url: '/aot/video/s1e2_explication.mp4', title: 'S1E2 (Ep2) — L\'explication du monde' } } },
-
-         {
-          type: 'bullets',
-          column: "left",
-           step : 1,
-          data: {
-            items: [
-              'Les habitants ignorent tout du monde extérieur',
-              'Le gouvernement maintient l\'ordre par le secret et la peur',
-              'La plupart acceptent cette vie, préférant le confort à la vérité'
-            ]
-          }
-        },
-
-        { type: 'video', step : 2, column: 'left', data: { video: { url: '/aot/video/EP1_00_00.mp4', title: 'S1E1 (Ep1) — Début de l\'anime' } } },
-       {
-          type: 'bullets',
-          column: "left",
-           step : 2,
-          data: {
-            items: [
-              'La paix est sur le point d\'être brisée ...',
-            ]
-          }
-        },
+        { type: 'video', step : 1, column: 'left', data: { video: { url: '/aot/video/s1e2_explication.mp4', title: 'S1E2 (Ep2) — L\'explication du monde', image: '/aot/wall_titan.png' } } },
+        { type: 'video', step : 2, column: 'left', data: { video: { url: '/aot/video/EP1_00_00.mp4', title: 'S1E1 (Ep1) — Début de l\'anime', image: '/aot/attackontitanbg.jpg' } } },
       ],
       notes: `
 L'attaque des Titans, dépeint une humanité qui a oublié d'où elle venait. Une histoire commune est néanmoins partagée : "Il y a 100 ans, sont apparus les titans, géants mangeurs d'humain. L'humanité a construit des murs dans lesquels ils se sont réfugiés."
@@ -145,6 +121,8 @@ Sans plus attendre, découvrons la manière dont Isayama, comme Platon à son é
       title: 'I. La caverne de Platon',
       subtitle: 'Les 3 murs ou la caverne de Platon',
       backgroundImage: '/aot/wall.webp',
+      audio: '/aot/aot_interlude.mp3',
+      playOnce: true,
       notes: `
 Pause. Respire. Boit de l'eau.
 
@@ -314,7 +292,9 @@ Ca tombe bien, car nous allons suivre ceux qui osent chercher la vérité : Le b
       partNumber: 'II',
       title: 'Partie II',
       subtitle: 'Bataillon d\'exploration : Aventure de la conscience',
-      backgroundImage: '/aot/expo.jpg'
+      backgroundImage: '/aot/expo.jpg',
+      audio: '/aot/aot_interlude.mp3',
+      playOnce: true,
     },
 
     // Slide 8: Le Bataillon d'Exploration

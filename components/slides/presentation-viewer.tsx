@@ -196,13 +196,38 @@ export function PresentationViewer({ presentation }: PresentationViewerProps) {
     }
   }, [currentSlide, isAlbum, totalSlides, presentation.slides])
 
-  // Audio: find the active audio for the current slide by looking backwards for the nearest section with audio
+  // Audio: find the active audio for the current slide by looking backwards for the nearest section with audio.
+  // A section marked playOnce plays its audio a single time on that slide only (no loop, no carry-over).
   useEffect(() => {
+    const current = presentation.slides[currentSlide]
+    if (current?.type === 'section' && (current as import('@/lib/slides/types').SectionSlide).playOnce) {
+      const sectionSlide = current as import('@/lib/slides/types').SectionSlide
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current = null
+      }
+      if (sectionSlide.audio) {
+        const raw = sectionSlide.audio.startsWith('/') ? sectionSlide.audio : `/${sectionSlide.audio}`
+        const audioSrc = encodeURI(raw)
+        setCurrentAudioSrc(audioSrc)
+        const audio = new Audio(audioSrc)
+        audio.loop = false
+        audio.volume = 0.5
+        audio.muted = isMuted
+        audio.play().catch(() => {}) // autoplay may be blocked
+        audioRef.current = audio
+      } else {
+        setCurrentAudioSrc(null)
+      }
+      return
+    }
+
     let audioSrc: string | null = null
     for (let i = currentSlide; i >= 0; i--) {
       const s = presentation.slides[i]
       if (s.type === 'section') {
         const sectionSlide = s as import('@/lib/slides/types').SectionSlide
+        if (sectionSlide.playOnce) break // playOnce sections don't carry their audio forward
         if (sectionSlide.audio) {
           // Ensure absolute path and encode special characters
           const raw = sectionSlide.audio.startsWith('/') ? sectionSlide.audio : `/${sectionSlide.audio}`
