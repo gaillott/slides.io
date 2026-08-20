@@ -62,9 +62,9 @@ Il faut une première à tout : C'est ma première conférence.
       type: 'content',
       theme: 'red',
       blocks: [
-        { type: 'heading', data: { category: 'SYNOPSIS', title: "L'Attaque des Titans" , subtitle : 'L\'humanité ignorante, enfermée derrière trois murs.', image: '/aot/wall.jpg' } },
-        { type: 'video', step : 1, column: 'left', data: { video: { url: '/aot/video/s1e2_explication.mp4', title: 'S1E2 (Ep2) — L\'explication du monde', image: '/aot/wall_titan.png' } } },
-        { type: 'video', step : 2, column: 'left', data: { video: { url: '/aot/video/EP1_00_00.mp4', title: 'S1E1 (Ep1) — Début de l\'anime', image: '/aot/attackontitanbg.jpg' } } },
+        { type: 'heading', data: { category: 'INTRODUCTION', title: "L'Attaque des Titans" , subtitle : 'De quoi ça parle ? ', image: '/aot/wall.jpg' } },
+        { type: 'video', step : 1, column: 'left', data: { video: { url: '/aot/video/s1e2_explication.mp4', title: 'S1E2 (Ep2) — L\'explication du monde', image: '/aot/attackontitanbg.jpg' } } },
+        { type: 'video', step : 2, column: 'left', data: { video: { url: '/aot/video/EP1_00_00.mp4', title: 'S1E1 (Ep1) — Début de l\'anime', image: '/aot/wall_titan.png' } } },
       ],
       notes: `
 L'attaque des Titans, dépeint une humanité qui a oublié d'où elle venait. Une histoire commune est néanmoins partagée : "Il y a 100 ans, sont apparus les titans, géants mangeurs d'humain. L'humanité a construit des murs dans lesquels ils se sont réfugiés."
@@ -182,8 +182,8 @@ Pause. Respire. Boit de l'eau.
           type: 'quote',
 
           data: {
-            text: "« Imagine des hommes enchaînés dans une demeure souterraine, ne voyant que des ombres projetées sur le mur en face d'eux, et prenant ces ombres pour la réalité. »",
-            author: "Platon, La République, Livre VII"
+            text: "Imagine des hommes enchaînés dans une demeure souterraine, ne voyant que des ombres projetées sur le mur en face d'eux, et prenant ces ombres pour la réalité.",
+            author: "Platon, La République, résumé du Livre VII"
           }
         },
 
@@ -217,7 +217,7 @@ Pause. Respire. Boit de l'eau.
       type: 'content',
       theme: 'orange',
       blocks: [
-        { type: 'heading', data: { category: 'ARCHÉTYPE DU PEUPLE DE PARADIS', title: 'Hannes', subtitle: 'Capitaine de la Garnison - Protection du Mur', image: '/aot/hannes.jpg' } },
+        { type: 'heading', data: { category: 'l\'homme de la caverne', title: 'Hannes', subtitle: 'Capitaine de la Garnison dédié à la protection du Mur', image: '/aot/hannes.jpg' } },
          {
           type: 'video',
           step: 1,
@@ -234,18 +234,9 @@ Pause. Respire. Boit de l'eau.
             author: 'Friedrich Nietzsche — Ainsi parlait Zarathoustra, Prologue §5'
           }
         },
-       
-        {
-          type: 'card',
-          step: 3,
-          column: 'left',
-          data: {
-            content: 'Isayama nous questionne : Est-ce que la vie d\'Hannes nous fait vibrer ?',
-          }
-        },
          {
           type: 'video',
-          step: 4,
+          step: 3,
           column: 'left',
           data: { video: { url: '/aot/video/EP1_Hannes_Actes.mp4', title: 'S1E1 — Hannes : Paroles vs actions' } }
         },
