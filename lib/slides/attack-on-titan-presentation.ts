@@ -372,7 +372,7 @@ Et il y a un personnage qui incarne parfaitement cet état d'esprit : Vivre et m
             text: '"Songe que tu pourrais à l\'instant quitter la vie. Agis, parle, pense en conséquence."',
           }
         },
-        { type: 'video', step : 1, column: 'left', data: { video: { url: '/aot/video/erwin_speech.mp4', title: 'S3E16 (Ep53) — Erwin face à la mort' } } },
+        { type: 'video', step : 1, column: 'left', data: { video: { url: '/aot/video/erwin_speech.mp4', title: 'S3E16 (Ep53) — Erwin face à la mort',  volume: 0.5 } } },
 
         {
           type: 'quote',

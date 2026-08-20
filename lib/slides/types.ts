@@ -6,6 +6,8 @@ export interface SlideVideo {
   url: string
   title: string
   image?: string
+  /** Playback volume from 0 to 1 (default: 1) */
+  volume?: number
 }
 
 export interface BaseSlide {

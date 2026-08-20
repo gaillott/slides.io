@@ -37,11 +37,12 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 export function EmbeddedVideos({ videos, theme }: { videos: SlideVideo[]; theme: ReturnType<typeof getTheme> }) {
   if (videos.length === 0) return null
 
-  const handlePlay = (url: string) => {
+  const handlePlay = ({ url, volume }: SlideVideo) => {
     const videoEl = document.createElement('video')
     videoEl.src = url
     videoEl.controls = true
     videoEl.autoplay = true
+    if (volume !== undefined) videoEl.volume = Math.max(0, Math.min(1, volume))
     videoEl.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:9999;background:black;object-fit:contain;'
 
     const cleanup = () => {
@@ -84,7 +85,7 @@ export function EmbeddedVideos({ videos, theme }: { videos: SlideVideo[]; theme:
         {videos.map((video, i) => (
           <button
             key={i}
-            onClick={() => handlePlay(video.url)}
+            onClick={() => handlePlay(video)}
             className={`group relative w-full h-64 md:h-80 overflow-hidden rounded-xl border ${theme.border} text-left cursor-pointer`}
           >
             {video.image ? (
@@ -118,7 +119,7 @@ export function EmbeddedVideos({ videos, theme }: { videos: SlideVideo[]; theme:
           <Tooltip key={i}>
             <TooltipTrigger asChild>
               <button
-                onClick={() => handlePlay(video.url)}
+                onClick={() => handlePlay(video)}
                 className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${theme.border} ${theme.bg} hover:brightness-125 transition-all cursor-pointer`}
               >
                 <Play className={`w-3.5 h-3.5 ${theme.primary}`} fill="currentColor" />
