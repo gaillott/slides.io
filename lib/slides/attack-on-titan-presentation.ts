@@ -89,9 +89,9 @@ Les titans sont revenus, et les murs sont sur le points d'être détruits.
       id: 'introduction',
       type: 'plan',
       theme: 'red',
-      category: 'PLAN DE LA PRÉSENTATION',
+      category: 'PLAN',
       title: "L'Attaque des Titans",
-      subtitle: "Une exploration philosophique de l'œuvre d'Hajime Isayama",
+      subtitle: "",
       items: [
         { partNumber: 'I. SITUATION INITIALE', title: 'La Caverne de Platon', image: '/aot/wall.webp' },
         { partNumber: 'II. LE BATAILLON D\'EXPLORATION', title: "L\'Aventure de la conscience", image: '/aot/expo.jpg' },

@@ -104,7 +104,7 @@ export function EmbeddedVideos({ videos, theme }: { videos: SlideVideo[]; theme:
               </div>
             </div>
             <div className="absolute bottom-0 left-0 right-0 p-4">
-              <span className="text-sm md:text-base font-medium text-white">{video.title}</span>
+              <span className="text-base md:text-lg font-medium text-white">{video.title}</span>
             </div>
           </button>
         ))}
@@ -122,8 +122,8 @@ export function EmbeddedVideos({ videos, theme }: { videos: SlideVideo[]; theme:
                 onClick={() => handlePlay(video)}
                 className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${theme.border} ${theme.bg} hover:brightness-125 transition-all cursor-pointer`}
               >
-                <Play className={`w-3.5 h-3.5 ${theme.primary}`} fill="currentColor" />
-                <span className="text-xs text-slate-300 truncate max-w-[350px]">{video.title}</span>
+                <Play className={`w-4 h-4 ${theme.primary}`} fill="currentColor" />
+                <span className="text-base text-slate-300 truncate max-w-[350px]">{video.title}</span>
               </button>
             </TooltipTrigger>
             <TooltipContent>
@@ -147,10 +147,10 @@ export function TitleSlideLayout({ slide }: { slide: TitleSlide }) {
         </div>
       )}
       <div className="relative z-10 text-center px-8 max-w-4xl">
-        <p className={`text-sm tracking-[0.3em] uppercase mb-6 ${theme.primary}`}>{slide.category}</p>
+        <p className={`text-lg tracking-[0.3em] uppercase mb-6 ${theme.primary}`}>{slide.category}</p>
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 text-balance">{slide.title}</h1>
-        <p className="text-xl md:text-2xl text-slate-300 mb-8 text-balance">{slide.subtitle}</p>
-        <p className={`text-base ${theme.accent}`}>{slide.description}</p>
+        <p className="text-2xl md:text-3xl text-slate-300 mb-8 text-balance">{slide.subtitle}</p>
+        <p className={`text-xl ${theme.accent}`}>{slide.description}</p>
       </div>
     </div>
   )
@@ -176,7 +176,7 @@ export function SectionSlideLayout({ slide, allSections = [] }: { slide: Section
       {/* Content — cinematic bottom-left layout */}
       <div className="relative z-10 w-full p-10 md:p-16">
         {/* Part number */}
-        <p className={`text-sm md:text-base tracking-[0.3em] uppercase mb-4 ${theme.primary} font-semibold`}>
+        <p className={`text-base md:text-lg tracking-[0.3em] uppercase mb-4 ${theme.primary} font-semibold`}>
           {slide.partNumber}
         </p>
         {/* Accent line */}
@@ -191,7 +191,7 @@ export function SectionSlideLayout({ slide, allSections = [] }: { slide: Section
             {allSections.map((section, i) => {
               const isCurrent = section.partNumber === slide.partNumber
               return (
-                <p key={i} className={isCurrent ? `text-base font-semibold ${theme.primary}` : 'text-sm text-slate-400'}>
+                <p key={i} className={isCurrent ? `text-lg font-semibold ${theme.primary}` : 'text-base text-slate-400'}>
                   {section.partNumber} — {section.subtitle}
                 </p>
               )
@@ -248,9 +248,9 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent " />
             <div className={`absolute bottom-0 left-0 right-0 h-[2px] ${theme.primary.replace('text-', 'bg-')}`} />
             <div className="absolute bottom-0 left-0 right-0 p-4">
-              {d.category && <p className={`text-xs tracking-[0.2em] uppercase mb-1 ${theme.primary}`}>{d.category}</p>}
+              {d.category && <p className={`text-sm tracking-[0.2em] uppercase mb-1 ${theme.primary}`}>{d.category}</p>}
               <h2 className="text-2xl md:text-3xl font-bold text-white">{d.title}</h2>
-              {d.subtitle && <p className="text-sm text-slate-300 mt-1">{d.subtitle}</p>}
+              {d.subtitle && <p className="text-base text-slate-300 mt-1">{d.subtitle}</p>}
             </div>
           </div>
         </div>
@@ -259,7 +259,7 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
     case 'text': {
       const d = block.data
       return (
-        <div className="text-slate-300 leading-relaxed whitespace-pre-line">
+        <div className="text-slate-300 leading-relaxed whitespace-pre-line text-lg">
           {d.highlightedText && <span className={theme.primary}>{d.highlightedText}</span>}
           {' '}{d.content}
         </div>
@@ -278,8 +278,8 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
             />
           )}
           <div>
-            <p className="text-slate-200 italic text-lg">{d.text}</p>
-            <footer className="mt-3 text-sm text-slate-500">— {d.author}</footer>
+            <p className="text-slate-200 italic text-xl">{d.text}</p>
+            <footer className="mt-3 text-base text-slate-400">— {d.author}</footer>
           </div>
         </blockquote>
       )
@@ -291,8 +291,8 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
           <ul className="space-y-3">
             {d.items.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className={`mt-1.5 text-xs flex-shrink-0 ${theme.primary}`}>▸</span>
-                <span className="text-slate-300">{item}</span>
+                <span className={`mt-1.5 text-sm flex-shrink-0 ${theme.primary}`}>▸</span>
+                <span className="text-slate-300 text-lg">{item}</span>
               </li>
             ))}
           </ul>
@@ -311,8 +311,8 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
               </div>
             )}
             <div>
-              {d.title && <h4 className="text-lg font-semibold text-white mb-2">{d.title}</h4>}
-              <p className="text-slate-300">{d.content}</p>
+              {d.title && <h4 className="text-xl font-semibold text-white mb-2">{d.title}</h4>}
+              <p className="text-slate-300 text-lg">{d.content}</p>
             </div>
           </div>
         </div>
@@ -333,8 +333,8 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
                     </div>
                   )}
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-2">{card.title}</h4>
-                    <p className="text-slate-300">{card.content}</p>
+                    <h4 className="text-xl font-semibold text-white mb-2">{card.title}</h4>
+                    <p className="text-slate-300 text-lg">{card.content}</p>
                   </div>
                 </div>
               </div>
@@ -360,8 +360,8 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
       const d = block.data
       return (
         <div>
-          <h3 className={`text-xl font-semibold mb-3 ${theme.primary}`}>{d.title}</h3>
-          {d.content && <p className="text-slate-300 leading-relaxed">{d.content}</p>}
+          <h3 className={`text-2xl font-semibold mb-3 ${theme.primary}`}>{d.title}</h3>
+          {d.content && <p className="text-slate-300 leading-relaxed text-lg">{d.content}</p>}
         </div>
       )
     }
@@ -377,8 +377,8 @@ function BlockRenderer({ block, theme }: { block: ContentBlock; theme: ReturnTyp
                   <IconComponent className={`w-5 h-5 ${theme.primary}`} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">{point.title}</h4>
-                  <p className="text-slate-400 text-sm mt-1">{point.content}</p>
+                  <h4 className="font-semibold text-white text-lg">{point.title}</h4>
+                  <p className="text-slate-400 text-base mt-1">{point.content}</p>
                 </div>
               </div>
             )
